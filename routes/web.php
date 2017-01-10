@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('invites', 'InvitesController');
+Route::resource('jobs', 'jobsController');
+Route::resource('developers', 'DevelopersController');
+Route::resource('developer-skills', 'DeveloperSkillsController');
+Route::resource('skills', 'SkillsController');
