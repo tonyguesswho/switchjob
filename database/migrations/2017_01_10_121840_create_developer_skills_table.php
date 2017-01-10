@@ -15,7 +15,6 @@ class CreateDeveloperSkillsTable extends Migration
         Schema::create('developer_skills', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('skill_id');
-            $table->integer('developer_id');
             $table->integer('user_id');
             $table->timestamps();
         });

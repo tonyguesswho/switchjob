@@ -20,3 +20,4 @@ Route::resource('jobs', 'jobsController');
 Route::resource('developers', 'DevelopersController');
 Route::resource('developer-skills', 'DeveloperSkillsController');
 Route::resource('skills', 'SkillsController');
+Route::resource('live-projects', 'LiveProjectsController');
