@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/selectize.default.css" />
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" href="assets/css/form.css">
+    
+  </head>
+  <body class="signup-page">
+    <div class="wrapper clearfix animsition">
+        <!-- multistep form -->
+      <div class="form-box">
+        <div class="logo">
+            <a href="index.html">
+               <img src="assets/img/logos/switch 3.svg" alt="Switch DEV" style="max-height: 100px">
+            </a>
+        </div>
+        <form id="switchForm" class="clearfix forms">
+          <!-- progressbar -->
+          <ul id="progressbar">
+            <li class="active">Account Setup</li>
+            <li>Social Profiles</li>
+            <li>Personal Details</li>
+          </ul>
+          <!-- fieldsets -->
+          <fieldset>
+            <h2 class="fs-title">Do you Dev?</h2>
+            <h3 class="fs-subtitle">Let's pass some gigs to you.</h3>
+            <span class="input input-switch">
+                <input class="input-field input-field-switch" type="text" name="fullname"/>
+                <label class="input-label input-label-switch input-label-switch-color-1" for="fullname">
+                    <span class="input-label-content input-label-content-switch">Full Name</span>
+                </label>
+            </span>
+            <span class="input input-switch">
+                <input class="input-field input-field-switch" type="text" name="email"/>
+                <label class="input-label input-label-switch input-label-switch-color-1" for="email">
+                    <span class="input-label-content input-label-content-switch">Enter email</span>
+                </label>
+            </span>
+            <span class="input input-switch">
+                <input class="input-field input-field-switch" type="text" name="phone"/>
+                <label class="input-label input-label-switch input-label-switch-color-1" for="phone">
+                    <span class="input-label-content input-label-content-switch">Phone Number</span>
+                </label>
+            </span>
+            <input type="button" name="next" class="next action-button" value="Next" />
+          </fieldset>
+          <fieldset>
+            <h2 class="fs-title">Skills</h2>
+            <h3 class="fs-subtitle">Tell us about your experience</h3>
+            <div class="skills">
+              <p class="text-left">Skill Level</p>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill"  value="Beginner">
+                  Beginner
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill" value="Intermediate">
+                  Intermediate
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill" value="Advance">
+                  Advance
+                </label>
+              </div>
+            </div>
+            <div class="hours-spent">
+              <p class="text-left">How many hours do you have in a week?</p>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill"  value="Beginner">
+                  10
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill" value="Intermediate">
+                  15
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="radio" name="skill" value="Advance">
+                  20
+                </label>
+              </div>
+              <div class="radio text-left">
+                <label>
+                  <input type="text" name="skill" width="40" class="others">
+                  Others
+                </label>
+              </div>
+            </div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+          </fieldset>
+          <fieldset>
+    
+          
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="submit" name="submit" class="submit action-button" value="Submit" />
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <!-- multistep form -->
+    
+
+    <!-- Bootstrap JavaScript -->
+    <!-- SCRIPTS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/animisition.min.js"></script>
+    <script type="text/javascript" src="assets/js/selectize.min.js"></script>
+    <script src="assets/js/main2.js"></script>
+    <script>
+        $(document).ready(function(){
+            app.pageTransition();
+            app.stylishInput();
+            app.switchForm();
+        });
+
+    </script>
+  </body>
+</html>

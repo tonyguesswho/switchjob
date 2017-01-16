@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <title>Sign Up</title>
+        <!-- STYLESHEETS-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/animsition.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/js/animate.css">
+        <!-- CUSTOM STYLES -->
+        <link rel="stylesheet" href="assets/css/form.css">
+        <!-- WEBFONT -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+
+    </head>
+
+    <body class="signup-page">
+        <div class="wrapper clearfix animsition flex-container">
+            <div class="signup-box">
+                <div class="logo">
+                    <a href="index.html">
+                       <img src="assets/img/logos/switch 3.svg" alt="Switch DEV" style="max-height: 100px">
+                    </a>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="body">
+                        <form id="sign_up" method="POST" class="forms">
+                            <div class="msg">Register a new Membership</div>
+                            <br>
+                            <span class="input input-switch">
+                                <input class="input-field input-field-switch" type="text" name="fullname"/>
+                                <label class="input-label input-label-switch input-label-switch-color-1" for="input-4">
+                                    <span class="input-label-content input-label-content-switch">Fullname</span>
+                                </label>
+                            </span>
+                            <span class="input input-switch">
+                                <input class="input-field input-field-switch" type="email"/>
+                                <label class="input-label input-label-switch input-label-switch-color-1" for="input-5">
+                                    <span class="input-label-content input-label-content-switch">Email</span>
+                                </label>
+                            </span>
+                            <span class="input input-switch">
+                                <input class="input-field input-field-switch" type="password"/>
+                                <label class="input-label input-label-switch input-label-switch-color-1" for="input-5">
+                                    <span class="input-label-content input-label-content-switch">Choose password</span>
+                                </label>
+                            </span>
+                            <span class="input input-switch">
+                                <input class="input-field input-field-switch" type="password"/>
+                                <label class="input-label input-label-switch input-label-switch-color-1" for="input-5">
+                                    <span class="input-label-content input-label-content-switch">Confirm password</span>
+                                </label>
+                            </span>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <input type="checkbox" name="agree" id="agree" class="#">
+                                    <label for="agree">
+                                        <a href="#">Terms and conditions</a> 
+                                    </label>
+                                </div>
+                                <div class="col-xs-12">
+                                    <button class="btn btn-block" type="submit">SIGN UP</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        <br>
+                        <hr>
+                        <div class="social-login>">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a href="#" class="btn btn-facebook btn-block">Facebook</a>
+                                </div>
+                                <div class="col-xs-6 align-right">
+                                    <a href="#" class="btn btn-twitter btn-block">Twitter</a>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <a href="signin.html">Have an account? Sign in!</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- SCRIPTS -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/animisition.min.js"></script>
+        <script src="assets/js/main2.js"></script>
+        <script>
+            $(document).ready(function(){
+                app.pageTransition();
+                app.stylishInput();
+            });
+
+        </script>
+    </body>
+
+</html>
