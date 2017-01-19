@@ -37,7 +37,6 @@ const app = {
 			$(".buttons").addClass("bounceInUp");
 			//focus on form after page animation..
 			app.focusOnForm();
-			//$(".buttons a:first").addClass("fadeInLeft");
 		});
 	},
 
@@ -153,26 +152,26 @@ const app = {
 		        center: mapLocation,
 		        scrollwheel: false,
 					styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#dbdbdb"},{"visibility":"on"}]}]
-		                
+
 		    };
-		    
+
 		    map = new google.maps.Map(document.getElementById('map-canvas'),
 		    mapOptions);
-		    
-		    
+
+
 		    //change address details here
-		    var contentString = '<div class="map-info-box">' 
-		    + '<div class="map-head">' 
-		    + '<h3>Switch</h3></div>' 
-		    + '<p class="map-address"><i class="fa fa-map-marker"></i> No. 10 Alara street Yaba <br><i class="fa fa-phone"></i> +2348051319795<br><span class="map-email"><i class="fa fa-envelope"></i> info@switch.ng</span></p>' 
+		    var contentString = '<div class="map-info-box">'
+		    + '<div class="map-head">'
+		    + '<h3>Switch</h3></div>'
+		    + '<p class="map-address"><i class="fa fa-map-marker"></i> No. 10 Alara street Yaba <br><i class="fa fa-phone"></i> +2348051319795<br><span class="map-email"><i class="fa fa-envelope"></i> info@switch.ng</span></p>'
 		    + '<p><a href="https://www.google.com.ng/maps/place/Alara+St/@6.5072531,3.3814272,17z/data=!3m1!4b1!4m5!3m4!1s0x103b8cf1574d8123:0x8c4a350ba88caf29!8m2!3d6.5072531!4d3.3836159" target="_blank">Open on Google Maps</a></p></div>';
-		    
-		    
+
+
 		    var infowindow = new google.maps.InfoWindow({
 		        content: contentString,
 		    });
-		    
-		    
+
+
 		    var image = 'assets/img/flag.png';
 		    marker = new google.maps.Marker({
 		        map: map,
@@ -204,7 +203,7 @@ const app = {
                         'unit': 'px'
                     }
                 }
-                
+
             },
             {
                 'selector': '.welcome',
@@ -282,15 +281,15 @@ const app = {
         $(".next").click(function(){
           if(animating) return false;
           animating = true;
-          
+
           current_fs = $(this).parent();
           next_fs = $(this).parent().next();
-          
+
           //activate next step on progressbar using the index of next_fs
           $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-          
-          //show the next fieldset    
-          next_fs.show(); 
+
+          //show the next fieldset
+          next_fs.show();
           //hide the current fieldset with style
           current_fs.animate({opacity: 0}, {
             step: function(now, mx) {
@@ -303,12 +302,12 @@ const app = {
               opacity = 1 - now;
               current_fs.css({'transform': 'scale('+scale+')'});
               next_fs.css({'left': left, 'opacity': opacity});
-            }, 
-            duration: 800, 
+            },
+            duration: 800,
             complete: function(){
               current_fs.hide();
               animating = false;
-            }//, 
+            }//,
             //this comes from the custom easing plugin
             //easing: 'easeInOutBack'
           });
@@ -317,15 +316,15 @@ const app = {
         $(".previous").click(function(){
           if(animating) return false;
           animating = true;
-          
+
           current_fs = $(this).parent();
           previous_fs = $(this).parent().prev();
-          
+
           //de-activate current step on progressbar
           $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-          
+
           //show the previous fieldset
-          previous_fs.show(); 
+          previous_fs.show();
           //hide the current fieldset with style
           current_fs.animate({opacity: 0}, {
             step: function(now, mx) {
@@ -338,12 +337,12 @@ const app = {
               opacity = 1 - now;
               current_fs.css({'left': left});
               previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-            }, 
-            duration: 800, 
+            },
+            duration: 800,
             complete: function(){
               current_fs.hide();
               animating = false;
-            }//, 
+            }//,
             //this comes from the custom easing plugin
             //easing: 'easeInOutBack'
           });
