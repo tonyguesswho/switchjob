@@ -39,12 +39,20 @@
                   </div>
                   <hr style="color: #fff; opacity: 0.5">
                   <!--social login here-->
-                  <div class="social-login row">
+                 {{--  <div class="social-login row">
                       <div class="fb-login col-lg-6 col-md-12 animated flipInX">
                           <a href="#" class="btn btn-facebook btn-block"><strong>Facebook</strong></a>
                       </div>
                       <div class="twit-login col-lg-6 col-md-12 animated flipInX">
                           <a href="#" class="btn btn-twitter btn-block"><strong>Twitter</strong></a>
+                      </div>
+                  </div> --}}
+                  <div class="social-login row">
+                      <div class="fb-login col-lg-6 col-md-12 animated flipInX">
+                          <a href="/social/login/github" class="btn btn-github btn-block"><strong>Github</strong></a>
+                      </div>
+                      <div class="twit-login col-lg-6 col-md-12 animated flipInX">
+                          <a href="/social/login/twitter" class="btn btn-twitter btn-block"><strong>Twitter</strong></a>
                       </div>
                   </div>
               </div>

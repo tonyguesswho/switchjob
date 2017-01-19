@@ -3,7 +3,7 @@
 namespace App;
 
 use Laravel\Socialite\Contracts\User as ProviderUser;
-
+//dont remmeber to set up twitter ouath to return email address
 class SocialAccountService
 {
     public function createOrGetUser(ProviderUser $providerUser, $provider)
@@ -13,7 +13,7 @@ class SocialAccountService
             ->first();
 
         if ($account) {
-            return $account->useruser;
+            return $account->user;
         } else {
 
             $account = new SocialAccount([

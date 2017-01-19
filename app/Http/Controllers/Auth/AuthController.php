@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Socialite;
 use App\Http\Controllers\Controller;
 use Session;
+use App\SocialAccountService;
 
 class AuthController extends Controller
 {
@@ -23,12 +24,9 @@ class AuthController extends Controller
      *
      * @return Response
      */
-    public function handleProviderCallback($provider)
+    public function handleProviderCallback(SocialAccountService $service, $provider)
     {
-        $user = Socialite::driver($provider)->user();
-
-        session('name', $user->getName());
-        session('email', $user->getEmail());
+        $user = $service->createOrGetUser(Socialite::driver($provider)->user(), $provider);
 
         auth()->login($user);
 
