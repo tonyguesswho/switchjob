@@ -72,11 +72,11 @@ const app = {
 		$.vegas('slideshow', {
 		  delay:7000,
 		  backgrounds:[
-		    { src:'assets/img/CUP.jpg', fade:1000 },
+		    { src:'switch/assets/img/CUP.jpg', fade:1000 },
 		    //{ src:'assets/img/code.jpeg', fade:1000 },
-		    { src:'assets/img/laptop.jpg', fade:1000 },
-		    { src:'assets/img/meeting.jpg', fade:1000 },
-		    { src:'assets/img/startup.jpg', fade:1000 }
+		    { src:'switch/assets/img/laptop.jpg', fade:1000 },
+		    { src:'switch/assets/img/meeting.jpg', fade:1000 },
+		    { src:'switch/assets/img/startup.jpg', fade:1000 }
 		  ],
 		  transitionDuration:1000,
 		  transition: 'fade',

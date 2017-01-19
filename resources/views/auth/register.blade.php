@@ -14,11 +14,12 @@
                   <div><br><br><br></div>
                   <!--login box in here -->
                   <div class="login-box">
-                    <form action="#" method="post" class="forms">
-                        <input type="text" placeholder="Full Name" class="input-field form-control user" />
-                        <input type="password" placeholder="samson@yahoo.com" class="input-field form-control password" />
-                        <input type="password" placeholder="Password" class="input-field form-control password" />
-                        <input type="password" placeholder="Confirm Password" class="input-field form-control password" />
+                    <form action="/register" method="post" class="forms">
+                         {{ csrf_field() }}
+                        <input type="text" name="name" placeholder="Full Name" class="input-field form-control user" />
+                        <input type="email" name="email" placeholder="user@domain.com" class="input-field form-control email" />
+                        <input type="password" name="password" placeholder="Password" class="input-field form-control password" />
+                        <input type="password" name="password_confirmation" placeholder="Confirm Password" class="input-field form-control password" />
                         <button id="submit-form" class="btn btn-login btn-block ladda-button" data-style="expand-left"><span class="ladda-label">Sign Up</span></button>
                     </form>
                     <hr style="color: #fff; opacity: 0.5">

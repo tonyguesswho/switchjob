@@ -14,16 +14,17 @@
                   <div><br><br><br></div>
                   <!--login box in here -->
                   <div class="login-box">
-                    <form action="#" method="post" class="forms">
-                        <input type="text" placeholder="Username" class="input-field form-control user" />
+                    <form action="/login" method="post" class="forms">
+                    {{ csrf_field() }}
+                        <input type="text" name="email" placeholder="Email" class="input-field form-control user" />
 
-                        <input type="password" placeholder="Password" class="input-field form-control password" />
+                        <input type="password" name="password" placeholder="Password" class="input-field form-control password" />
                         <div class="row">
                             <label for="rememberme" class="col-xs-6">Remember Me</label>
                             <!-- Rounded switch -->
                             <span class="col-xs-6 text-right">
                               <label class="switch">
-                                <input type="checkbox" name="rememberme">
+                                <input type="checkbox" name="remember">
                                 <div class="slider round"></div>
                               </label>
                             </span>

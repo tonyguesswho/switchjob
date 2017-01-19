@@ -366,32 +366,32 @@
 						<ul class="clients_showcase_row is-wide">
 							<li class="clients_showcase_row-title is-hpenterprises">
 								<a href="https://www.switch.com.ng" target="_blank" rel="noopener noreferrer">
-									<img alt="Switch Webworks" class="clients_showcase_row-logo" src="switch/assets/img/logos/switch 2.svg">
+									<img alt="Switch Webworks" class="clients_showcase_row-logo" src="switch/assets/img/logos/switch_2.svg">
 								</a>
 							</li>
 							<li class="clients_showcase_row-title is-airbnb">
 								<a href="#" target="_blank" rel="noopener noreferrer">
-									<img alt="Airbnb trusted Toptal to help hire programmers to support their Berlin office." class="clients_showcase_row-logo" src="switch/assets/img/logos/switch 2.svg">
+									<img alt="Airbnb trusted Toptal to help hire programmers to support their Berlin office." class="clients_showcase_row-logo" src="switch/assets/img/logos/switch_2.svg">
 								</a>
 							</li>
 							<li class="clients_showcase_row-title is-jpmorgan">
 								<a href="#" target="_blank" rel="noopener noreferrer">
-									<img alt="#" class="clients_showcase_row-logo" src="switch/assets/img/logos/switch 2.svg">
+									<img alt="#" class="clients_showcase_row-logo" src="switch/assets/img/logos/switch_2.svg">
 								</a>
 							</li>
 							<li class="clients_showcase_row-title is-emirates">
 								<a href="#" target="_blank" rel="noopener noreferrer">
-									<img alt="#" class="clients_showcase_row-logo" src="switch/assets/img/logos/switch 2.svg">
+									<img alt="#" class="clients_showcase_row-logo" src="switch/assets/img/logos/switch_2.svg">
 								</a>
 							</li>
 							<li class="clients_showcase_row-title is-zendesk">
 								<a href="#" target="_blank" rel="noopener noreferrer">
-									<img alt="#" src="switch/assets/img/logos/switch 2.svg">
+									<img alt="#" src="switch/assets/img/logos/switch_2.svg">
 								</a>
 							</li>
 							<li class="clients_showcase_row-title is-pfizer">
 								<a href="#" target="_blank" rel="noopener noreferrer">
-									<img alt="#" class="clients_showcase_row-logo" src="switch/assets/img/logos/switch 2.svg">
+									<img alt="#" class="clients_showcase_row-logo" src="switch/assets/img/logos/switch_2.svg">
 								</a>
 							</li>
 						</ul>
