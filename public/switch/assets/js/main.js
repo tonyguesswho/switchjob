@@ -4,11 +4,11 @@
 $.vegas('slideshow', {
   delay:7000,
   backgrounds:[
-    { src:'switch/assets/img/CUP.jpg', fade:1000 },
-    { src:'switch/assets/img/code.jpeg', fade:1000 },
-    { src:'switch/assets/img/laptop.jpg', fade:1000 },
-    { src:'switch/assets/img/meeting.jpg', fade:1000 },
-    { src:'switch/assets/img/startup.jpg', fade:1000 }
+    { src:'assets/img/CUP.jpg', fade:1000 },
+    { src:'assets/img/code.jpeg', fade:1000 },
+    { src:'assets/img/laptop.jpg', fade:1000 },
+    { src:'assets/img/meeting.jpg', fade:1000 },
+    { src:'assets/img/startup.jpg', fade:1000 }
   ]
 });
 
@@ -22,7 +22,7 @@ jQuery(window).load(function() {
 })
 
 
-// Bootstrap Fix
+// Bootstrap Fix  
 if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   var msViewportStyle = document.createElement('style')
   msViewportStyle.appendChild(
@@ -105,9 +105,9 @@ var scrollAnimationTime = 1200,
     });
 });
 
+  
 
-
-
+  
 /* ================================
 ===  PROJECT LOADING           ====
 ================================= */

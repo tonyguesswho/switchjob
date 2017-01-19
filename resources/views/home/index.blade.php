@@ -17,8 +17,8 @@
 								<span class="icon-bar"></span>
 							</button>
 							<a class="navbar-brand animated" href="index.html">
-								<img src="switch/assets/img/logos/switch 2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-default">
-								<img src="switch/assets/img/logos/switch 3.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
+								<img src="switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-default">
+								<img src="switch/assets/img/logos/switch_3.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
 							</a>
 						</div>
 

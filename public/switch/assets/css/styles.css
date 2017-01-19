@@ -41,34 +41,34 @@ body {
 }
 
 body{
-	background: url("switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 	color: #454545;
 }
 
 .focus{
-	background: url("switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 .our-team{
-	background: url("switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 .testimonial{
-	background: url("switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 #main-nav {
 	min-height: 5em;
-	background: url("switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 .other-focuses .section-footer-title {
     background: none;
-	background: url("switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 .team-member .social-icons ul li a {
-	background: url("switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
     border-radius: 50%;
     color: #808080;
     font-size: 18px;

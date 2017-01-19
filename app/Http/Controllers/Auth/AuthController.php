@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Socialite;
 use App\Http\Controllers\Controller;
+use Session;
 
 class AuthController extends Controller
 {
@@ -25,8 +26,14 @@ class AuthController extends Controller
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
-        // $authUser = $this->findOrCreateUser($user, $provider);
-        // Auth::login($authUser, true);
-        // return redirect($this->redirectTo);
+
+        session('name', $user->getName());
+        session('email', $user->getEmail());
+
+        auth()->login($user);
+
+
+        return redirect()->to('profile/developer');
+
     }
 }

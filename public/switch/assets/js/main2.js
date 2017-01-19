@@ -37,7 +37,6 @@ const app = {
 			$(".buttons").addClass("bounceInUp");
 			//focus on form after page animation..
 			app.focusOnForm();
-			//$(".buttons a:first").addClass("fadeInLeft");
 		});
 	},
 
@@ -73,11 +72,11 @@ const app = {
 		$.vegas('slideshow', {
 		  delay:7000,
 		  backgrounds:[
-		    { src:'switch/assets/img/CUP.jpg', fade:1000 },
-		    //{ src:'switch/assets/img/code.jpeg', fade:1000 },
-		    { src:'switch/assets/img/laptop.jpg', fade:1000 },
-		    { src:'switch/assets/img/meeting.jpg', fade:1000 },
-		    { src:'switch/assets/img/startup.jpg', fade:1000 }
+		    { src:'assets/img/CUP.jpg', fade:1000 },
+		    //{ src:'assets/img/code.jpeg', fade:1000 },
+		    { src:'assets/img/laptop.jpg', fade:1000 },
+		    { src:'assets/img/meeting.jpg', fade:1000 },
+		    { src:'assets/img/startup.jpg', fade:1000 }
 		  ],
 		  transitionDuration:1000,
 		  transition: 'fade',
@@ -173,7 +172,7 @@ const app = {
 		    });
 
 
-		    var image = 'switch/assets/img/flag.png';
+		    var image = 'assets/img/flag.png';
 		    marker = new google.maps.Marker({
 		        map: map,
 		        draggable: true,
