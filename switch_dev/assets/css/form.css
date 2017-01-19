@@ -10,7 +10,7 @@ html, body, .wrapper{height: 100%; width: 100%;}
 
 .flex-container{
   padding-left: 0;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -27,20 +27,20 @@ a, a:hover{
 .align-right{
     text-align: right;
 }
-.login-box, .signup-box{
+/*.login-box, .signup-box{
     width: 25%;
-}
+}*/
 .login-page .login-box .msg {
     color: #555;
-    text-align: center; 
+    text-align: center;
 }
 .login-page .login-box{
     font-size: 14px;
     text-decoration: none;
-    color: #FFFFFF; 
+    color: #FFFFFF;
 }
 .login-page .login-box .logo {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 .login-page .login-box .logo a,
 .signup-page .signup-box .logo a
@@ -49,14 +49,14 @@ a, a:hover{
   display: block;
   width: 100%;
   text-align: center;
-  color: #fff; 
+  color: #fff;
 }
 .login-page .login-box .logo small {
   display: block;
   width: 100%;
   text-align: center;
   color: #fff;
-  margin-top: -5px; 
+  margin-top: -5px;
 }
 
 .card {
@@ -172,7 +172,7 @@ a.btn.btn-facebook {
 a.btn.btn-twitter {
     background: #4a9eff;
     color: #FFFFFF;
-    
+
 }
 
 .social-login a.btn {
@@ -230,7 +230,7 @@ a.btn.btn-twitter {
 }
 
 /* Change the white to any color ;) */
-input:-webkit-autofill, 
+input:-webkit-autofill,
 input:-webkit-autofill:hover
 {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
@@ -371,7 +371,7 @@ input:-webkit-autofill:hover
 }
 #progressbar li:first-child:after {
     /*connector not needed before the first step*/
-    content: none; 
+    content: none;
 }
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
