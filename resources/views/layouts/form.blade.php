@@ -12,9 +12,10 @@
         <link rel="stylesheet" type="text/css" href="switch/assets/css/animsition.min.css">
         <link rel="stylesheet" type="text/css" href="switch/assets/js/animate.css">
         <!-- CUSTOM STYLES -->
-        <link rel="stylesheet" href="switch/assets/css/form.css">
+        <link rel="stylesheet" href="switch/assets/css/form2.css">
         <!-- WEBFONT -->
         <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+
 
     </head>
 

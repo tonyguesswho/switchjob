@@ -1,76 +1,70 @@
-@extends('layouts.app')
-
+@extends('layouts.form')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {{ csrf_field() }}
+<body>
+        <div class="wrapper clearfix animsition flex-container" style="background: #DFE5E9;">
+            <div class="clearfix" style="width: 100%; height: 100%:">
+              <div class="container clearfix" style="padding: 20px; width: 30%; margin: 0 auto; color: #222;">
+                  <!-- logo in here -->
+                  <div class="logo">
+                      <a href="index.html">
+                         <img src="switch/assets/img/logos/switch_3.svg" alt="Switch DEV" style="max-height: 100px">
+                      </a>
+                  </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
+                  <div><br><br><br></div>
+                  <!--login box in here -->
+                  <div class="login-box">
+                    <form action="/register" method="post" class="forms">
+                         {{ csrf_field() }}
+                        <input type="text" name="name" placeholder="Full Name" class="input-field form-control user" />
+                        <input type="email" name="email" placeholder="user@domain.com" class="input-field form-control email" />
+                        <input type="password" name="password" placeholder="Password" class="input-field form-control password" />
+                        <input type="password" name="password_confirmation" placeholder="Confirm Password" class="input-field form-control password" />
+                        <button id="submit-form" class="btn btn-login btn-block ladda-button" data-style="expand-left"><span class="ladda-label">Sign Up</span></button>
                     </form>
-                </div>
+                    <hr style="color: #fff; opacity: 0.5">
+                    <div class="login-links">
+                        <a href="signIn.html">Already have an account? <strong>Sign In</strong></a>
+                    </div>
+                  </div>
+                  <hr style="color: #fff; opacity: 0.5">
+                  <!--social login here-->
+                  <div class="social-login row">
+                      <div class="fb-login col-lg-6 col-md-12 animated flipInX">
+                          <a href="/social/login/github" class="btn btn-github btn-block"><strong>Github</strong></a>
+                      </div>
+                      <div class="twit-login col-lg-6 col-md-12 animated flipInX">
+                          <a href="/social/login/twitter" class="btn btn-twitter btn-block"><strong>Twitter</strong></a>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <div class="footer">
+                  <ul class="float-left">
+                    <li><a href="#">Privacy<a></li>
+                    <li><a href="#">Terms<a></li>
+                    <li><a href="#">Security<a></li>
+                    <li style="float: right;"><a href="#">&copy 2017 Switch Nigeria</a></li>
+                  </ul>
+              </div>
             </div>
+
         </div>
-    </div>
-</div>
+
+        <!-- SCRIPTS -->
+            <script src="switch/assets/js/jquery.min.js"></script>
+            <script src="switch/assets/js/bootstrap.min.js"></script>
+            <script src="switch/assets/js/jquery.vegas.min.js"></script>
+            <script src="switch/assets/js/animisition.min.js"></script>
+            <script src="switch/assets/js/main2.js"></script>
+            <script>
+                $(document).ready(function(){
+                    app.pageTransition();
+                    app.stylishInput();
+                  //  app.vegasController();
+                   // app.focusOnForm();
+                });
+
+            </script>
+    </body>
 @endsection

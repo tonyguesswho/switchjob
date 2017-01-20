@@ -27,5 +27,13 @@ class Developer extends Model
      */
     protected $fillable = ['name', 'email', 'phone', 'years_of_experience', 'pass_work', 'coolest_thing'];
 
-    
+    public function skills()
+    {
+
+    }
+
+    public function projects()
+    {
+        # code...
+    }
 }
