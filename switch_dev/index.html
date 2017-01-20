@@ -22,7 +22,11 @@
 		<!-- CUSTOM STYLES -->
 		<link rel="stylesheet" href="assets/css/main.css">
 		<link rel="stylesheet" href="assets/css/responsive2.css">
-
+		<style>
+			.animated{
+				visibility: hidden;
+			}
+		</style>
 		<!-- WEBFONT -->
 		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
 
@@ -33,7 +37,7 @@
 		<div class="wrapper clearfix animsition">
 			<!--HEADER/HOME SECTION-->
 
-			<header id="home" class="header">
+			<header id="home" class="header h-min-100vh h-t-48 bg-opacity-50 pos-rel">
 				<!--navbar begins here-->
 				<nav class="navbar navbar-default" role="navigation" id="main-nav">
 					<div class="container animated">
@@ -71,12 +75,12 @@
 
 					<!-- HEADING -->
 					<h1 class="welcome text-center animated">What is Lorem Ipsum?</h1>
-					<h3 class="c-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
+					<h3 class="c-white welcome_msg animated">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
 					<br>
 					<br>
 					<!-- CALL TO ACTION BUTTONS -->
 					<div class="buttons animated">
-						<a href="#signup" class="btn m-10 animated">Button 1</a>
+						<a href="#signup" class="btn m-10">Button 1</a>
 						<a href="#testimonials" class="btn m-10">Button2</a>
 					</div>
 					<br>
@@ -559,6 +563,14 @@
 				    <div id="map-canvas"></div>
 				</div>
 				<!--map end-->
+				<div class="footer width-100p m-auto p-r-30 p-l-30">
+						<ul class="list-style-none text-left">
+								<li><a href="#">Privacy<a></li>
+								<li><a href="#">Terms<a></li>
+								<li><a href="#">Security<a></li>
+								<li class="f-right"><a href="#">&copy 2017 Switch Nigeria</a></li>
+						</ul>
+				</div>
 
 			</footer>
 		</div>
