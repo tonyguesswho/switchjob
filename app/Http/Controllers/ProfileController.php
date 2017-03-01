@@ -12,4 +12,10 @@ class ProfileController extends Controller
     {
     	return view('profile.index');
     }
+
+
+    public function developer()
+    {
+    	return view('profile.developer');
+    }
 }

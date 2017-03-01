@@ -3,19 +3,19 @@
 <body>
         <div class="wrapper clearfix animsition flex-container" style="background: #DFE5E9;">
             <div class="clearfix" style="width: 100%; height: 100%;">
-              <div class="container clearfix" style="padding: 20px; width: 30%; margin: 0 auto; color: #222;">
+              <div class="container clearfix" style="padding: 20px; width: 25%; margin: 0 auto; color: #222;">
                   <!-- logo in here -->
                   <div class="logo">
-                      <a href="index.html">
+                      <a href="/">
                          <img src="switch/assets/img/logos/switch_3.svg" alt="Switch DEV" style="max-height: 100px">
                       </a>
                   </div>
 
-                  <div><br><br><br></div>
+                  <div><br><br></div>
                   <!--login box in here -->
                   <div class="login-box">
                     <form action="/login" method="post" class="forms">
-                    {{ csrf_field() }}
+                        {{ csrf_field() }}
                         <input type="text" name="email" placeholder="Email" class="input-field form-control user" />
 
                         <input type="password" name="password" placeholder="Password" class="input-field form-control password" />
@@ -33,24 +33,16 @@
                     </form>
                     <hr style="color: #fff; opacity: 0.1">
                     <div class="login-links">
-                        <a href="/forgot">Forgot password?</a>
+                        <a href="/password/reset">Forgot password?</a>
                         <br>
                         <a href="/register">Don't have an account? <strong>Sign Up</strong></a>
                     </div>
                   </div>
                   <hr style="color: #fff; opacity: 0.5">
                   <!--social login here-->
-                 {{--  <div class="social-login row">
-                      <div class="fb-login col-lg-6 col-md-12 animated flipInX">
-                          <a href="#" class="btn btn-facebook btn-block"><strong>Facebook</strong></a>
-                      </div>
-                      <div class="twit-login col-lg-6 col-md-12 animated flipInX">
-                          <a href="#" class="btn btn-twitter btn-block"><strong>Twitter</strong></a>
-                      </div>
-                  </div> --}}
                   <div class="social-login row">
                       <div class="fb-login col-lg-6 col-md-12 animated flipInX">
-                          <a href="/social/login/github" class="btn btn-github btn-block"><strong>Github</strong></a>
+                          <a href="/social/login/github" class="btn btn-facebook btn-block"><strong>Github</strong></a>
                       </div>
                       <div class="twit-login col-lg-6 col-md-12 animated flipInX">
                           <a href="/social/login/twitter" class="btn btn-twitter btn-block"><strong>Twitter</strong></a>
@@ -58,7 +50,7 @@
                   </div>
               </div>
               <br>
-              <div class="footer">
+              <div class="footer pos-abs b-0 width-100p m-auto p-r-30 p-l-30">
                   <ul class="float-left">
                     <li><a href="#">Privacy<a></li>
                     <li><a href="#">Terms<a></li>

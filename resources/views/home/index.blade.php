@@ -4,7 +4,7 @@
 <div class="wrapper clearfix animsition">
 			<!--HEADER/HOME SECTION-->
 
-			<header id="home" class="header">
+			<header id="home" class="header h-min-100vh h-t-48 bg-opacity-50 pos-rel">
 				<!--navbar begins here-->
 				<nav class="navbar navbar-default" role="navigation" id="main-nav">
 					<div class="container animated">
@@ -31,7 +31,7 @@
 								<li class="animated"><a href="#aboutus">About Us</a></li>
 								<li class="animated"><a href="#testimonials">Testimonials</a></li>
 								<li class="animated"><a href="#signup">Sign Up</a></li>
-								<li class="animated" onclick="document.location.href='/login';"><a href="">Sign In</a></li>
+								<li onclick="document.location.href='signin.html';" class="animated"><a href="">Sign In</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -42,12 +42,12 @@
 
 					<!-- HEADING -->
 					<h1 class="welcome text-center animated">What is Lorem Ipsum?</h1>
-					<h3 class="c-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
+					<h3 class="c-white welcome_msg animated">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
 					<br>
 					<br>
 					<!-- CALL TO ACTION BUTTONS -->
 					<div class="buttons animated">
-						<a href="#signup" class="btn m-10 animated">Button 1</a>
+						<a href="#signup" class="btn m-10">Button 1</a>
 						<a href="#testimonials" class="btn m-10">Button2</a>
 					</div>
 					<br>
@@ -399,69 +399,6 @@
 				</div> <!-- / END CONTAINER -->
 
 			</section>
-			<!-- END ABOUT US SECTION -->
-
-			<!--STATS
-			<section class="stats">
-				<div class="container">
-				    STATS
-				    <div class="row">
-
-				         START COLUMN
-				        <div class="col-lg-3 col-sm-3">
-				            <div class="stat">
-				                <div class="icon-top red-text">
-				                    <i class="icon-design-graphic-tablet-streamline-tablet"></i>
-				                </div>
-				                <div class="stat-text">
-				                <h2 class="white-text red-border-bottom">950+</h2>
-				                <h6>Projects Built</h6>
-				                </div>
-				            </div>
-				        </div>  / END COLUMN
-
-				         START COLUMN
-				        <div class="col-lg-3 col-sm-3">
-				            <div class="stat">
-				                <div class="icon-top blue-text">
-				                    <i class="icon-man-people-streamline-user"></i>
-				                </div>
-				                <div class="stat-text">
-				                <h2 class="white-text blue-border-bottom">950+</h2>
-				                <h6>Happy Clients</h6>
-				                </div>
-				            </div>
-				        </div>  / END COLUMN
-
-				        START COLUMN
-				        <div class="col-lg-3 col-sm-3">
-				            <div class="stat">
-				                <div class="icon-top green-text">
-				                    <i class="icon-banknote"></i>
-				                </div>
-				                <div class="stat-text">
-				                <h2 class="white-text green-border-bottom">$16+ mil</h2>
-				                <h6>Developer Payouts</h6>
-				                </div>
-				            </div>
-				        </div>  / END COLUMN
-
-				         START COLUMN
-				        <div class="col-lg-3 col-sm-3">
-				            <div class="stat">
-				                <div class="icon-top yellow-text">
-				                    <i class="icon-speech-streamline-talk-user"></i>
-				                </div>
-				                <div class="stat-text">
-				                <h2 class="white-text yellow-border-bottom">24,000+</h2>
-				                <h6>Verified Freelancers</h6>
-				                </div>
-				            </div>
-				        </div>  / END COLUMN
-				    </div>
-				</div>
-			</section>
-			END STATS -->
 
 			<!--TESTIMONIAL SECTION-->
 			<section class="testimonial bg-white text-center" id="testimonials">
@@ -526,7 +463,7 @@
 
 							</h3><br><br>
 							<div class="text-center">
-								<a href="/social/login/github/" class="btn btn-transparent">Apply with Github</a>
+								<a href="/social/login/github" class="btn btn-transparent">Apply with Github</a>
 							</div>
 						</div>
 					</div>
@@ -553,7 +490,8 @@
 					<br>
 					<!-- CONTACT FORM-->
 					<div class="row">
-						<form role="form" action="" method="post" class="contact-form" data-validate="parsley">
+						<form role="form" action="/profile/company" method="post" class="contact-form" data-validate="parsley">
+							{{ csrf_field() }}
 							<div class="row">
 								<div class="col-lg-4 col-sm-4 m-auto" style="float: none !important;">
 									<div class="col-lg-12 col-sm-12">
@@ -593,6 +531,14 @@
 				    <div id="map-canvas"></div>
 				</div>
 				<!--map end-->
+				<div class="footer width-100p m-auto p-r-30 p-l-30">
+						<ul class="list-style-none text-left">
+								<li><a href="#">Privacy<a></li>
+								<li><a href="#">Terms<a></li>
+								<li><a href="#">Security<a></li>
+								<li class="f-right"><a href="#">&copy 2017 Switch Nigeria</a></li>
+						</ul>
+				</div>
 
 			</footer>
 		</div>

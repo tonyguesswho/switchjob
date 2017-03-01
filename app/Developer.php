@@ -25,7 +25,7 @@ class Developer extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'phone', 'years_of_experience', 'pass_work', 'coolest_thing'];
+    protected $fillable = ['user_id', 'years_of_experience', 'pass_work', 'available_hours', 'languages', 'frameworks'];
 
     public function skills()
     {

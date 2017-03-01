@@ -6,6 +6,7 @@ use Socialite;
 use App\Http\Controllers\Controller;
 use Session;
 use App\SocialAccountService;
+use App\Developer;
 
 class AuthController extends Controller
 {
@@ -28,10 +29,13 @@ class AuthController extends Controller
     {
         $user = $service->createOrGetUser(Socialite::driver($provider)->user(), $provider);
 
-        auth()->login($user);
+        $profile = Developer::where('user_id', $user->id)->first();
 
-
+        if($profile){
+            auth()->login($user);
+            return redirect()->to('developer/dashboard');
+        }
+        session(['user' => $user]);
         return redirect()->to('profile/developer');
-
     }
 }

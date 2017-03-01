@@ -1,7 +1,11 @@
 const app = {
 	focusOnForm: function(){
     	const $form = document.querySelector(".forms");
+			if ($form === null) {
+				return;
+			}
     	const firstInput = $form.querySelectorAll("input")[0];
+
     	firstInput.focus();
     },
 	pageTransition: function(){
@@ -25,6 +29,7 @@ const app = {
 		    overlayParentElement : 'body',
 		    transition: function(url){ window.location.href = url; }
 		}).on('animsition.inEnd', function(){
+			$(".animated").css({"visibility": "visible"});
 			$(".navbar-brand").addClass("bounceIn");
 			$(".navbar-nav>li:first").addClass("bounceIn");
 			$(".navbar-nav>li:nth-child(2)").addClass("bounceIn");
@@ -34,6 +39,7 @@ const app = {
 			$(".navbar-nav>li:nth-child(6)").addClass("bounceIn");
 			$(".navbar-nav>li:nth-child(7)").addClass("bounceIn");
 			$(".welcome").addClass("bounceInDown");
+			$(".welcome_msg").addClass("flipInX");
 			$(".buttons").addClass("bounceInUp");
 			//focus on form after page animation..
 			app.focusOnForm();
@@ -49,7 +55,6 @@ const app = {
 	},
 	sticker: function(){
 		var top = $('#main-nav').offset().top - parseFloat($('#main-nav').css('margin-top').replace(/auto/, 0));
-		console.log(top);
 		$(window).scroll(function (event) {
 		    // what the y position of the scroll is
 		    var y = $(this).scrollTop();

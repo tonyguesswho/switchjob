@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="switch/assets/css/owl.theme.css">
 		<link rel="stylesheet" href="switch/assets/css/owl.carousel.css">
 		<link rel="stylesheet" href="switch/assets/css/jquery.vegas.min.css">
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
 		<link rel="stylesheet" href="switch/assets/css/icons/icon-fonts/styles.css">
 		<link rel="stylesheet" href="switch/assets/css/icons/icon-fonts/pixeden-icons.css">
 		<link rel="stylesheet" type="text/css" href="switch/assets/css/animsition.min.css">
@@ -22,13 +22,16 @@
 		<!-- CUSTOM STYLES -->
 		<link rel="stylesheet" href="switch/assets/css/main.css">
 		<link rel="stylesheet" href="switch/assets/css/responsive2.css">
-
-
+		<style>
+			.animated{
+				visibility: hidden;
+			}
+		</style>
 		<!-- WEBFONT -->
 		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
 
 		<!-- JQUERY -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="switch/assets/js/jquery.min.js"></script>
 	</head>
 	<body class="align-center">
 		@yield('content')
@@ -59,6 +62,9 @@
 				app.scrollable();
 				//app.ouibounce();
 			});
+
+
+
 		</script>
 	</body>
 </html>

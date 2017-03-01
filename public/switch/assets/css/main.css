@@ -12,6 +12,7 @@ body {font-family: 'Lato', sans-serif !important;font-size: 14px;color: #808080;
 .m-5 {margin:5px !important;}
 .m-10 {margin:10px !important;}
 .m-20 {margin:20px !important;}
+.m-50 {margin:50px !important;}
 
 /****  Margin Top  ****/
 .m-t-0 {margin-top:0px !important;}
@@ -69,16 +70,18 @@ body {font-family: 'Lato', sans-serif !important;font-size: 14px;color: #808080;
 .p-t-10 {padding-top:10px !important;}
 .p-t-20 {padding-top:20px !important}
 .p-t-30 {padding-top:30px !important;}
+.h-t-48 {padding-top: 48px !important;}
 .p-t-50 {padding-top:50px !important;}
 .p-t-60 {padding-top:60px !important;}
 .p-t-80 {padding-top:80px !important;}
+.p-t-140 {padding-top:140px !important;}
 /****  Padding Bottom  ****/
 .p-b-0 {padding-bottom:0 !important;}
 .p-b-10 {padding-bottom:10px !important;}
 .p-b-20 {padding-bottom:20px !important;}
 .p-b-30 {padding-bottom:30px !important;}
 .p-b-50 {padding-bottom:50px !important;}
- 
+
 /****  Padding Left  ****/
 .p-l-0{padding-left:0px !important;}
 .p-l-1{padding-left:1px !important;}
@@ -110,6 +113,8 @@ body {font-family: 'Lato', sans-serif !important;font-size: 14px;color: #808080;
 .b-5 {bottom:5px; }
 .b-10 {bottom:10px; }
 .b-15 {bottom:15px; }
+.b-30 {bottom:30px; }
+.b-40 {bottom:30px; }
 .b-50 {bottom:50px; }
 
 /****  Left  ****/
@@ -176,6 +181,8 @@ body {font-family: 'Lato', sans-serif !important;font-size: 14px;color: #808080;
 .bg-instagram{background-color:#E1306C !important; color:#fff !important;}
 .bg-purple-gradient  {background: #bf9bdd;background: -moz-radial-gradient(center, ellipse cover,  #bf9bdd 27%, #9e52dd 100%);background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(27%,#bf9bdd), color-stop(100%,#9e52dd));background: -webkit-radial-gradient(center, ellipse cover,  #bf9bdd 27%,#9e52dd 100%); background: -o-radial-gradient(center, ellipse cover,  #bf9bdd 27%,#9e52dd 100%);background: -ms-radial-gradient(center, ellipse cover,  #bf9bdd 27%,#9e52dd 100%);background: radial-gradient(ellipse at center,  #bf9bdd 27%,#9e52dd 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf9bdd', endColorstr='#9e52dd',GradientType=1 ); }
 .bg-opacity-20 {background-color: rgba(0, 0, 0, 0.2);}
+.bg-opacity-50 {background-color: rgba(0, 0, 0, 0.5);}
+.bg-opacity-80 {background-color: rgba(0, 0, 0, 0.8);}
 .bg-transparent{background-color: transparent; background: transparent;}
 
 /****  Opacity  ****/
@@ -230,6 +237,7 @@ body {font-family: 'Lato', sans-serif !important;font-size: 14px;color: #808080;
 .h-400 {height: 400px !important;overflow: hidden !important}
 .h-590 {height: 590px !important;overflow: hidden !important}
 .h-100p{height: 100% !important;overflow: hidden !important}
+.h-min-100vh{ min-height: 100vh !important;}
 @media (min-width: 992px){
 	.h-40vh{height: 40vh !important;overflow: hidden !important}
 	.h-50vh{height: 50vh !important;overflow: hidden !important}
@@ -283,7 +291,15 @@ a, a:focus, a:hover, a:active {  outline: 0;}
 /*text indent*/
 .t-indent{
 	text-indent: 0.1em !important;
-}    
+}
+
+/*line height */
+.line-h-1{
+	line-height: 1px;
+}
+.line-h-45{
+	line-height: 45px;
+}
 /****  Font Size  ****/
 .f-12{font-size:12px !important;}
 .f-14{font-size:14px !important;}
@@ -355,6 +371,7 @@ h3{
 	float: none;
 }
 
+/*BUTTONS STYLING */
 .buttons{
     -webkit-animation-delay: 5.5s; /* Safari 4.0 - 8.0 */
     animation-delay: 5.5s;
@@ -377,11 +394,6 @@ h3{
     -webkit-animation-delay: 1.5s; /* Safari 4.0 - 8.0 */
     animation-delay: 1.5s;
 }
- .btn-transparent {
-    background-color: #fff;
-    color: #f56363;
-    border: 1px solid transparent;
-}
 
 .btn:hover,.btn:active, .btn:focus, .btn.active:hover, .btn.active:focus {
     color: #fff;
@@ -390,12 +402,32 @@ h3{
     box-shadow: 0 0 0 2px white, 0 0 0 3px #fa5454;
 }
 
+.btn-dark{
+	background-color: #12181f;
+	color: #fff;
+}
+
+.btn-dark:hover {
+    background-color: #12181f;
+    color: #fff;
+    border: 1px solid #fff;
+		box-shadow: 0 0 0 2px white, 0 0 0 3px #12181f;
+}
+
+.btn-transparent {
+	 background-color: #fff;
+	 color: #f56363;
+	 border: 1px solid transparent;
+}
+
 .btn-transparent:hover {
     background-color: transparent;
     color: #fff;
     border: 1px solid #fff;
 }
-
+a.btn.btn-facebook:hover, a.btn.btn-twitter:hover{
+	box-shadow: none;
+}
 
 /*CUSTOM STYLING */
 /*hide this logo for navigation*/
@@ -486,18 +518,12 @@ h3{
     animation-delay: 5.0s;
 }
 
-
-
 .stuck .navbar-nav>li>a{
 	color: #222;
 }
 
 .header {
-    background: rgba(0, 0, 0, 0.5);
-    min-height: 100vh;
-    position: relative;
     overflow: hidden;
-    padding-top: 48px;
 }
 
 .welcome{
@@ -511,7 +537,10 @@ h3{
     text-transform: uppercase;
     -webkit-animation-duration: 0.5s;
     animation-duration: 0.5s;
-    
+}
+.welcome_msg{
+	  -webkit-animation-delay: 6.5s; /* Safari 4.0 - 8.0 */
+	  animation-delay: 6.5s;
 }
 
 /*animation for navigation */
@@ -645,7 +674,7 @@ h3{
 
 /*team section */
 .team div[class^="col-"]:nth-child(1),
-.reviews div[class^="col-"]:nth-child(1), 
+.reviews div[class^="col-"]:nth-child(1),
 .reviews div[class^="col-"]:nth-child(2)
 {
 	padding-bottom: 0px;
@@ -925,7 +954,7 @@ blockquote cite {
 .contact-us {
     background: rgba(0, 0, 0, 0.5);
 }
-.contact-us .input-box, textarea {
+.contact-us .input-box, .contact-us textarea {
     width: 100%;
     margin: auto;
     margin-bottom: 20px;
@@ -944,12 +973,12 @@ blockquote cite {
     background: rgba(255,255,255, 0.95);
 }
 
-textarea:hover, 
-input:hover, 
-textarea:active, 
-input:active,
-textarea:focus, 
-input:focus {
+.contact-us textarea:hover,
+.contact-us input:hover,
+.contact-us textarea:active,
+.contact-us input:active,
+.contact-us textarea:focus,
+.contact-us input:focus {
     outline: 1 !important;
     outline-color: #e96656 !important;
     -webkit-appearance: none;
@@ -957,8 +986,6 @@ input:focus {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
-
-
 
 footer{
 	padding-right: 0px;
@@ -1002,3 +1029,21 @@ footer{
     height: 35em;
 }
 
+.footer ul li {
+    display: inline-block;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 10px;
+    margin-right: 10px;
+    transition: all 0.5s ease-in;
+}
+
+.footer ul li:hover{
+  opacity: 1;
+}
+
+.footer ul li a,.footer ul li a:hover,
+.footer ul li a:active{
+  text-decoration: none;
+  outline: 0;
+}

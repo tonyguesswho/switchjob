@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Developer;
 use Illuminate\Http\Request;
 use Session;
+use App\User;
 
 class DevelopersController extends Controller
 {
@@ -42,21 +43,35 @@ class DevelopersController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
         $this->validate($request, [
 			'name' => 'required|min:3',
 			'email' => 'required|min:10',
 			'phone' => 'required|min:11',
-			'year_of_experience' => 'required',
-			'pass_work' => 'required',
-			'coolest_thing' => 'required'
+			'skill' => 'required',
+			'languages' => 'required',
+			'frameworks' => 'required'
 		]);
-        $requestData = $request->all();
-        
-        Developer::create($requestData);
+
+        $update_user = User::find(Session::get('user')->id)->update(['phone' => $request->phone]);
+
+        $developerData = [
+                            'user_id' => Session::get('user')->id,
+                            'years_of_experience' => ($request->pro)? $request->pro: $request->years_other,
+                            'languages' => $request->languages,
+                            'frameworks' => $request->frameworks,
+                            'pass_work' => $request->pass_work,
+                            'available_hours' => ($request->hours)? $request->hours: $request->hours_other
+                        ];
+
+        $developer = Developer::create($developerData);
 
         Session::flash('flash_message', 'Developer added!');
 
-        return redirect('developers');
+        //login developer
+        auth()->login(Session::get('user'));
+        return redirect()->to('developer/dashboard');
     }
 
     /**
@@ -106,7 +121,7 @@ class DevelopersController extends Controller
 			'coolest_thing' => 'required'
 		]);
         $requestData = $request->all();
-        
+
         $developer = Developer::findOrFail($id);
         $developer->update($requestData);
 
