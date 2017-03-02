@@ -19,9 +19,9 @@ class CompanyController extends Controller
 
     		$data = $request->all();
 
-    		session(['email' => $data['email'], 'company' => $data['company'] ]);
+    		//session(['email' => $data['email'], 'company' => $data['company'] ]);
 
-    		return redirect('profile/company');
+    		//return redirect('profile/company');
     	}
 
     	return view('company.setup');

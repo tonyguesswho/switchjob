@@ -34,3 +34,4 @@ Route::get('/profile/company', 'CompanyController@setup');
 Route::post('/profile/company', 'CompanyController@setup');
 
 
+

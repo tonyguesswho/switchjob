@@ -31,7 +31,7 @@
 								<li class="animated"><a href="#aboutus">About Us</a></li>
 								<li class="animated"><a href="#testimonials">Testimonials</a></li>
 								<li class="animated"><a href="#signup">Sign Up</a></li>
-								<li onclick="document.location.href='signin.html';" class="animated"><a href="">Sign In</a></li>
+								<li onclick="document.location.href='/login';" class="animated"><a href="">Sign In</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -495,11 +495,11 @@
 							<div class="row">
 								<div class="col-lg-4 col-sm-4 m-auto" style="float: none !important;">
 									<div class="col-lg-12 col-sm-12">
-										<input type="text" name="company" id="id_company" placeholder="Your Name" class="form-control input-box">
+										<input type="text" name="company" id="company" placeholder="Your Name" class="form-control input-box">
 									</div>
 
 									<div class="col-lg-12 col-sm-12">
-										<input type="email" id="id_email" name="email" placeholder="Your Email" class="form-control input-box" data-required="true">
+										<input type="email" id="email" name="email" placeholder="Your Email" class="form-control input-box" data-required="true">
 									</div>
 									<div class="col-lg-12 col-sm-12">
 										<br>
