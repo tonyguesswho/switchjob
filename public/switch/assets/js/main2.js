@@ -12,14 +12,14 @@ const app = {
 		$('.animsition').animsition({
 			inClass:'zoom-in',
       		outClass:'zoom-out',
-      		inDuration: 800,
+      		inDuration: 200,
 		    outDuration: 800,
 		    linkElement: '.animsition-link',
 		    // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
 		    loading: true,
 		    loadingParentElement: 'body', //animsition wrapper element
 		    loadingClass: 'animsition-loading',
-		    loadingInner: '', // e.g '<img src="loading.svg" />'
+		    loadingInner: '', // e.g '<img src="assets/img/logos/switch_2.svg">'
 		    timeout: false,
 		    timeoutCountdown: 5000,
 		    onLoadEvent: true,
@@ -77,11 +77,11 @@ const app = {
 		$.vegas('slideshow', {
 		  delay:7000,
 		  backgrounds:[
-		    { src:'switch/assets/img/CUP.jpg', fade:1000 },
+		    { src:'assets/img/CUP.jpg', fade:1000 },
 		    //{ src:'assets/img/code.jpeg', fade:1000 },
-		    { src:'switch/assets/img/laptop.jpg', fade:1000 },
-		    { src:'switch/assets/img/meeting.jpg', fade:1000 },
-		    { src:'switch/assets/img/startup.jpg', fade:1000 }
+		    { src:'assets/img/laptop.jpeg', fade:1000 },
+		    { src:'assets/img/meeting.jpg', fade:1000 },
+		    { src:'assets/img/startup.jpg', fade:1000 }
 		  ],
 		  transitionDuration:1000,
 		  transition: 'fade',
@@ -278,7 +278,6 @@ const app = {
 		}
     },
     switchForm : function(){
-
         var current_fs, next_fs, previous_fs; //fieldsets
         var left, opacity, scale; //fieldset properties which we will animate
         var animating; //flag to prevent quick multi-click glitches
@@ -356,5 +355,214 @@ const app = {
         $(".submit").click(function(){
           return false;
         })
-      }
+    },
+	toggleCollapse: function(){
+		const mores = Array.from(document.querySelectorAll(".more"));
+		const lessers = Array.from(document.querySelectorAll(".less"));
+		const interests = Array.from(document.querySelectorAll(".stats .btn"));
+		//textcontent varaible;
+		let texts;
+		//css display properties block and none...
+		let c, d;
+
+		//boolean to control toggle function....
+		let booled = true;
+
+		//first function to show more
+		function showMore(){
+			c = "none"; d = "block";
+			texts = "Show Less";
+			booled = false;
+		}
+		//second function that show less
+		function showLess(){
+			 c = "block"; d = "none";
+			 texts = "Interested";
+			 booled = true;
+		}
+		//interestHandler handles toggling between first and second function
+		function interestHandler(){
+				booled ? showMore() : showLess();
+				//change button textcontent..
+				this.textContent = texts;
+				//hide less part or show it instead...
+				lessers[interests.indexOf(this)].style.display = c;
+				//show more part or hide it instead...
+				mores[interests.indexOf(this)].style.display = d;
+		}
+		interests.forEach(function(interest){
+			 interest.addEventListener('click', interestHandler);
+		});
+	},
+	likesController: function(){
+		const likes = Array.from(document.querySelectorAll(".stats .likes"));
+		const dislikes = Array.from(document.querySelectorAll(".stats .dislikes"));
+
+
+		function clickHandler(){
+			//console.log(this.classList.contains("likes"));
+			// increase when I click on likes
+		/*	if (this.classList.contains("likes")) {
+				this.nextElementSibling.innerHTML = parseInt(this.nextElementSibling.innerHTML) + 1;
+			}
+			//decrease when I click on dislikes...
+			else if(this.classList.contains("dislikes")){
+				if (parseInt(this.nextElementSibling.innerHTML) == 0) {
+					return;
+				}
+				this.nextElementSibling.innerHTML = parseInt(this.nextElementSibling.innerHTML) - 1;
+			}
+			*/
+			//console.log(likes.indexOf(this));
+			this.nextElementSibling.innerHTML = parseInt(this.nextElementSibling.innerHTML) + 1;
+		}
+
+		likes.forEach(function(like){
+			like.addEventListener('click', clickHandler)
+		});
+		dislikes.forEach(function(dislike){
+			dislike.addEventListener('click', clickHandler);
+		});
+	//	console.log(likes);
+	},
+	barChart: function(){
+		if (document.getElementById("myChart") == null) {
+			return;
+		}
+		let ctx = document.getElementById("myChart").getContext("2d");
+        let myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June"],
+                datasets: [{
+                    label: 'Total Projects',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            color: "rgba(0, 0, 0, 0)"
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        },
+                        gridLines: {
+                            color: "rgba(0, 0, 0, 0)"
+                        }  
+                    }]
+                }
+            
+
+            }
+        });
+	},
+	//move navbar content and sidebar into right bar content.....
+	sidebarCtrl: function(){
+		let navbar_initialized = false,
+		misc = {
+        	navbar_menu_visible: 0
+    	},
+    	initRightMenu =  function(){  
+	        if(!navbar_initialized){
+	            $navbar = $('nav').find('.navbar-collapse').first().clone(true);
+	        
+	            $sidebar = $('.sidebar');
+	            //undefined
+	            sidebar_color = $sidebar.data('color');
+	            
+	            ul_content = '';
+	            
+	             
+	            // add the content from the sidebar to the right menu
+	            content_buff = $sidebar.find('.nav').html();
+	            ul_content = ul_content + content_buff;
+	            
+	            //add the content from the regular header to the right menu
+	            $navbar.children('ul').each(function(){
+	                content_buff = $(this).html();
+	                ul_content = ul_content + content_buff;   
+	            });
+	             
+	            ul_content = '<ul class="nav navbar-nav">' + ul_content + '</ul>';
+	            
+	            navbar_content = ul_content;
+	            
+	            $navbar.html(navbar_content);
+	             
+	            $('body').append($navbar);
+	             
+	            
+	             
+	             
+	            $toggle = $('.navbar-toggle');
+	             
+	            $navbar.find('a').removeClass('btn btn-round btn-default');
+	            $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
+	            $navbar.find('button').addClass('btn-simple btn-block');
+	            
+	            $toggle.click(function (){    
+	                if(misc.navbar_menu_visible == 1) {
+	                    $('html').removeClass('nav-open'); 
+	                    misc.navbar_menu_visible = 0;
+	                    $('#bodyClick').remove();
+	                     setTimeout(function(){
+	                        $toggle.removeClass('toggled');
+	                     }, 400);
+	                
+	                } else {
+	                    setTimeout(function(){
+	                        $toggle.addClass('toggled');
+	                    }, 430);
+	                    
+	                    div = '<div id="bodyClick"></div>';
+	                    $(div).appendTo("body").click(function() {
+	                        $('html').removeClass('nav-open');
+	                        misc.navbar_menu_visible = 0;
+	                        $('#bodyClick').remove();
+	                         setTimeout(function(){
+	                            $toggle.removeClass('toggled');
+	                         }, 400);
+	                    });
+	                   
+	                    $('html').addClass('nav-open');
+	                    misc.navbar_menu_visible = 1;
+	                    
+	                }
+	            });
+	            navbar_initialized = true;
+	        }
+   
+        };
+        // Init navigation toggle for small screens   
+	    if($(window).width() <= 991){
+	       initRightMenu();
+	    }
+	    // activate collapse right menu when the windows is resized 
+		$(window).resize(function(){
+		    if($(window).width() <= 991){
+		        initRightMenu();   
+		    }
+		});    
+	}
 }

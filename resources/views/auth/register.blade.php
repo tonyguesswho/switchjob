@@ -16,7 +16,8 @@
                   <div class="login-box">
                     <form action="/register" method="post" class="forms">
                          {{ csrf_field() }}
-                        <input type="text" name="name" placeholder="Full Name" class="input-field form-control user" />
+                        <input type="text" name="firstname" placeholder="First Name" class="input-field form-control user" />
+                        <input type="text" name="lastname" placeholder="Last Name" class="input-field form-control user" />
                         <input type="email" name="email" placeholder="user@domain.com" class="input-field form-control email" />
                         <input type="password" name="password" placeholder="Password" class="input-field form-control password" />
                         <input type="password" name="password_confirmation" placeholder="Confirm Password" class="input-field form-control password" />

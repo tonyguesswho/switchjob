@@ -27,5 +27,8 @@ class job extends Model
      */
     protected $fillable = ['job_type_id', 'description', 'example_app', 'job_attachment', 'start_date', 'job_scope'];
 
-    
+    public function User()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
