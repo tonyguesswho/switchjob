@@ -14,7 +14,7 @@ class CompanyDetailsSeeder extends Seeder
         DB::table('company_details')->insert([
             'building' => str_random(10),
             'products' => str_random(10),
-            'start_period' => '1 week',
+            'start_period' => date("Y-m-d"),
             'user_id'=>'1',
             'cost'=>'16000',
             'aboutus'=>str_random(5),
