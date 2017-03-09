@@ -1,0 +1,393 @@
+html, body, .wrapper{height: 100%; width: 100%;}
+
+.login-page, .signup-page {
+  background: #00BCD4;
+}
+
+.logo{
+    text-align: center;
+}
+
+.flex-container{
+  padding-left: 0;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+a, a:hover{
+    outline: 0;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.align-right{
+    text-align: right;
+}
+/*.login-box, .signup-box{
+    width: 25%;
+}*/
+.login-page .login-box .msg {
+    color: #555;
+    text-align: center;
+}
+.login-page .login-box{
+    font-size: 14px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.login-page .login-box .logo {
+    margin-bottom: 20px;
+}
+.login-page .login-box .logo a,
+.signup-page .signup-box .logo a
+ {
+  font-size: 36px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.login-page .login-box .logo small {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  margin-top: -5px;
+}
+
+.card {
+    background: #fff;
+    min-height: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin-bottom: 30px;
+}
+.card .body {
+    font-size: 14px;
+    color: #555;
+    padding: 20px;
+}
+
+.input {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+.input-field {
+    position: relative;
+    display: block;
+    float: right;
+    padding: 0.8em;
+    width: 60%;
+    border: none;
+    border-radius: 0;
+    background: #f0f0f0;
+    color: #aaa;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+.input-label {
+    display: inline-block;
+    float: right;
+    padding: 0 1em;
+    width: 40%;
+    color: #6a7989;
+    font-weight: bold;
+    font-size: 70.25%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.input-label-content {
+    position: relative;
+    display: block;
+    padding: 1.6em 0;
+    width: 100%;
+}
+
+.graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: none;
+}
+
+.icon {
+    color: #ddd;
+    font-size: 150%;
+}
+
+.input-switch {
+    overflow: hidden;
+}
+
+.input-field-switch {
+    margin-top: 5px;
+    padding: 15px 4px;
+    width: 100%;
+    background: transparent;
+    color: #595F6E;
+    font-size: 20px;
+}
+
+.input-label-switch {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 0.25em;
+    width: 100%;
+    height: calc(100% - 1em);
+    text-align: left;
+    pointer-events: none;
+}
+
+.input-label-content-switch {
+    position: absolute;
+}
+
+a.btn.btn-facebook {
+    background: #385496;
+    color: #FFFFFF;
+}
+
+a.btn.btn-twitter {
+    background: #4a9eff;
+    color: #FFFFFF;
+
+}
+
+.social-login a.btn {
+    background-size: 100%;
+    font-size: 12px;
+    text-align: center;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.input-label-switch::before,
+.input-label-switch::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 10px);
+    border-bottom: 1px solid #B9C1CA;
+}
+
+.input-label-switch::after {
+    margin-top: 2px;
+    border-bottom: 3px solid red;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.input-label-switch-color-1::after {
+    border-color: hsl(200, 100%, 50%);
+}
+
+.input-label-switch-color-2::after {
+    border-color: hsl(160, 100%, 50%);
+}
+
+.input-label-switch-color-3::after {
+    border-color: hsl(20, 100%, 50%);
+}
+
+.input-field-switch:focus + .input-label-switch::after,
+.input--filled .input-label-switch::after {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.input-field-switch:focus + .input-label-switch .input-label-content-switch,
+.input--filled .input-label-content-switch {
+    -webkit-animation: anim-1 0.3s forwards;
+    animation: anim-1 0.3s forwards;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover
+{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+@-webkit-keyframes anim-1 {
+    50% {
+        opacity: 0;
+        -webkit-transform: translate3d(1em, 0, 0);
+        transform: translate3d(1em, 0, 0);
+    }
+    51% {
+        opacity: 0;
+        -webkit-transform: translate3d(-1em, -40%, 0);
+        transform: translate3d(-1em, -40%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, -40%, 0);
+        transform: translate3d(0, -40%, 0);
+    }
+}
+
+@keyframes anim-1 {
+    50% {
+        opacity: 0;
+        -webkit-transform: translate3d(1em, 0, 0);
+        transform: translate3d(1em, 0, 0);
+    }
+    51% {
+        opacity: 0;
+        -webkit-transform: translate3d(-1em, -40%, 0);
+        transform: translate3d(-1em, -40%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, -40%, 0);
+        transform: translate3d(0, -40%, 0);
+    }
+}
+
+/*STYLING OF SWITCH FORMS*/
+.form-box{
+    width: 80%;
+    margin: 50px auto;
+}
+#switchForm {
+    width: 100%;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+#switchForm fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+    margin-bottom: 40px;
+    /*stacking fieldsets above each other*/
+    position: absolute;
+}
+/*Hide all except first fieldset*/
+#switchForm fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*buttons*/
+#switchForm .action-button {
+    width: 100px;
+    background: #27AE60;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+#switchForm .action-button:hover, #switchForm .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    padding-left: 0px;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+#progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+}
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 20px;
+    line-height: 20px;
+    display: block;
+    font-size: 10px;
+    color: #333;
+    background: white;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+    background: #27AE60;
+    color: white;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.others{
+    width: 40px;
+    border-color: #eee;
+}
+.radio input[type=radio], .others{
+    margin-left: 20px;
+}

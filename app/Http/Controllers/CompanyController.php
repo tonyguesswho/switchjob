@@ -1,42 +1,76 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Session;
-
+use App\User;
 class CompanyController extends Controller
 {
-    public function create()
+
+    public function dashboard()
     {
-    	return view('company.setup');
+        return view('company.dashboard');
+
     }
 
-    public function setup(Request $request)
+    public function dev()
     {
+        return view('company.dev');
 
-    	if($request->method('post')){
+    }
+    public function payment()
+    {
+        return view('company.payment');
 
-    		$data = $request->all();
+    }
+    public function profile()
+    {
+        return view('company.profile');
 
-    		session(['email' => $data['email'], 'company' => $data['company'] ]);
+    }
+    public function project()
+    {
+        return view('company.project');
 
-    		return redirect('profile/company');
-    	}
+    }
+    public function projectdetail()
+    {
+        return view('company.projectdetail');
 
-    	return view('company.setup');
     }
 
-
+    
+    public function setup()
+    {
+        
+        return view('company.setup');
+    }
     public function store(Request $request)
     {
+        $this->validate(request(),[
+            'company_name'=>'required',
+            'company_email'=>'required|email',
+            'company_password'=>'required',
+            'company_phone'=>'required',
+            'building'=>'required',
+            'products'=>'required',
+            'start_period'=>'required',
+            'cost'=>'required',
+            'aboutus'=>'required'
 
-        dd($request->all());
 
-        Session::flash('flash_message', 'Company added!');
 
-        //login developer
-        auth()->login(Session::get('user'));
+            ]);
+
+        $company=user::create([
+
+            'name'=>request('company_name'),
+            'email'=>request('company_email'),
+            'password'=>bcrypt(request('company_password')),
+            'phone'=>request('company_phone'),
+
+            ]);
+        
+        auth()->login($company);
         return redirect()->to('company/dashboard');
     }
 }

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <title>Sign In</title>
+        <!-- STYLESHEETS-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/animsition.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+        <!-- CUSTOM STYLES -->
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/form2.css">
+        <!-- WEBFONT -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+
+
+    </head>
+
+    <body>
+        <div class="wrapper clearfix animsition">
+          <header id="home" class="header stuck">
+            <!--navbar begins here-->
+            <nav class="navbar navbar-default" role="navigation" id="main-nav">
+              <div class="container animated">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand animated" href="index.html">
+                    <img src="assets/img/logos/switch_3.svg" alt="Switch DEV" style="max-height: 40px" class="logo-default">
+                    
+                  </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                  <ul class="nav navbar-nav navbar-right main-nav-list">
+                    <li class="animated"><a href="signIn.html">Sign In</a></li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div>
+            </nav>
+            <!--navbar ends here-->
+          </header>
+          <div class="p-t-50 text-center">
+              <h2 lang="en" class="c-dark f-45 m-t-0">Developers' Form</h2>
+          </div>
+          <section class="form clearfix width-50p p-t-100 p-r-20 p-b-20 p-l-20">
+
+                <!--switch form here -->
+                <form class="switch-form">
+                    <div class="groups first_group">
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="qstn-9640">Full Name</legend>
+                                <div class="form-el-group">
+                                    <div class="form-el">
+                                        <label class="input-label" for="name"></label>
+                                        <input type="text" name="name"  id="name" class="form-control form-control-bg" placeholder="John Doe">
+                                    </div>
+                                </div>
+                                <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                                <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="qstn-9640">Email address</legend>
+                                <div class="form-el-group">
+                                    <div class="form-el">
+                                        <label class="input-label" for="email"></label>
+                                        <input type="email" name="email"  id="email" class="form-control form-control-bg" placeholder="someone@switch.ng">
+                                    </div>
+                                </div>
+                                <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                                <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="qstn-9640">Phone Number</legend>
+                                <div class="form-el-group">
+                                    <div class="form-el">
+                                        <label class="input-label" for="phone"></label>
+                                        <input type="tel" name="phone"  id="phone" class="form-control form-control-bg" placeholder="00000000000">
+                                    </div>
+                                </div>
+                                <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                                <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="qstn-9640">How long have you been a professional freelancer?</legend>
+                                <div class="form-el-group">
+
+                                    <div class="form-el">
+                                        <input type="radio" name="pro" value="Desktop / web application" id="qstn-9640-0" class="check-box">
+                                        <label class="input-label" for="qstn-9640-0">0-1 Year</label>
+                                    </div>
+                                    <div class="form-el">
+                                        <input type="radio" name="pro" value="iOS" id="qstn-9640-1" class="check-box">
+                                        <label class="input-label" for="qstn-9640-1">2-3 Years</label>
+                                    </div>
+                                    <div class="form-el">
+                                        <input type="radio" name="pro" value="Android" id="qstn-9640-2" class="check-box">
+                                        <label class="input-label" for="qstn-9640-2">4-5 Years</label>
+                                    </div>
+                                    <div class="form-el other-el">
+                                        <input type="radio" name="pro" value="OTHER-OPTION" data-required-input-id="qstn-other-input-9640" id="qstn-other-9640" class="check-box"><label class="input-label" for="qstn-other-9640"><span class="screen-reader-text">Other</span></label><input type="text" name="qstn-other-input-9640" id="qstn-other-input-9640" class="input-text-other" placeholder="Other" maxlength="100">
+                                    </div>
+                                </div>
+                                <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                                <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+
+                    </div>
+                    <div class="groups second_group">
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="qstn-9640">What kind of language do you speak?</legend>
+                            <div class="form-el-group">
+                                <div class="form-el">
+                                    <label class="input-label" for="qstn-9640-0"></label>
+                                    <textarea placeholder="Javascript, PHP, Python" class="form-control form-control-bg"></textarea>
+                                </div>
+                            </div>
+                            <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                            <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="qstn-9640">What type of framework do you use?</legend>
+                            <div class="form-el-group">
+                                <div class="form-el">
+                                    <label class="input-label" for="qstn-9640-0"></label>
+                                    <textarea placeholder="Javascript, PHP, Python" class="form-control form-control-bg"></textarea>
+                                </div>
+                            </div>
+                            <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                            <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                    </div>
+                    <div class="groups third_group">
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                        <legend class="question label" for="qstn-9640">What kind of jobs have you worked on in the past?</legend>
+                        <div class="form-el-group">
+                            <div class="form-el">
+                                <label class="input-label" for="qstn-9640-0"></label>
+                                <textarea placeholder="Javascript, PHP, Python" class="form-control form-control-bg"></textarea>
+
+                            </div>
+                        </div>
+                        <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                        <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                      </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                          <legend class="question label" for="qstn-9640">How many hours can you devote to work per week?</legend>
+                              <div class="form-el-group">
+                                  <div class="form-el">
+                                      <input type="radio" name="hours" value="Desktop / web application" id="qstn-9640-0" class="check-box">
+                                      <label class="input-label" for="qstn-9640-0">2-3 hours </label>
+                                  </div>
+                                  <div class="form-el">
+                                      <input type="radio" name="hours" value="iOS" id="qstn-9640-1" class="check-box">
+                                      <label class="input-label" for="qstn-9640-1">4-7 hours </label>
+                                  </div>
+                                  <div class="form-el">
+                                      <input type="radio" name="hours" value="Android" id="qstn-9640-2" class="check-box">
+                                      <label class="input-label" for="qstn-9640-2">8- 10 hours </label>
+                                  </div>
+                                  <div class="form-el other-el">
+                                      <input type="radio" name="hours" value="OTHER-OPTION" data-required-input-id="qstn-other-input-9640" id="qstn-other-9640" class="check-box"><label class="input-label" for="qstn-other-9640"><span class="screen-reader-text">Other</span></label><input type="text" name="qstn-other-input-9640" id="qstn-other-input-9640" class="input-text-other" placeholder="Other" maxlength="100">
+                                  </div>
+                              </div>
+                              <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                              <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                         </fieldset>
+
+                    </div>
+                </form>
+                <!--switch form here -->
+
+          </section>
+            <br>
+          <div class="footer">
+                <ul class="float-left">
+                  <li><a href="#">Privacy<a></li>
+                  <li><a href="#">Terms<a></li>
+                  <li><a href="#">Security<a></li>
+                  <li style="float: right;"><a href="#">&copy 2017 Switch Nigeria</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        <!-- SCRIPTS -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="assets/js/jquery.vegas.min.js"></script>
+            <script src="assets/js/animisition.min.js"></script>
+            <script src="assets/js/main2.js"></script>
+            <script>
+                $(document).ready(function(){
+                    app.pageTransition();
+                    app.stylishInput();
+                  //  app.vegasController();
+                   // app.focusOnForm();
+                });
+
+            </script>
+    </body>
+
+</html>
