@@ -26,7 +26,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 */
 
 $factory->define(App\Job::class, function (Faker\Generator $faker) {
-    static $password;
+   // static $password;
 
     return [
         'user_id' => $faker->randomDigit,

@@ -1,56 +1,9 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.dev_dashboard')
 
-    <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Devs Dashboard</title>
-        <!-- STYLESHEETS-->
-        <link rel="stylesheet" href="switch/assets/css/bootstrap.min.css">
-
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
-        <link rel="stylesheet" type="text/css" href="switch/assets/css/animsition.min.css">
-        <link rel="stylesheet" type="text/css" href="switch/assets/css/animate.css">
-        <!-- CUSTOM STYLES -->
-        <link rel="stylesheet" href="switch/assets/css/main.css">
-        <link rel="stylesheet" href="switch/assets/css/form2.css">
-        <link rel="stylesheet" href="switch/assets/css/dashboard.css">
-        <!-- WEBFONT -->
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
-        <style>
-            /*hide all animated initially.....*/
-            h3{
-              line-height: 30px;
-            }
-            .animated {
-              visibility: hidden;
-            }
-            .card .more{
-              display: none;
-            }
-            .btn-brand{
-              border-bottom-left-radius: 0px;
-              width: 150px;
-              background: #FFCC29;
-              color: #FFF;
-              font-weight: 900;
-            }
-            .btn-brand:hover, .btn-brand:active, .btn-brand:visited, .btn-brand.active, .btn-brand:focus{
-              color: #FFF;
-            }
-
-            .footer .likes,
-            .footer .dislikes{
-              cursor: pointer;
-            }
-        </style>
-
-    </head>
-
+@section('content')
     <body>
         <div class="wrapper clearfix animsition pos-rel">
-          @include('layouts.dev_dashboard')
+          @include('dev-dashboard.navbar')
             <div class="main-panel dash">
               <div class="content">
                   <div class="p-0">
@@ -77,7 +30,7 @@
                                                     <div class="col-md-12">
                                                         <div class="card">
                                                             <div class="content clearfix">
-                                                                <input type="search" class="form-control" placeholder="What is it you are looking for? I can help"
+                                                                <input type="search" class="form-control quick_search" placeholder="What is it you are looking for? I can help"
                                                                 style="background-color: rgba(243, 246, 248, 0.3);"/>
                                                             </div>
                                                         </div>
@@ -414,3 +367,4 @@
     </body>
 
 </html>
+@endsection

@@ -28,8 +28,11 @@ class Dev_dashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $project = Job::latest()->paginate(4);
+    {  
+        $search = \Request::get('search');
+        $project = Job::where('job_scope','like', '%'.$search.'%')
+        ->latest()
+        ->paginate(4);
         //$project-> 
         //dd($project);
         return view('dev-dashboard.feature_projects', compact('project'));

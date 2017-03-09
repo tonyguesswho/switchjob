@@ -1,65 +1,10 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.dev_dashboard')
 
-    <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Your profile Dashboard</title>
-        <!-- STYLESHEETS-->
-        <link rel="stylesheet" href="switch/assets/css/bootstrap.min.css">
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
-        <link rel="stylesheet" href="switch/assets/css/animsition.min.css">
-        <link rel="stylesheet"  href="switch/assets/css/animate.css">
-        <!-- CUSTOM STYLES -->
-        <link rel="stylesheet" href="switch/assets/css/main.css">
-        <link rel="stylesheet" href="switch/assets/css/form2.css">
-        <link rel="stylesheet" href="switch/assets/css/dashboard.css">
-        <!-- WEBFONT -->
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
-        <style>
-            .card-bg-red,.card-bg-dark,
-            .card-bg-green, .card-bg-blue
-
-            {
-                min-height: 150px;
-                color: #fff;
-            }
-            .card-bg-green{
-                background: #18a689 !important;
-            }
-            .card-bg-dark{
-               background: #2B2E33 !important;
-            }
-            .card-bg-red{
-                background: #C75757 !important;
-            }
-            .card-bg-blue{
-                background: #0090D9 !important;
-            }
-            .figures{
-                font-weight: 900;
-            }
-            .figures h3{
-                font-size: 40px;
-                line-height: 40px;
-            } 
-            .figures p{
-                letter-spacing: 5px;
-                text-transform: uppercase;
-            }
-           
-            .table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th,.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
-                background: rgba(243, 246, 248, 0.5);
-            }
-        </style>
-
-    </head>
+@section('content')
 
     <body>
         <div class="wrapper clearfix animsition pos-rel">
-          @include('layouts.dev_dashboard')
+          @include('dev-dashboard.navbar')
 
             <div class="main-panel">
                 <!--cck -->
@@ -230,3 +175,4 @@
     </body>
 
 </html>
+@endsection
