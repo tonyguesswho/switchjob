@@ -200,7 +200,7 @@
                                                                 <td class="text-center"><a class="edit btn btn-dark" href="javascript:;"><i class="fa fa-pencil-square-o"></i>Edit</a><a class="delete btn" href="javascript:;"><i class="fa fa-times-circle"></i> Remove</a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="project_details.html">
+                                                                    <a href="/company/projectdetail">
                                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                                                     </a>
                                                                 </td>
@@ -218,7 +218,7 @@
                                                                 <td class="text-center"><a class="edit btn btn-dark" href="javascript:;"><i class="fa fa-pencil-square-o"></i>Edit</a><a class="delete btn" href="javascript:;"><i class="fa fa-times-circle"></i> Remove</a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="project_details.html">
+                                                                    <a href="/company/projectdetail">
                                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                                                     </a>
                                                                 </td>
@@ -242,7 +242,7 @@
                                                                     </a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="project_details.html">
+                                                                    <a href="/company/projectdetail">
                                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                                                     </a>
                                                                 </td>

@@ -31,7 +31,7 @@
 								<li class="animated"><a href="#aboutus">About Us</a></li>
 								<li class="animated"><a href="#testimonials">Testimonials</a></li>
 								<li class="animated"><a href="#signup">Sign Up</a></li>
-								<li onclick="document.location.href='signin.html';" class="animated"><a href="">Sign In</a></li>
+								<li onclick="document.location.href='/login';" class="animated"><a href="">Sign In</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>

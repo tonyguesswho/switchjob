@@ -24,11 +24,12 @@ Route::get('social/login/{provider}/callback', 'Auth\AuthController@handleProvid
 Route::get('/profile', 'ProfileController@index');
 Route::get('/profile/developer', 'ProfileController@developer');
 Route::get('/profile/company', 'CompanyController@setup');
-Route::post('/profile/company2', 'CompanyController@store');
+Route::post('/profile/company', 'CompanyController@store');
 //Route::post('/profile/company', 'CompanyController@store');
-Route::get('/logout','Auth\AuthController@logout');
+Route::get('/logout','Auth\LoginController@logout');
 Route::get('company/dashboard','CompanyController@dashboard');
 Route::get('company/dev','CompanyController@dev');
 Route::get('company/payment','CompanyController@payment');
 Route::get('company/profile','CompanyController@profile');
 Route::get('company/project','CompanyController@project');
+Route::get('company/projectdetail','CompanyController@projectdetail');

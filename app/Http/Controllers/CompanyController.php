@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
+use App\User;
 class CompanyController extends Controller
 {
 
@@ -29,6 +30,11 @@ class CompanyController extends Controller
     public function project()
     {
         return view('company.project');
+
+    }
+    public function projectdetail()
+    {
+        return view('company.projectdetail');
 
     }
 

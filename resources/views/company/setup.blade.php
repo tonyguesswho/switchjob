@@ -22,7 +22,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                   <ul class="nav navbar-nav navbar-right main-nav-list">
-                    <li class="animated"><a href="signIn.html">Sign In</a></li>
+                    <li class="animated"><a href="/login">Sign In</a></li>
                   </ul>
                 </div><!-- /.navbar-collapse -->
               </div>
@@ -35,7 +35,9 @@
           <section class="form clearfix width-50p p-t-100 p-r-20 p-b-20 p-l-20">
 
                 <!--switch form here -->
-                <form class="switch-form">
+                <form class="switch-form" method="post" action="/profile/company">
+                    
+                    {{csrf_field()}}
                     <div class="groups first_group">
                         <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
                             <legend class="question label" for="company_name">Company Name</legend>
