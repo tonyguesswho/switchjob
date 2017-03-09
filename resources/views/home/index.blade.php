@@ -31,7 +31,7 @@
 								<li class="animated"><a href="#aboutus">About Us</a></li>
 								<li class="animated"><a href="#testimonials">Testimonials</a></li>
 								<li class="animated"><a href="#signup">Sign Up</a></li>
-								<li onclick="document.location.href='/login';" class="animated"><a href="">Sign In</a></li>
+								<li onclick="document.location.href='signin.html';" class="animated"><a href="">Sign In</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -463,7 +463,7 @@
 
 							</h3><br><br>
 							<div class="text-center">
-								<a href="/social/login/github" class="btn btn-transparent">Apply with Github</a>
+								<a href="#" class="btn btn-transparent">Apply with Github</a>
 							</div>
 						</div>
 					</div>
@@ -491,15 +491,14 @@
 					<!-- CONTACT FORM-->
 					<div class="row">
 						<form role="form" action="/profile/company" method="post" class="contact-form" data-validate="parsley">
-							{{ csrf_field() }}
 							<div class="row">
 								<div class="col-lg-4 col-sm-4 m-auto" style="float: none !important;">
 									<div class="col-lg-12 col-sm-12">
-										<input type="text" name="company" id="company" placeholder="Your Name" class="form-control input-box">
+										<input type="text" name="company" id="id_company" placeholder="Your Name" class="form-control input-box">
 									</div>
 
 									<div class="col-lg-12 col-sm-12">
-										<input type="email" id="email" name="email" placeholder="Your Email" class="form-control input-box" data-required="true">
+										<input type="email" id="id_email" name="email" placeholder="Your Email" class="form-control input-box" data-required="true">
 									</div>
 									<div class="col-lg-12 col-sm-12">
 										<br>
@@ -532,14 +531,14 @@
 				</div>
 				<!--map end-->
 				<div class="footer width-100p m-auto p-r-30 p-l-30">
-						<ul class="list-style-none text-left">
+							<ul class="list-style-none tex">
 								<li><a href="#">Privacy<a></li>
 								<li><a href="#">Terms<a></li>
 								<li><a href="#">Security<a></li>
-								<li class="f-right"><a href="#">&copy 2017 Switch Nigeria</a></li>
-						</ul>
+								<li style="float: right;"><a href="#">&copy 2017 Switch Nigeria</a></li>
+							</ul>
 				</div>
 
 			</footer>
 		</div>
-@endsection
+		@endsection

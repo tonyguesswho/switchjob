@@ -41,20 +41,20 @@ body {
 }
 
 body{
-	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/switchassets/img/patern.jpg") repeat 0 0 #fcfcfc;
 	color: #454545;
 }
 
 .focus{
-	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/switchassets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 .our-team{
-	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 .testimonial{
-	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 #main-nav {
@@ -64,11 +64,11 @@ body{
 
 .other-focuses .section-footer-title {
     background: none;
-	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 .team-member .social-icons ul li a {
-	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
     border-radius: 50%;
     color: #808080;
     font-size: 18px;
@@ -627,7 +627,7 @@ input:focus {
 
 /*----OTHER FOCUSES ----*/
 .other-focuses {
-	background: url(../images/lines.png) repeat-x center;
+	background: url(/switch/images/lines.png) repeat-x center;
 	margin-bottom: 25px;
 }
 .other-focuses .section-footer-title {
@@ -824,7 +824,7 @@ width: -webkit-calc(100% / 2);
 	display: none;
 }
 #loader .loader-icon {
-	background: url(../images/loading.gif) no-repeat center center;
+	background: url(/switch/images/loading.gif) no-repeat center center;
 	background-color: #FFF;
 	margin: -22px -22px;
 	top: 50%;
@@ -896,7 +896,7 @@ width: -webkit-calc(100% / 2);
 
 /*--OUR CLIENTS --*/
 .our-clients {
-	background: url(../images/lines-dark.png) repeat-x center;
+	background: url(/switch/images/lines-dark.png) repeat-x center;
 	margin-bottom: 40px;
 }
 .our-clients .section-footer-title {
@@ -1196,28 +1196,28 @@ width: -webkit-calc(100% / 2);
 
 /*--ITEMS IMAGES--*/
 .item-1 {
-	background-image: url(../images/products/1.jpg);
+	background-image: url(/switch/images/products/1.jpg);
 }
 .item-2 {
-	background-image: url(../images/products/2.jpg);
+	background-image: url(/switch/images/products/2.jpg);
 }
 .item-3 {
-	background-image: url(../images/products/3.jpg);
+	background-image: url(/switch/images/products/3.jpg);
 }
 .item-4 {
-	background-image: url(../images/products/4.jpg);
+	background-image: url(/switch/images/products/4.jpg);
 }
 .item-5 {
-	background-image: url(../images/products/5.jpg);
+	background-image: url(/switch/images/products/5.jpg);
 }
 .item-6 {
-	background-image: url(../images/products/6.jpg);
+	background-image: url(/switch/images/products/6.jpg);
 }
 .item-7 {
-	background-image: url(../images/products/7.jpg);
+	background-image: url(/switch/images/products/7.jpg);
 }
 .item-8 {
-	background-image: url(../images/products/8.jpg);
+	background-image: url(/switch/images/products/8.jpg);
 }
 
 /*---ITEM STYLE ---*/

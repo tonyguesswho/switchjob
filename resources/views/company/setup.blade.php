@@ -23,7 +23,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                   <ul class="nav navbar-nav navbar-right main-nav-list">
-                    <li class="animated"><a href="/logim\n">Sign In</a></li>
+                    <li class="animated"><a href="/login">Sign In</a></li>
                   </ul>
                 </div><!-- /.navbar-collapse -->
               </div>
@@ -36,14 +36,15 @@
           <section class="form clearfix width-50p">
 
                 <!--switch form here -->
-                <form class="switch-form">
+                <form class="switch-form"  method="post" action="/profile/company2">
+                  {{csrf_field()}}
                     <div class="groups first_group">
                         <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
                             <legend class="question label" for="company_name">Company Name</legend>
                                 <div class="form-el-group">
                                     <div class="form-el">
                                         <label class="input-label" for="company_name"></label>
-                                        <input type="text" name="company_name"  value="{{Session::get('company')}}" id="name" class="form form-control" placeholder="John Doe">
+                                        <input type="text" name="company_name"  value="" id="name" class="form form-control" placeholder="John Doe">
                                     </div>
                                 </div>
                                 <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
@@ -54,7 +55,7 @@
                                 <div class="form-el-group">
                                     <div class="form-el">
                                         <label class="input-label" for="company_email"></label>
-                                        <input type="email" name="company_email" value="{{Session::get('email')}}"  id="email" class="form form-control" placeholder="someone@switch.ng">
+                                        <input type="email" name="company_email" value=""  id="email" class="form form-control" placeholder="someone@switch.ng">
                                     </div>
                                 </div>
                                 <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
@@ -110,7 +111,7 @@
                           <legend class="question label" for="products">Is this a new Product?</legend>
                               <div class="form-el-group">
                                   <div class="form-el">
-                                      <input type="radio" name="products" value="Desktop / web application" id="qstn-9640-0" class="check-box">
+                                      <input type="radio" name="products" value="" id="qstn-9640-0" class="check-box">
                                       <label class="input-label" for="products">New Product </label>
                                   </div>
                                   <div class="form-el">
