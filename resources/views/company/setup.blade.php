@@ -16,34 +16,35 @@
                   </button>
                   <a class="navbar-brand animated" href="index.html">
                     <img src="/switch/assets/img/logos/switch_3.svg" alt="Switch DEV" style="max-height: 40px" class="logo-default">
-                    <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
                   </a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                   <ul class="nav navbar-nav navbar-right main-nav-list">
-                    <li class="animated"><a href="/logim\n">Sign In</a></li>
+                    <li class="animated"><a href="/login">Sign In</a></li>
                   </ul>
                 </div><!-- /.navbar-collapse -->
               </div>
             </nav>
             <!--navbar ends here-->
           </header>
-          <div class="p-t-140 text-center">
+          <div class="p-t-50 text-center">
               <h2 lang="en" class="c-dark f-45 m-t-0 line-h-45">Companies' Form</h2>
           </div>
-          <section class="form clearfix width-50p">
+          <section class="form clearfix width-50p p-t-100 p-r-20 p-b-20 p-l-20">
 
                 <!--switch form here -->
-                <form class="switch-form">
+                <form class="switch-form" method="post" action="/profile/company">
+                    
+                    {{csrf_field()}}
                     <div class="groups first_group">
                         <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
                             <legend class="question label" for="company_name">Company Name</legend>
                                 <div class="form-el-group">
                                     <div class="form-el">
                                         <label class="input-label" for="company_name"></label>
-                                        <input type="text" name="company_name"  value="{{Session::get('company')}}" id="name" class="form form-control" placeholder="John Doe">
+                                        <input type="text" name="company_name"  id="name" class="form form-control" placeholder="John Doe">
                                     </div>
                                 </div>
                                 <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
@@ -54,7 +55,7 @@
                                 <div class="form-el-group">
                                     <div class="form-el">
                                         <label class="input-label" for="company_email"></label>
-                                        <input type="email" name="company_email" value="{{Session::get('email')}}"  id="email" class="form form-control" placeholder="someone@switch.ng">
+                                        <input type="email" name="company_email"  id="email" class="form form-control" placeholder="someone@switch.ng">
                                     </div>
                                 </div>
                                 <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
@@ -71,7 +72,7 @@
                                 <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
                                 <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
                         </fieldset>
-                        {{-- <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
                             <legend class="question label" for="company_userame">Username</legend>
                             <div class="form-el-group">
                                 <div class="form-el">
@@ -81,7 +82,7 @@
                             </div>
                             <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
                             <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
-                        </fieldset> --}}
+                        </fieldset>
                         <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
                             <legend class="question label" for="company_password">Password</legend>
                             <div class="form-el-group">

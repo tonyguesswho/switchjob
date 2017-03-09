@@ -11,7 +11,11 @@
 		<!-- STYLESHEETS-->
 		<link rel="stylesheet" href="/switch/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/switch/assets/css/owl.theme.css">
+<<<<<<< HEAD
 		<link rel="stylesheet" href="/switch/assets/css/owl.carousel.css">
+=======
+		<link rel="stylesheet" href="/switchassets/css/owl.carousel.css">
+>>>>>>> c02b6a26b3c7be1cafcf8d042f237336fb1dc3c9
 		<link rel="stylesheet" href="/switch/assets/css/jquery.vegas.min.css">
 		<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
 		<link rel="stylesheet" href="/switch/assets/css/icons/icon-fonts/styles.css">
@@ -34,7 +38,11 @@
 		<!--END WRAPPER -->
 
 		<!-- SCRIPTS -->
+<<<<<<< HEAD
 	<script src="/switch/assets/js/bootstrap.min.js"></script>
+=======
+		<script src="/switch/assets/js/bootstrap.min.js"></script>
+>>>>>>> c02b6a26b3c7be1cafcf8d042f237336fb1dc3c9
 		<script src="/switch/assets/js/jquery.scrollTo.min.js"></script>
 		<script src="/switch/assets/js/jquery.nav.js"></script>
 		<script src="/switch/assets/js/jquery.knob.js"></script>
@@ -58,6 +66,7 @@
 				app.scrollable();
 				//app.ouibounce();
 			});
+
 
 
 

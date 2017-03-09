@@ -32,7 +32,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
+<<<<<<< HEAD
     protected $redirectTo = '/create';
+=======
+    protected $redirectTo = '/profile';
+>>>>>>> c02b6a26b3c7be1cafcf8d042f237336fb1dc3c9
 
     /**
      * Create a new controller instance.
@@ -74,6 +78,7 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+
         ]);
             return $users;
 

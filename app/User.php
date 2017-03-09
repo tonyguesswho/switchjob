@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+<<<<<<< HEAD
     public function Userdetail()
     {
         return $this->hasOne('App\Userdetail');
@@ -45,5 +46,9 @@ class User extends Authenticatable
     public function Job()
     {
         return $this->hasMany('App\Job');
+=======
+    public function CompanyDetails(){
+        return $this->hasOne('App\CompanyDetail');
+>>>>>>> c02b6a26b3c7be1cafcf8d042f237336fb1dc3c9
     }
 }
