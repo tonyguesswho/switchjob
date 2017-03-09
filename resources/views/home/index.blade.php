@@ -490,7 +490,7 @@
 					<br>
 					<!-- CONTACT FORM-->
 					<div class="row">
-						<form role="form" action="/profile/company" method="post" class="contact-form" data-validate="parsley">
+						<form role="form" action="/profile/company" class="contact-form" data-validate="parsley">
 							<div class="row">
 								<div class="col-lg-4 col-sm-4 m-auto" style="float: none !important;">
 									<div class="col-lg-12 col-sm-12">

@@ -41,12 +41,12 @@ body {
 }
 
 body{
-	background: url("/switchassets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 	color: #454545;
 }
 
 .focus{
-	background: url("/switchassets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/switch/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 .our-team{
@@ -59,7 +59,7 @@ body{
 
 #main-nav {
 	min-height: 5em;
-	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/switcassets/img/patern.jpg") repeat 0 0 #fcfcfc;
 }
 
 .other-focuses .section-footer-title {
@@ -627,7 +627,7 @@ input:focus {
 
 /*----OTHER FOCUSES ----*/
 .other-focuses {
-	background: url(/switch/images/lines.png) repeat-x center;
+	background: url(/switch/img/small/lines.png) repeat-x center;
 	margin-bottom: 25px;
 }
 .other-focuses .section-footer-title {

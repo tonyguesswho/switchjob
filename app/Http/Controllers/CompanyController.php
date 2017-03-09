@@ -32,10 +32,7 @@ class CompanyController extends Controller
 
     }
 
-    public function create()
-    {
-        return view('company.setup');
-    }
+    
     public function setup()
     {
         
