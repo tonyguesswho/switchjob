@@ -25,7 +25,7 @@ class Invite extends Model
      *
      * @var array
      */
-    protected $fillable = ['company_name', 'email'];
+    protected $fillable = ['company_name', 'email','developer_id','company_id'];
 
     
 }

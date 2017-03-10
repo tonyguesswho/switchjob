@@ -80,7 +80,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand animated" href="../index.html">
+                        <a class="navbar-brand animated" href="/company/dashboard">
                           <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
                         </a>
                     </div>
@@ -313,7 +313,7 @@
                             jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
                             jqTds[2].innerHTML = '<input type="text" class="form-control small" value="' + aData[2] + '">';
                             jqTds[3].innerHTML = '<input type="text" class="form-control small" value="' + aData[3] + '">';
-                            jqTds[4].innerHTML = '<div class="text-center"><a class="edit btn btn-success" href="">Save</a> <a class="delete btn" href=""><i class="fa fa-times-circle"></i> Remove</a></div>';
+                            jqTds[4].innerHTML = '<div class="text-center"><a class="edit btn btn-success" href="/company/save">Save</a> <a class="delete btn" href=""><i class="fa fa-times-circle"></i> Remove</a></div>';
                         }
 
                         function saveRow(oTable, nRow) {
