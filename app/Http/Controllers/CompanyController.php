@@ -53,7 +53,7 @@ class CompanyController extends Controller
             'email'=>Auth::user()->email,
             'developer_id'=>$id->id,
             ]);
-       return redirect()->back();
+       return redirect()->to('company/dashboard');
         }
 
     
