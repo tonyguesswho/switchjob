@@ -24,7 +24,7 @@ class ProposalController extends Controller
     		'messaging' => request('messaging'),
     		'question' => request('question'),
     		'reason' => request('reason'),
-            'user_id'=>Auth::user()->id,
+            'user_id'=> Auth::user()->id,
             'company_id'=>$id
     		]);
     	return back();
