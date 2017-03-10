@@ -7,9 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use App\Userdetail;
-use App\Country;
-use App\City;
+
 use Auth;
 
 class RegisterController extends Controller
@@ -32,11 +30,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
-<<<<<<< HEAD
-    protected $redirectTo = '/create';
-=======
+
     protected $redirectTo = '/profile';
->>>>>>> c02b6a26b3c7be1cafcf8d042f237336fb1dc3c9
+
+    //protected $redirectTo = '/profile';
+
 
     /**
      * Create a new controller instance.

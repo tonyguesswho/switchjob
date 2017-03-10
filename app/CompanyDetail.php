@@ -11,7 +11,15 @@ class CompanyDetail extends Model
         'building', 'products','started_period','cost','aboutus'
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
+
+
+    public function Job()
+    {
+    	return $this->hasMany('App\Job');
+    }
+
 }

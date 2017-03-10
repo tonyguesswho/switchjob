@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Invite;
+use App\CompanyDetail;
+use App\Developer;
 use App\Userdetail;
 use App\Country;
 use App\City;
@@ -18,8 +21,10 @@ class Dev_dashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('dev-dashboard.index');
+    {   
+        $projects = Invite::where('user_id', Auth::user()->id)->paginate(4);
+
+        return view('dev-dashboard.index', compact('projects'));
     }
 
     /**
@@ -29,12 +34,13 @@ class Dev_dashboardController extends Controller
      */
     public function create()
     {  
-        $search = \Request::get('search');
-        $project = Job::where('job_scope','like', '%'.$search.'%')
-        ->latest()
-        ->paginate(4);
-        //$project-> 
-        //dd($project);
+        $project = DB::table('jobs')
+                ->join('users', 'jobs.user_id', '=', 'users.id' )
+                ->join('company_details','jobs.user_id', '=', 'company_details.user_id')
+                ->paginate(4);
+                
+       // $project = Job::latest()->paginate(4);
+
         return view('dev-dashboard.feature_projects', compact('project'));
     }
 
@@ -47,23 +53,25 @@ class Dev_dashboardController extends Controller
     public function store()
     {
        
-        $users = Userdetail::create(
-            [
+        $users = Userdetail::create([
+
             'user_id' => Auth::user()->id,
+
             ]);
 
-        $users = Country::create(
-            [
+        $users = Country::create([
+
             'user_id' => Auth::user()->id,
+
             ]);
 
-        $users = City::create(
-            [
+        $users = City::create([
+
             'user_id' => Auth::user()->id,
+
             ]);
 
-        return redirect('/dashboard');
-    
+        return redirect('/dashboard');  
     }
 
 
@@ -74,9 +82,9 @@ class Dev_dashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function payment()
     {
-        
+        return view('dev-dashboard.payment');
     }
 
     /**
@@ -92,8 +100,8 @@ class Dev_dashboardController extends Controller
         $users->Userdetail::where('user_id', Auth::user()->id)->get();
         $users->City::where('user_id', Auth::user()->id )->get();
         $users->Country::where('user_id', Auth::user()->id )->get();
-        return view('dev-dashboard.profile')->with('users', $users);
 
+        return view('dev-dashboard.profile')->with('users', $users);
     }
 
     /**
@@ -132,9 +140,5 @@ class Dev_dashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
-    {
-       auth()->logout();
-      return redirect('/');
-    }
+    
 }

@@ -13,7 +13,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::resource('invites', 'InvitesController');
 Route::resource('jobs', 'jobsController');
-Route::resource('developers', 'DevelopersController');
+Route::post('developers', 'DevelopersController@store');
 Route::resource('developer-skills', 'DeveloperSkillsController');
 Route::resource('skills', 'SkillsController');
 Route::resource('live-projects', 'LiveProjectsController');
@@ -22,8 +22,6 @@ Route::resource('companies', 'CompanyController');
 
 
 Route::get('/home', 'HomeController@index');
-Route::get('/create', 'Dev_dashboardController@store');
-
 
 
 
@@ -37,10 +35,11 @@ Route::post('/profile/company', 'CompanyController@setup');
 
 Route::get('/dashboard', 'Dev_dashboardController@index');
 Route::get('/project', 'Dev_dashboardController@create');
-Route::get('/project/profile/{profile}', 'Dev_dashboardController@edit');
+Route::get('/profile/{profile}', 'Dev_dashboardController@edit');
 Route::post('/update/{profile}', 'Dev_dashboardController@update');
-
-Route::post('/proposal', 'ProposalController@create');
+Route::get('/create', 'Dev_dashboardController@store');
+Route::get('/payment', 'Dev_dashboardController@payment');
+Route::post('/proposal/{proposal}', 'ProposalController@create');
 
 Route::post('/profile/company', 'CompanyController@store');
 //Route::post('/profile/company', 'CompanyController@store');

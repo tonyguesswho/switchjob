@@ -16,9 +16,9 @@
                     <div><br><br></div>
                     <form action="/login" method="post" class="forms">
                       {{csrf_field()}}
-                        <input type="text" placeholder="Username" class="input-field form-control form-control-bg user" />
+                        <input type="text" name="email" placeholder="Username" class="input-field form-control form-control-bg user" />
 
-                        <input type="password" placeholder="Password" class="input-field form-control form-control-bg password" />
+                        <input type="password" name="password" placeholder="Password" class="input-field form-control form-control-bg password" />
                         <div class="row">
                             <label for="rememberme" class="col-xs-6">Remember Me</label>
                             <!-- Rounded switch -->

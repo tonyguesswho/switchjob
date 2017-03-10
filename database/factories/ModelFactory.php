@@ -40,3 +40,18 @@ $factory->define(App\Job::class, function (Faker\Generator $faker) {
        
     ];
 });
+
+
+$factory->define(App\CompanyDetail::class, function (Faker\Generator $faker) {
+   // static $password;
+
+    return [
+        'user_id' => $faker->randomDigit,
+        'building' => $faker->text,
+        'products' => $faker->word,
+        'start_period' =>$faker ->date,
+        'cost' => '20,000',
+        'aboutus'=> $faker->text,
+       
+    ];
+});

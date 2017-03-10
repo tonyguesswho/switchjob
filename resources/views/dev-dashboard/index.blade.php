@@ -89,6 +89,7 @@
                                     <h3 class="title c-brand w-900">On going projects</h3>
                                     <p class="category">Here is a subtitle for this table</p>
                                 </div>
+                                @foreach($projects as $project)
                                 <div class="content clearfix">
                                     <div class="col-md-12">
                                         <div class="table-responsive table-full-width">
@@ -102,52 +103,18 @@
                                                 </tr></thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>CMS</td>
-                                                        <td>$36,738</td>
-                                                        <td>ABC company</td>
-                                                        <td>Jan 17 2017</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>CMS</td>
-                                                        <td>$36,738</td>
-                                                        <td>ABC company</td>
-                                                        <td>Jan 17 2017</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>CMS</td>
-                                                        <td>$36,738</td>
-                                                        <td>ABC company</td>
-                                                        <td>Jan 17 2017</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>CMS</td>
-                                                        <td>$36,738</td>
-                                                        <td>ABC company</td>
-                                                        <td>Jan 17 2017</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>5</td>
-                                                        <td>CMS</td>
-                                                        <td>$36,738</td>
-                                                        <td>ABC company</td>
-                                                        <td>Jan 17 2017</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>6</td>
-                                                        <td>CMS</td>
-                                                        <td>$36,738</td>
-                                                        <td>ABC company</td>
-                                                        <td>Jan 17 2017</td>
-                                                    </tr>
+                                                        <td></td>
+                                                        <td>{{$project->project}}</td>
+                                                        <td>{{$project->cost}}</td>
+                                                        <td>{{$project->company_name}}</td>
+                                                        <td>{{$project->deadline}}</td>
+                                                    </tr>       
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

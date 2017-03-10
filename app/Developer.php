@@ -36,4 +36,9 @@ class Developer extends Model
     {
         # code...
     }
+
+    public function Job()
+    {
+        return $this->hasMany('App\Job');
+    }
 }

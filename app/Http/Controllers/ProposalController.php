@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Proposal;
 use App\User;
+use Auth;
 
 class ProposalController extends Controller
 {
     
 
 
-    public function create()
+    public function create($id)
     {	
     	$this->validate(request(), [
     		'messaging' => 'required',
@@ -23,7 +24,8 @@ class ProposalController extends Controller
     		'messaging' => request('messaging'),
     		'question' => request('question'),
     		'reason' => request('reason'),
-            'user_id'=>auth()->id()
+            'user_id'=>Auth::user()->id,
+            'company_id'=>$id
     		]);
     	return back();
     }

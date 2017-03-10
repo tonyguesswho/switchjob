@@ -255,13 +255,13 @@
         </div>
 
         <!-- SCRIPTS -->
-            <script src="../assets/js/jquery.min.js"></script>
-            <script src="../assets/js/bootstrap.min.js"></script>
-            <script src="../assets/js/animisition.min.js"></script>
-            <script src="../assets/js/jquery.dataTables.min.js"></script>
-            <script src="../assets/js/dataTables.bootstrap.js"></script>
-            <script src="../assets/js/dataTables.tableTools.js"></script> 
-            <script src="../assets/js/main2.js"></script>
+            <script src="/switch/assets/js/jquery.min.js"></script>
+            <script src="switch/assets/js/bootstrap.min.js"></script>
+            <script src="switch/assets/js/animisition.min.js"></script>
+            <script src="switch/assets/js/jquery.dataTables.min.js"></script>
+            <script src="switch/assets/js/dataTables.bootstrap.js"></script>
+            <script src="switch/assets/js/dataTables.tableTools.js"></script> 
+            <script src="switch/assets/js/main2.js"></script>
             <script>
                 $(document).ready(function(){
                     app.pageTransition();

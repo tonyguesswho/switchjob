@@ -25,7 +25,11 @@ class Invite extends Model
      *
      * @var array
      */
-    protected $fillable = ['company_name', 'email'];
+    protected $fillable = ['company_name','user_id', 'email', 'cost', 'project', 'deadline'];
 
+    public function User()
+    {
+        return $this->belongsTo('App\User');
+    }
     
 }

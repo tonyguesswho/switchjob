@@ -9,6 +9,7 @@ use App\Developer;
 use Illuminate\Http\Request;
 use Session;
 use App\User;
+use Auth;
 
 class DevelopersController extends Controller
 {
@@ -54,10 +55,10 @@ class DevelopersController extends Controller
 			'frameworks' => 'required'
 		]);
 
-        $update_user = User::find(Session::get('user')->id)->update(['phone' => $request->phone]);
+       // $update_user = User::find(Session::get('user')->id)->update(['phone' => $request->phone]);
 
         $developerData = [
-                            'user_id' => Session::get('user')->id,
+                            'user_id' => Auth::user()->id,
                             'years_of_experience' => ($request->pro)? $request->pro: $request->years_other,
                             'languages' => $request->languages,
                             'frameworks' => $request->frameworks,
@@ -70,8 +71,8 @@ class DevelopersController extends Controller
         Session::flash('flash_message', 'Developer added!');
 
         //login developer
-        auth()->login(Session::get('user'));
-        return redirect()->to('developer/dashboard');
+       // auth()->login(Session::get('user'));
+        return redirect()->to('/create');
     }
 
     /**

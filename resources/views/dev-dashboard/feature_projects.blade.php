@@ -50,12 +50,11 @@
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <h3 class="c-brand w-900">{{$projects->job_scope}}</h3>
-                                                                        <p class="align-justify f-12"><strong>Switch</strong><span class="opacity-50"> Yaba, Lagos</span></p>
+                                                                        <p class="align-justify f-12"><strong>{{$projects->firstname}}</strong><span class="opacity-50"> Yaba, Lagos</span></p>
                                                                         <div class="less clearfix">
-                                                                            <p class="align-justify f-12">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                                               when an unknown printer took a galley of type and scrambled it to make a type
-                                                                               specimen book.
-                                                                             </p>
+                                                                            <p class="align-justify f-12">
+                                                                            {{$projects->aboutus}}
+                                                                            </p>
                                                                         </div>
                                                                         <div class="more clearfix">
                                                                             <h4><strong>Summary:</strong></h4>
@@ -80,7 +79,7 @@
                                                                                 <li>Where can I get some?</li>
                                                                             </ul>
                                                                             <h4><strong>Submit A Proposal</strong></h4>
-                                                                            <form method="POST" action="/proposal">
+                                                                            <form method="POST" action="/proposal/{{$projects->id}}">
                                                                               {{csrf_field()}}
                                                                                 <div class="form-group">
                                                                                     <label class="input-label" for="right_person">Describe why you are the right person for this job.</label>
@@ -107,12 +106,13 @@
                                                                          <p class="opacity-50 f-11">javascript, .net, php</p>
                                                                     </div>
                                                                     <div class="col-md-3">
-                                                                        <h3 class="c-brand text-center w-900"><span class="m-r-5">&#8358;</span><span>6000</span></h3>
+                                                                        <h3 class="c-brand text-center w-900"><span class="m-r-5">&#8358;</span><span>{{$projects->cost}}</span></h3>
                                                                     </div>
                                                                 </div>
                                                                 <div class="footer">
                                                                     <hr>
                                                                     <div class="stats">
+                                                                        <input type="hidden" name="" value="{{$projects->id}}">
                                                                         <button class="btn btn-sm btn-brand">Interested</button>
                                                                     </div>
                                                                     <div class="stats f-right">

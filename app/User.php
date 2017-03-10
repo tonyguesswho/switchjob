@@ -48,8 +48,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Job');
     }
 
-    public function CompanyDetails(){
-        return $this->hasOne('App\CompanyDetail');
+    public function CompanyDetail()
+    {
+      return $this->hasOne('App\CompanyDetail');
+
+    }
+
+
+    public function Invite()
+    {
+      return $this->hasMany('App\Invite');
 
     }
 }

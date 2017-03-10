@@ -16,20 +16,13 @@
                     </div>
                     <div><br><br></div>
                     <form action="/register" method="post" class="forms">
-<<<<<<< HEAD
+
                          {{ csrf_field() }}
                         <input type="text" name="firstname" placeholder="First Name" class="input-field form-control user" />
                         <input type="text" name="lastname" placeholder="Last Name" class="input-field form-control user" />
                         <input type="email" name="email" placeholder="user@domain.com" class="input-field form-control email" />
                         <input type="password" name="password" placeholder="Password" class="input-field form-control password" />
                         <input type="password" name="password_confirmation" placeholder="Confirm Password" class="input-field form-control password" />
-=======
-                          {{csrf_field()}}
-                        <input type="text" placeholder="Full Name" class="input-field form-control form-control-bg user" />
-                        <input type="email" placeholder="samson@yahoo.com" class="input-field form-control form-control-bg email" />
-                        <input type="password" placeholder="Password" class="input-field form-control form-control-bg password" />
-                        <input type="password" placeholder="Confirm Password" class="input-field form-control form-control-bg password" />
->>>>>>> c02b6a26b3c7be1cafcf8d042f237336fb1dc3c9
                         <button id="submit-form" class="btn btn-login btn-block ladda-button" data-style="expand-left"><span class="ladda-label">Sign Up</span></button>
                     </form>
                     <div class="login-links">

@@ -31,4 +31,15 @@ class job extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+
+    public function Developer()
+    {
+        return $this->belongsTo('App\Developer');
+    }
+
+     public function CompanyDetail()
+    {
+        return $this->belongsTo('App\CompanyDetail');
+    }
 }

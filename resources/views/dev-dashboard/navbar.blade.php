@@ -37,7 +37,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/logout">
                                     <p class="hidden-md hidden-lg"><i class="icon-logout"></i></p>
                                     <span>Log out</span>
                                 </a>
@@ -70,7 +70,7 @@
                             </a>
                         </li>
                                 <li>
-                            <a href="/project/profile/{{auth::user()->id}}">
+                            <a href="/profile/{{auth::user()->id}}">
                                 <i class="icon-user"></i>
                                 <p>Your Profile</p>
                             </a>

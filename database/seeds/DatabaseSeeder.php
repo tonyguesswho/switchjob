@@ -14,5 +14,7 @@ class DatabaseSeeder extends Seeder
 
     	factory(App\Job::class, 10)->create();
         // $this->call(UsersTableSeeder::class);
+
+        factory(App\CompanyDetail::class, 10)->create();
     }
 }
