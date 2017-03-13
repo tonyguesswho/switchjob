@@ -4,7 +4,87 @@
 
     <body>
         <div class="wrapper clearfix animsition pos-rel">
-          @include('dev-dashboard.navbar')
+          <header>
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand animated" href="/">
+                          <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="animated">
+                                <a href="#">
+                                   <p class="hidden-md hidden-lg"><i class="icon-badge"></i></p>
+                                   <span>Account</span>
+                                </a>
+                            </li>
+                            <li class="dropdown animated">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p class="hidden-md hidden-lg"><i class="icon-bell"></i></p>
+                                    <span>Dropdown
+                                    <b class="caret"></b></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/logout">
+                                    <p class="hidden-md hidden-lg"><i class="icon-logout"></i></p>
+                                    <span>Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+          </header>
+          <div class="pos-rel width-100p m-auto" style="height: calc(100% - 61px)">
+            <div class="sidebar">
+                <div class="sidebar-wrapper">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="/dashboard">
+                                <i class="icon-chart"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/project">
+                                <i class="icon-layers"></i>
+                                <p>Projects</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/payment">
+                                <i class="icon-wallet"></i>
+                                <p>Transaction</p>
+                            </a>
+                        </li>
+                                <li>
+                            <a href="/profile/{{auth::user()->id}}">
+                                <i class="icon-user"></i>
+                                <p>Your Profile</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
 
             <div class="main-panel">
                 <!--cck -->
@@ -89,7 +169,7 @@
                                     <h3 class="title c-brand w-900">On going projects</h3>
                                     <p class="category">Here is a subtitle for this table</p>
                                 </div>
-                                @foreach($projects as $project)
+                                
                                 <div class="content clearfix">
                                     <div class="col-md-12">
                                         <div class="table-responsive table-full-width">
@@ -102,19 +182,21 @@
                                                     <th>Deadline</th>
                                                 </tr></thead>
                                                 <tbody>
+                                                @foreach($projects as $key => $project)
                                                     <tr>
-                                                        <td></td>
+                                                        <td>{{$key}}</td>
                                                         <td>{{$project->project}}</td>
                                                         <td>{{$project->cost}}</td>
                                                         <td>{{$project->company_name}}</td>
                                                         <td>{{$project->deadline}}</td>
-                                                    </tr>       
+                                                    </tr>  
+                                                    @endforeach     
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
+                                
                             </div>
                         </div>
                     </div>
