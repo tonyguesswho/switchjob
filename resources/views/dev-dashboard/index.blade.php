@@ -94,10 +94,10 @@
                             <span class="fa fa-briefcase pos-abs p-l-10 p-t-10 z-index c-white"></span>
                             <div class="card card-bg-dark text-center pos-rel p-15 dis-flex">
                                 <div class="figures">
-                                    <h3>22</h3>
+                                    <h3>{{$projects->count()}}</h3>
                                     <p>PROJECTS</p>
                                     <hr class="width-50p m-auto">
-                                    <small>Last Week: 5</small>
+                                    <small>Last Week:</small>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +155,9 @@
                                         <br>
                                         <hr>
                                         <div class="stats">
-                                            <i class="fa fa-history"></i> Updated 3 minutes ago
+                                        @foreach($projects as $project)
+                                            <i class="fa fa-history"></i> {{$project->created_at->diffForHumans()}}
+                                        @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -183,8 +185,9 @@
                                                 </tr></thead>
                                                 <tbody>
                                                 @foreach($projects as $key => $project)
+
                                                     <tr>
-                                                        <td>{{$key}}</td>
+                                                        <td>{{$key+1}}</td>
                                                         <td>{{$project->project}}</td>
                                                         <td>{{$project->cost}}</td>
                                                         <td>{{$project->company_name}}</td>

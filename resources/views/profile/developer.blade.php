@@ -43,7 +43,7 @@
                                 <div class="form-el-group">
                                     <div class="form-el">
                                         <label class="input-label" for="name"></label>
-                                        <input type="text" name="name" id="name" class="form form-control" placeholder="John Doe" >
+                                        <input type="text" value="{{$user->firstname}} {{$user->lastname}}" name="name" id="name" class="form form-control" placeholder="John Doe">
                                     </div>
                                 </div>
                                 <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
@@ -54,7 +54,7 @@
                                 <div class="form-el-group">
                                     <div class="form-el">
                                         <label class="input-label" for="email"></label>
-                                        <input type="email" name="email" value="" id="email" class="form form-control" placeholder="someone@switch.ng">
+                                        <input type="email" name="email" value="{{$user->email}}" id="email" class="form form-control" placeholder="someone@switch.ng">
                                     </div>
                                 </div>
                                 <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>

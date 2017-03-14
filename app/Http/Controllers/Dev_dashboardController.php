@@ -23,7 +23,7 @@ class Dev_dashboardController extends Controller
     public function index()
     {   
         $projects = Invite::where('user_id', Auth::user()->id)->paginate(4);
-
+        
         return view('dev-dashboard.index', compact('projects'));
     }
 
