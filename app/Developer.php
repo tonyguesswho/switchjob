@@ -36,4 +36,11 @@ class Developer extends Model
     {
         # code...
     }
+
+    public function userdetails(){
+
+        return $this->hasOne('App\Userdetails');
+    }
+
+    
 }
