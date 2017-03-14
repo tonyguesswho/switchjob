@@ -3,6 +3,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App\User;
+use App\UserType;
+use App\CompanyDetail;
+use App\Developer;
+use App\Userdetails;
+use App\Invite;
+use Auth;
 class CompanyController extends Controller
 {
 
@@ -13,8 +19,10 @@ class CompanyController extends Controller
     }
 
     public function dev()
-    {
-        return view('company.dev');
+
+    {   $developers = Developer::join('userdetails','developers.id','=','userdetails.user_id')->get();
+        //dd($developers);
+        return view('company.dev',compact('developers'));
 
     }
     public function payment()
@@ -37,6 +45,16 @@ class CompanyController extends Controller
         return view('company.projectdetail');
 
     }
+    public function companyinvite(User $id){
+        $companyInvite=invite::create([
+
+            'company_name'=>Auth::user()->name,
+            'company_id'=>Auth::user()->id,
+            'email'=>Auth::user()->email,
+            'developer_id'=>$id->id,
+            ]);
+       return redirect()->to('company/dashboard');
+        }
 
     
     public function setup()
@@ -67,10 +85,21 @@ class CompanyController extends Controller
             'email'=>request('company_email'),
             'password'=>bcrypt(request('company_password')),
             'phone'=>request('company_phone'),
+            
 
             ]);
         
         auth()->login($company);
+
+        $companyDetail = new CompanyDetail();
+        $companyDetail->user_id = \Auth::user()->id;
+        $companyDetail->building = $request->building;
+        $companyDetail->products = $request->products;
+        $companyDetail->start_period = $request->start_period;
+        $companyDetail->cost = $request->cost;
+
+        $companyDetail->save();
+
         return redirect()->to('company/dashboard');
     }
 }

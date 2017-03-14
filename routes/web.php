@@ -51,3 +51,5 @@ Route::get('company/profile','CompanyController@profile');
 Route::get('company/project','CompanyController@project');
 Route::get('company/projectdetail','CompanyController@projectdetail');
 
+Route::post('company/invite/{id}','CompanyController@companyinvite');
+

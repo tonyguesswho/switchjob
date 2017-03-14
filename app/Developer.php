@@ -25,7 +25,7 @@ class Developer extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'years_of_experience', 'pass_work', 'available_hours', 'languages', 'frameworks'];
+    protected $guarded = ['id'];
 
     public function skills()
     {
@@ -40,5 +40,10 @@ class Developer extends Model
     public function Job()
     {
         return $this->hasMany('App\Job');
+    }
+
+    public function userdetails(){
+
+        return $this->hasOne('App\Userdetails');
     }
 }
