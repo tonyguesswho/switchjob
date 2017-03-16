@@ -162,7 +162,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="company/payment">
+                            <a href="/company/payment">
                                 <i class="icon-wallet"></i>
                                 <p>Transaction</p>
                             </a>
@@ -174,7 +174,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            <a href="company/profile">
+                            <a href="/company/profile">
                                 <i class="icon-user"></i>
                                 <p>Account</p>
                             </a>
