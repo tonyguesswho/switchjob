@@ -97,7 +97,9 @@
                                     <h3>{{$projects->count()}}</h3>
                                     <p>PROJECTS</p>
                                     <hr class="width-50p m-auto">
-                                    <small>Last Week:</small>
+                                    
+                                    <small>Last Week: {{$week->count()}}</small>
+
                                 </div>
                             </div>
                         </div>
@@ -155,9 +157,8 @@
                                         <br>
                                         <hr>
                                         <div class="stats">
-                                        @foreach($projects as $project)
-                                            <i class="fa fa-history"></i> {{$project->created_at->diffForHumans()}}
-                                        @endforeach
+                                        
+                                            <i class="fa fa-history"></i>                                        
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +208,11 @@
                 <!-- jj -->
             </div>
           </div>
-
+            @foreach($month as $months)
+            @if($months->month == '3')
+            {{$months->month_count}}
+            @endif
+            @endforeach
 
         </div>
 

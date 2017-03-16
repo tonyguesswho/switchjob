@@ -8,6 +8,7 @@ use App\Invite;
 use App\CompanyDetail;
 use App\Developer;
 use App\Userdetail;
+use App\carbon;
 use App\Country;
 use App\City;
 use App\Job;
@@ -22,10 +23,20 @@ class Dev_dashboardController extends Controller
      */
     public function index()
     {   
-        $projects = Invite::where('user_id', Auth::user()->id)->paginate(4);
+        $projects = Invite::where('user_id', Auth::user()->id)->get();
+      
+        $month = Invite::where('user_id', Auth::user()->id)
+        ->select(DB::raw('MONTH(created_at) month, count(*) month_count'))
+        ->groupBy('month') 
+        ->orderBy('month')->get();
         
-        return view('dev-dashboard.index', compact('projects'));
+        $todayMinusOneWeekAgo = \Carbon\Carbon::today()->subWeek();
+        $week = Invite::where('created_at', $todayMinusOneWeekAgo)->get();
+
+        return view('dev-dashboard.index', compact('projects','week','month'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -34,8 +45,7 @@ class Dev_dashboardController extends Controller
      */
     public function create()
     {  
-        $project = DB::table('jobs')
-                ->join('users', 'jobs.user_id', '=', 'users.id' )
+        $project = Job::join('users', 'jobs.user_id', '=', 'users.id' )
                 ->join('company_details','jobs.user_id', '=', 'company_details.user_id')
                 ->paginate(4);
                 

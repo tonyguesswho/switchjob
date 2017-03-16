@@ -143,13 +143,11 @@
                                                                             </p>
                                                                             <h4><strong>Duration:</strong></h4>
                                                                             <p class="align-justify f-12">
-                                                                                It is a long established fact that a reader will be distracted by the readable content
-                                                                                of a page when looking at its layout.
+                                                                                {{$projects->start_date}}
                                                                             </p>
                                                                             <h4><strong>Availability:</strong></h4>
                                                                             <p class="align-justify f-12">
-                                                                                Contrary to popular belief, Lorem Ipsum is not simply random text.
-                                                                                It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                                                                                {{$projects->job_attachment}}
                                                                             </p>
                                                                             <h4><strong>Brief Technical Overview:</strong></h4>
                                                                             <ul class="f-12">

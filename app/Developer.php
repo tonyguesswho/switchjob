@@ -42,7 +42,7 @@ class Developer extends Model
         return $this->hasMany('App\Job');
     }
 
-    public function userdetails(){
+    public function Userdetails(){
 
         return $this->hasOne('App\Userdetails');
     }

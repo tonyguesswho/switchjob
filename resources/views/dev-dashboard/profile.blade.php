@@ -102,7 +102,7 @@
                                     </a>
                                 </div>
                                 <p class="description text-center"> 
-                                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                                    {{old('about_me', $users->Userdetail->about_me)}}
                                 </p>
                             </div>
                             <hr>
