@@ -42,7 +42,7 @@ Route::get('/payment', 'Dev_dashboardController@payment');
 Route::post('/proposal/{proposal}', 'ProposalController@create');
 
 Route::post('/profile/company', 'CompanyController@store');
-//Route::post('/profile/company', 'CompanyController@store');
+
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('company/dashboard','CompanyController@dashboard');
 Route::get('company/dev','CompanyController@dev');
