@@ -19,7 +19,6 @@
         <!-- WEBFONT -->
         <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
     </head>
-
     <body>
         <div class="wrapper clearfix animsition pos-rel">
           <header>
@@ -107,7 +106,7 @@
                 <!--cck -->
                 <div class="p-0">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 panels">
                             <span class="fa fa-briefcase pos-abs p-l-10 p-t-10 z-index c-white"></span>
                             <div class="card card-bg-dark text-center pos-rel p-15 dis-flex">
                                 <div class="figures">
@@ -118,7 +117,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 panels">
                             <span class="fa fa-folder-open pos-abs p-l-10 p-t-10 z-index c-white"></span>
                             <div class="card card-bg-red text-center pos-rel p-15 dis-flex">
                                 <div class="figures">
@@ -129,7 +128,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 panels">
                             <span class="fa fa-archive pos-abs p-l-10 p-t-10 z-index c-white"></span>
                             <div class="card card-bg-green text-center pos-rel p-15 dis-flex">
                                 <div class="figures">
@@ -140,7 +139,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 panels">
                             <span class="fa fa-bookmark pos-abs p-l-10 p-t-10 z-index c-white"></span>
                             <div class="card card-bg-blue text-center pos-rel p-15 dis-flex">
                                 <div class="figures">
@@ -252,23 +251,19 @@
                 <!-- jj -->
             </div>
           </div>
-
-
         </div>
-
         <!-- SCRIPTS -->
-            <script src="../assets/js/jquery.min.js"></script>
-            <script src="../assets/js/bootstrap.min.js"></script>
-            <script src="../assets/js/animisition.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-            <script src="../assets/js/main2.js"></script>
-            <script>
-                $(document).ready(function(){
-                    app.pageTransition();
-                    app.barChart();
-                    app.sidebarCtrl();
-                });
-            </script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/animisition.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <script src="../assets/js/main2.js"></script>
+        <script>
+            $(document).ready(function(){
+                app.pageTransition();
+                app.barChart();
+                app.sidebarCtrl();
+            });
+        </script>
     </body>
-
 </html>

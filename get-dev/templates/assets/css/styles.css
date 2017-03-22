@@ -41,7 +41,7 @@ body {
 }
 
 body{
-	background: url("assets/img/patern.jpg") repeat 0 0 #fcfcfc;
+	background: url("/assets/img/patern.jpg") repeat 0 0 #fcfcfc;
 	color: #454545;
 }
 

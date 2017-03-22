@@ -1,7 +1,74 @@
-@extends('layouts.company')
-@section('content')
+<!DOCTYPE html>
+<html>
 
-        
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <title>Company Dashboard</title>
+        <!-- STYLESHEETS-->
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/animsition.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+        <!-- CUSTOM STYLES -->
+        <link rel="stylesheet" href="../assets/css/main.css">
+        <link rel="stylesheet" href="../assets/css/form2.css">
+        <link rel="stylesheet" href="../assets/css/dashboard.css">
+        <!-- WEBFONT -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+        <style>
+            /*hide all animated initially.....*/
+            h3{
+              line-height: 30px;
+            }
+            .animated {
+              visibility: hidden;
+            }
+            .card .more{
+              display: none;
+            }
+            .btn-brand{
+              border-bottom-left-radius: 0px;
+              width: 150px;
+              background: #FFCC29;
+              color: #FFF;
+              font-weight: 900;
+            }
+            .btn-brand:hover, .btn-brand:active, .btn-brand:visited, .btn-brand.active, .btn-brand:focus{
+              color: #FFF;
+            }
+
+            .footer .likes,
+            .footer .dislikes{
+              cursor: pointer;
+            }
+
+            /*Company Styles*/
+            thead, th{
+                background-color: #FFCC29;
+                color: white !important;
+            }
+            th:first-child, th:nth-child(2), th:nth-child(3), th:nth-child(4), tr, td {
+                text-align: left !important;
+            }
+            tr td:nth-child(4) p{
+                border-radius: 40px;
+                background-color: #e4e4e4;
+                text-align: center;
+                margin-bottom: 0px;
+            }
+            #sts {
+            	font-weight: normal !important;
+            	margin-bottom: 0;
+            }
+        </style>
+
+    </head>
+
+    <body>
         <div class="wrapper clearfix animsition pos-rel">
           <header>
             <nav class="navbar navbar-default navbar-fixed">
@@ -13,8 +80,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand animated" href="/company/dashboard">
-                          <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
+                        <a class="navbar-brand animated" href="../index.html">
+                          <img src="../assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -57,39 +124,39 @@
                 <div class="sidebar-wrapper">
                     <ul class="nav">
                         <li>
-                            <a href="/company/dashboard">
+                            <a href="dashboard.html">
                                 <i class="icon-chart"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="active">
-                            <a href="/company/project">
+                            <a href="projects.html">
                                 <i class="icon-layers"></i>
                                 <p>Projects</p>
                             </a>
                         </li>
                         <li>
-                            <a href="/company/profile">
+                            <a href="payment.html">
                                 <i class="icon-wallet"></i>
                                 <p>Transaction</p>
                             </a>
                         </li>
                         <li>
-                            <a href="/company/dev">
-                                <i class="icon-layers"></i>
+                            <a href="devs.html">
+                                <i class="icon-grid"></i>
                                 <p>Developers</p>
                             </a>
                         </li>
                         <li>
-                            <a href="/company/profile">
+                            <a href="profile.html">
                                 <i class="icon-user"></i>
                                 <p>Account</p>
                             </a>
                         </li>
                     </ul>
-                </div>
+            	</div>
             </div>
-           <div class="main-panel dash">
+            <div class="main-panel dash">
               <div class="content">
                   <div class="p-0">
                     <div class="row">
@@ -102,9 +169,9 @@
                                             <div class="clearfix p-15 pos-rel">
                                                 <div class="border-bottom">
                                                     <ul class="list-inline">
-                                                        <li class="f-18 c-brand w-900">Projects</li>
+                                                        <li class="f-18 c-brand w-900">Project Milestones</li>
                                                         <li class="f-right">
-                                                            <a class="btn btn-sm btn-brand" data-toggle="modal" href='#modal-id'><i class="fa fa-plus" aria-hidden="true"></i> Add Projects</a>
+                                                            <a class="btn btn-sm btn-brand" data-toggle="modal" href='#modal-id'><i class="fa fa-plus" aria-hidden="true"></i> Add Milestone</a>
 
                                                         </li>
                                                     </ul>
@@ -117,86 +184,60 @@
                                                     <table class="table table-bordered comp-table" id="dTable" border="1">
                                                         <thead class="p-t-10 p-b-10">
                                                             <tr>
-                                                                <th class="w-600 f-15">Project List</th>
+                                                                <th class="w-600 f-15">Title</th>
                                                                 <th class="w-600 f-15">Start Date</th>
                                                                 <th class="w-600 f-15">Deadline</th>
                                                                 <th class="w-600 f-15">Progress</th>
                                                                 <th class="w-600 f-15">Status</th>
-                                                                <th class="w-600 f-15">View/Edit</i></th>
+                                                                <th class="w-600 f-15"><i class="fa fa-bars" aria-hidden="true"></i></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td>Yase</td>
-                                                                <td>-</td>
-                                                                <td>-</td>
-                                                                <td>
-                                                                    <div class="progress" id="pro">
-                                                                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                                                        N/A
-                                                                      </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><p id="sts" class="align-center">Pending</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <a href="/company/projectdesc"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Get-Dev</td>
-                                                                <td>2015-11-13</td>
+                                                                <td>Initial Design Concepts</td>
+                                                                <td>2015-12-13</td>
                                                                 <td>2016-01-23</td>
-                                                                <td>
-                                                                    <div class="progress" id="pro">
-                                                                      <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%; color: white;">
-                                                                        20%
-                                                                      </div>
-                                                                    </div>
-                                                                </td>
+                                                                <td><p id="pro">0</p></td>
                                                                 <td><p id="sts" class="align-center">In Progress</p></td>
                                                                 <td>
                                                                     <div id="lst" class="align-center">
-                                                                        <a href="/company/projectdesc"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Sarelo</td>
+                                                                <td>Layout Design</td>
+                                                                <td>2015-12-13</td>
                                                                 <td>2016-01-23</td>
-                                                                <td>2016-06-03</td>
-                                                                <td>
-                                                                    <div class="progress" id="pro">
-                                                                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; text-align:center;">
-                                                                        0%
-                                                                      </div>
-                                                                    </div>
-                                                                </td>
+                                                                <td><p id="pro">0</p></td>
                                                                 <td><p id="sts" class="align-center">In Progress</p></td>
                                                                 <td>
                                                                     <div id="lst" class="align-center">
-                                                                        <a href="project_description.html"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
                                                                     </div>
                                                                 </td>
-                                                                
                                                             </tr>
-                                                            
                                                             <tr>
-                                                                <td>Shopper</td>
-                                                                <td>2017-02-13</td>
-                                                                <td>2017-05-23</td>
-                                                                <td>
-                                                                    <div class="progress" id="pro">
-                                                                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                                                        0%
-                                                                      </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><p id="sts" class="align-center">In progress</p></td>
+                                                                <td>Frontend Design Integration</td>
+                                                                <td>2015-12-13</td>
+                                                                <td>2016-01-23</td>
+                                                                <td><p id="pro">0</p></td>
+                                                                <td><p id="sts" class="align-center">In Progress</p></td>
                                                                 <td>
                                                                     <div id="lst" class="align-center">
-                                                                        <a href="project_description.html"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Wordpress Backend Development</td>
+                                                                <td>2015-12-13</td>
+                                                                <td>2016-01-23</td>
+                                                                <td><p id="pro">0</p></td>
+                                                                <td><p id="sts" class="align-center">In Progress</p></td>
+                                                                <td>
+                                                                    <div id="lst" class="align-center">
+                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -222,44 +263,17 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title align-center uppercase">Fill the fields below to add a new milestone</h4>
+                        <h4 class="modal-title align-center uppercase">*Fill the fields below to add a new milestone</h4>
                     </div>
                     <div class="modal-body">
                         <form action="" method="" role="">
                             <div class="form-group">
-                                <label for="">Project Name</label>
-                                <input type="text" class="form-control" id="mTitle" placeholder="Name of Project">
-                                <label for="">Budget</label>
-                                <input type="number" class="form-control" aria-label="Amount (to the nearest naira)" value="">
-                                <label for="">Project Description</label>
-                                <textarea name="Pdes" id="inputPdes" class="form-control" rows="3" required="required" placeholder="Write your project description in details"></textarea>
-                            
-                                <input type="date" class="form-control" id="sDate" placeholder="" value="-" style="display: none;">
-
+                                <label for="">Title</label>
+                                <input type="text" class="form-control" id="mTitle" placeholder="Title of Milestone">
+                                <label for="">Start Date</label>
+                                <input type="date" class="form-control" id="sDate" placeholder="">
                                 <label for="">Deadline</label>
                                 <input type="date" class="form-control" id="dLine" placeholder="">
-
-                                <label for="">Duration</label><br />
-                                <input type="radio" name="opt" id="inputOpt1" value="Less than 1 week" checked="checked">
-                                Less than 1 week <br />
-                                <input type="radio" name="opt" id="inputOpt2" value="Less than 3 weeks">
-                                Less than 3 weeks <br />
-                                <input type="radio" name="opt" id="inputOpt3" value="Less than 1 month">
-                                Less than 1 month <br />
-                                <input type="radio" name="opt" id="inputOpt4" value="Within 6 months">
-                                Within 6 months <br />
-
-                                <label for="">Skills Set</label>
-                                <textarea name="skills" id="inputskills" class="form-control" rows="3" required="required" placeholder="Seperate each skills with comma (,)"></textarea>
-
-                                <label for="">Project Availability</label> <br />
-                                <input type="radio" name="avail" id="inputavail1" value="Part-Time" checked="checked">Part-Time <br />
-                                <input type="radio" name="avail" id="inputavail2" value="">
-                                Full-Time <br />
-                                 <input type="radio" name="avail" id="inputavail3" value="">
-                                Always Available <br />
-
-
                             </div>
 
                             <input type="button" class="btn btn-xs btn-brand" id ="fSubmit" value="Submit" />
@@ -271,11 +285,11 @@
         </div>
 
         <!-- SCRIPTS -->
-            <script src="/switch/assets/js/jquery.min.js"></script>
-            <script src="/switch/assets/js/bootstrap.min.js"></script>
-            <script src="/switch/assets/js/jquery.vegas.min.js"></script>
-            <script src="/switch/assets/js/animisition.min.js"></script>
-            <script src="/switch/assets/js/main2.js"></script>
+            <script src="../assets/js/jquery.min.js"></script>
+            <script src="../assets/js/bootstrap.min.js"></script>
+            <script src="../assets/js/jquery.vegas.min.js"></script>
+            <script src="../assets/js/animisition.min.js"></script>
+            <script src="../assets/js/main2.js"></script>
             <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
             <script>
@@ -345,6 +359,6 @@
                 } );
                 
             </script>
-    @endsection
+    </body>
 
-
+</html>

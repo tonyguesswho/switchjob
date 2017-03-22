@@ -1,100 +1,7 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.company')
+@section('content')
 
-    <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Your profile Dashboard</title>
-        <!-- STYLESHEETS-->
-        <link rel="stylesheet" href="/switch/assets/css/bootstrap.min.css">
-
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
-        <link rel="stylesheet" type="text/css" href="/switch/assets/css/animsition.min.css">
-        <link rel="stylesheet" type="text/css" href="/switch/assets/css/animate.css">
-        <!-- CUSTOM STYLES -->
-        <link rel="stylesheet" href="/switch/assets/css/main.css">
-        <link rel="stylesheet" href="/switch/assets/css/form2.css">
-        <link rel="stylesheet" href="/switch/assets/css/dashboard.css">
-        <!-- WEBFONT -->
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
-        <style>
-            .middleline{
-            border-right: 1px solid #ddd;
-            width: 20%;
-            padding-left: 10px;
-            margin-bottom: 5px;
-            font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
-            color: #9A9A9A;
-        }
-        .profile{
-            margin-top: 30px;
-        }
-        .contain{
         
-        }
-        .nav-tabs {
-            border-bottom: 1px solid transparent;
-        }
-        .nav-tabs>li>a {
-            margin-right: 0px;
-            line-height: 1.42857143;
-            border: 1px solid #ddd;
-            border-radius: 0;
-            background: white;
-            color: #333;
-            font-size: 14px;
-            font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
-            
-        }
-        .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-            color: white;
-            cursor: default;
-            background-color:  #FFCC29 !important;
-            border: 1px solid #ddd;
-            border-bottom-color: #ddd;
-        }
-        .nav-tabs{
-            width: 957px;
-            margin-left: 22px;
-        }
-      /*  .btn{
-            border-radius: 0px;
-            background: #efeded;
-        }*/
-        .table > thead > tr > th {
-            border-bottom-width: 1px;
-            font-size: 14px;
-            color: #333;
-            text-align: left;
-            font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        }
-        .table > tbody > tr > td{
-            text-align: left;
-            padding: 12px 8px;
-            vertical-align: middle;
-            font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        }
-        .input{
-            width: 63%;
-            border-radius: 0px;
-
-        }
-        .select{
-            width: 30%;
-            border-radius: 0px;
-        }
-        .settings{
-            font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 24px;
-        }
-        .hr {
-            border-top: 1px solid #9A9A9A;
-        }
-        </style>
-        
-    </head>
-    <body>
         <div class="wrapper clearfix animsition pos-rel">
           <header>
             <nav class="navbar navbar-default navbar-fixed">
@@ -106,8 +13,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand animated" href="/company/dashboard">
-                          <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
+                        <a class="navbar-brand animated" href="../index.html">
+                          <img src="../assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -162,7 +69,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/company/payment">
+                            <a href="/comany/payment">
                                 <i class="icon-wallet"></i>
                                 <p>Transaction</p>
                             </a>
@@ -224,14 +131,11 @@
                                             </li>
                                         </ul>
                                         <!-- Tab panes -->
-
                                         <div class="card box-sw-none">
                                             <div class="tab-content tabs-content">
                                                 <div role="tabpanel" class="tab-pane active container-fluid tabpane" id="General">
                                                     <h1 class="settings">General Settings 1</h1>
                                                     <hr class="m-t-0">
-
-
                                                     <div class="table-responsive">
                                                         <table class="table profiletable">
                                                             <thead>
@@ -452,15 +356,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-                                            
-
                                                 <div role="tabpanel" class="tab-pane container-fluid tabpane" id="Invoices">
                                                     <h1 class="settings">General Settings 3</h1>
                                                     <hr class="m-t-0">
-
-
                                                     <div class="table-responsive">
                                                         <table class="table">
                                                             <thead>
@@ -560,13 +458,9 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                            
-
                                                 <div role="tabpanel" class="tab-pane container-fluid tabpane" id="Paypal">
                                                     <h1 class="settings">General Settings 4</h1>
                                                     <hr class="m-t-0">
-
-
                                                     <div class="table-responsive">
                                                         <table class="table">
                                                             <thead>
@@ -666,13 +560,9 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                            
-
                                                 <div role="tabpanel" class="tab-pane container-fluid tabpane" id="Emailtemplates">
                                                     <h1 class="settings">General Settings 5</h1>
                                                     <hr class="m-t-0">
-
-
                                                     <div class="table-responsive">
                                                         <table class="table">
                                                             <thead>
@@ -772,13 +662,9 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                            
-
                                                 <div role="tabpanel" class="tab-pane container-fluid tabpane" id="SupportTickets">
                                                     <h1 class="settings">General Settings 6</h1>
                                                     <hr class="m-t-0">
-
-
                                                     <div class="table-responsive">
                                                         <table class="table">
                                                             <thead>
@@ -878,13 +764,9 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                        
-
                                                 <div role="tabpanel" class="tab-pane container-fluid tabpane" id="FormFields">
                                                     <h1 class="settings">General Settings 7</h1>
                                                     <hr class="m-t-0">
-
-
                                                     <div class="table-responsive">
                                                         <table class="table">
                                                             <thead>
@@ -984,7 +866,6 @@
                                                         </table>
                                                     </div>
                                                 </div>
-
                                                 <div role="tabpanel" class="tab-pane container-fluid tabpane" id="Cron">
                                                     <h1 class="settings">General Settings 8</h1>
                                                     <hr class="m-t-0">
@@ -1089,13 +970,9 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                                
-
                                                 <div role="tabpanel" class="tab-pane container-fluid tabpane" id="DBBackup">
                                                     <h1 class="settings">General Settings 9</h1>
                                                     <hr class="m-t-0">
-
-
                                                     <div class="table-responsive">
                                                         <table class="table">
                                                             <thead>
@@ -1195,13 +1072,9 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                            
-
                                                 <div role="tabpanel" class="tab-pane container-fluid tabpane" id="Updates">
                                                     <h1 class="settings">General Settings 10</h1>
                                                     <hr class="m-t-0">
-
-
                                                     <div class="table-responsive">
                                                         <table class="table">
                                                             <thead>
@@ -1301,7 +1174,6 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                            
                                             </div>
                                         </div>
                                     </div>
@@ -1313,24 +1185,21 @@
               </div>
             </div>
           </div>
-
-
         </div>
         <!-- SCRIPTS -->
-            <script src="/switch/assets/js/jquery.min.js"></script>
-            <script src="/switch/assets/js/bootstrap.min.js"></script>
-            <script src="/switch/assets/js/animisition.min.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/animisition.min.js"></script>
+        <script src="../assets/js/main2.js"></script>
+        <script>
+            $(document).ready(function(){
+                app.pageTransition();
+                app.stylishInput();
+                app.toggleCollapse();
+                app.likesController();
+                app.sidebarCtrl();
+            });
+        </script>
+    @endsection
 
-            <script src="/switch/assets/js/main2.js"></script>
-            <script>
-                $(document).ready(function(){
-                    app.pageTransition();
-                    app.stylishInput();
-                    app.toggleCollapse();
-                    app.likesController();
-                    app.sidebarCtrl();
-                });
-            </script>
-    </body>
 
-</html>

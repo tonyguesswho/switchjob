@@ -69,6 +69,8 @@ body {font-family: 'Lato', sans-serif !important;font-size: 14px;color: #808080;
 
 /****  Padding Top  ****/
 .p-t-0 {padding-top:0 !important;}
+.p-t-3 {padding-top:3px !important;}
+.p-t-5 {padding-top:5px !important;}
 .p-t-10 {padding-top:10px !important;}
 .p-t-15 {padding-top:15px !important;}
 .p-t-20 {padding-top:20px !important}
@@ -82,6 +84,8 @@ body {font-family: 'Lato', sans-serif !important;font-size: 14px;color: #808080;
 .p-t-140 {padding-top:140px !important;}
 /****  Padding Bottom  ****/
 .p-b-0 {padding-bottom:0 !important;}
+.p-b-3 {padding-bottom:3px !important;}
+.p-b-5 {padding-bottom:5px !important;}
 .p-b-10 {padding-bottom:10px !important;}
 .p-b-15 {padding-bottom:15px !important;}
 .p-b-20 {padding-bottom:20px !important;}
@@ -163,16 +167,19 @@ body {font-family: 'Lato', sans-serif !important;font-size: 14px;color: #808080;
 .bd-l-blue{border-left:4px solid #0090D9;}
 .bd-l-dark{border-left:4px solid #2B2E33;}
 .bd-l-purple{border-left:4px solid #B57EE0;}
+.bd-l-gray{border-left:1px solid #ECECEC;}
 .bd-b-red{border-bottom:4px solid #C9625F;}
 .bd-b-green{border-bottom:4px solid #5CB85C;}
 .bd-b-blue{border-bottom:4px solid #0090D9;}
 .bd-b-dark{border-bottom:4px solid #2B2E33;}
 .bd-b-purple{border-bottom:4px solid #B57EE0;}
+.bd-b-gray{border-bottom:1px solid #ECECEC;}
 .bd-facebook{border: 2px solid #3B5998;}
 .bd-twitter{border: 2px solid #00ACEE;}
 .bd-youtube{border: 2px solid #FF6347;}
 .bd-instagram{border: 2px solid #E1306C;}
 /****  Background Colors  ****/
+.bg-brand{background-color: #FFCC29 !important;color:#fff !important;}
 .bg-gray  {background-color:#b6b6b6 !important; color:#000 !important; }
 .bg-gray-light  {background-color:#ECECEC !important; color:#000 !important; }
 .bg-red {background-color:#C75757 !important;color:#fff !important;}
@@ -308,10 +315,14 @@ a, a:focus, a:hover, a:active {  outline: 0;}
 .line-h-1{
 	line-height: 1px;
 }
+.line-h-22{
+	line-height: 22px;
+}
 .line-h-45{
 	line-height: 45px;
 }
 /****  Font Size  ****/
+.f-10{font-size: 10px !important;}
 .f-11{font-size:11px !important;}
 .f-12{font-size:12px !important;}
 .f-14{font-size:14px !important;}

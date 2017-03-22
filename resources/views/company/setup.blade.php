@@ -35,7 +35,7 @@
           <section class="form clearfix width-50p p-t-100 p-r-20 p-b-20 p-l-20">
 
                 <!--switch form here -->
-                <form class="switch-form" method="post" action="/profile/company">
+                <form class="switch-form" method="post" action="/profile/setup">
                     
                     {{csrf_field()}}
                     <div class="groups first_group">

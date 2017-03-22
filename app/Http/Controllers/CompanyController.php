@@ -45,6 +45,10 @@ class CompanyController extends Controller
         return view('company.projectdetail');
 
     }
+
+    public function projectdesc(){
+        return view('company.project_desc');
+    }
     public function companyinvite(User $id){
         $companyInvite=invite::create([
 

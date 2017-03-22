@@ -10,8 +10,9 @@
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/animsition.min.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/switch/assets/css/animsition.min.css">
+        <link rel="stylesheet" type="text/css" href="/switch/assets/css/animate.css">
         <!-- CUSTOM STYLES -->
         <link rel="stylesheet" href="/switch/assets/css/main.css">
         <link rel="stylesheet" href="/switch/assets/css/form2.css">
@@ -108,7 +109,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/logout">
                                     <p class="hidden-md hidden-lg"><i class="icon-logout"></i></p>
                                     <span>Log out</span>
                                 </a>
@@ -141,13 +142,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/company/dev">
+                            <a href="/Company/dev">
                                 <i class="icon-grid"></i>
                                 <p>Developers</p>
                             </a>
                         </li>
                         <li>
-                            <a href="company/profile">
+                            <a href="/Company/profile">
                                 <i class="icon-user"></i>
                                 <p>Account</p>
                             </a>
@@ -168,7 +169,7 @@
                                             <div class="clearfix p-15 pos-rel">
                                                 <div class="border-bottom">
                                                     <ul class="list-inline">
-                                                        <li class="f-18">Projects</li>
+                                                        <li class="f-18 c-brand w-900">Project Milestones</li>
                                                         <li class="f-right">
                                                             <a class="btn btn-sm btn-brand" data-toggle="modal" href='#modal-id'><i class="fa fa-plus" aria-hidden="true"></i> Add Milestone</a>
 
@@ -180,7 +181,7 @@
                                         <div class="col-md-12">
                                             <div class="clearfix p-15 pos-rel">
                                                 <div class="table-responsive">
-                                                    <table class="table table-bordered" id="dTable" border="1">
+                                                    <table class="table table-bordered comp-table" id="dTable" border="1">
                                                         <thead class="p-t-10 p-b-10">
                                                             <tr>
                                                                 <th class="w-600 f-15">Title</th>
@@ -289,6 +290,8 @@
             <script src="/switch/assets/js/jquery.vegas.min.js"></script>
             <script src="/switch/assets/js/animisition.min.js"></script>
             <script src="/switch/assets/js/main2.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
             <script>
                 $(document).ready(function(){
                     app.pageTransition();
@@ -350,6 +353,10 @@
                 $('#fSubmit').click(function(){
                     $('#modal-id').modal('hide');
                 });
+
+                $(document).ready(function() {
+                    $('.comp-table').DataTable();
+                } );
                 
             </script>
     </body>
