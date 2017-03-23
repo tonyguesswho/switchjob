@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Invite;
 use App\CompanyDetail;
+use App\DeveloperSocial;
+use App\DeveloperCompleted;
+use App\DeveloperAccount;
 use App\Developer;
 use App\Userdetail;
 use App\carbon;
@@ -23,9 +28,10 @@ class Dev_dashboardController extends Controller
      */
     public function index()
     {   
-        $projects = Invite::where('user_id', Auth::user()->id)->get();
+        $projects = Invite::where('developer_id', Auth::user()->id)->get();
+        $completed = DeveloperCompleted::where('user_id',Auth::user()->id)->get();
       
-        $month = Invite::where('user_id', Auth::user()->id)
+        $month = Invite::where('developer_id', Auth::user()->id)
         ->select(DB::raw('MONTH(created_at) month, count(*) month_count'))
         ->groupBy('month') 
         ->orderBy('month')->get();
@@ -33,7 +39,7 @@ class Dev_dashboardController extends Controller
         $todayMinusOneWeekAgo = \Carbon\Carbon::today()->subWeek();
         $week = Invite::where('created_at', $todayMinusOneWeekAgo)->get();
 
-        return view('dev-dashboard.index', compact('projects','week','month'));
+        return view('dev-dashboard.index', compact('projects','week','month','completed'));
     }
 
 
@@ -60,30 +66,38 @@ class Dev_dashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function socialdetails_update(Request $request, $user_id)
     {
-       
-        $users = Userdetail::create([
+        $socialdetail = User::find($user_id);
+        
 
-            'user_id' => Auth::user()->id,
+        $socialdetail->update($request->all());
+        $socialdetail->DeveloperSocial->user_id = $user_id;
+        $socialdetail->DeveloperSocial->git_account= request('git_account');
+        $socialdetail->DeveloperSocial->skype_id = request('skype_id');
+        $socialdetail->DeveloperSocial->linkedin_id = request('linkedin_id');
+        $socialdetail->DeveloperSocial->available = request('available');
+       // $socialdetail->DeveloperSocial->cv = Storage::putFile('cv', $request->file('cv'));;
+        $socialdetail->DeveloperSocial->save();
 
-            ]);
-
-        $users = Country::create([
-
-            'user_id' => Auth::user()->id,
-
-            ]);
-
-        $users = City::create([
-
-            'user_id' => Auth::user()->id,
-
-            ]);
-
-        return redirect('/dashboard');  
+        return Back();
     }
 
+     public function account_update(Request $request, $user_id)
+    {
+        $accountdetail = User::find($user_id);
+        
+        $accountdetail->DeveloperAccount()->save(new DeveloperAccount(['user_id' => Auth::id()]));
+        $accountdetail->update($request->all());
+        $accountdetail->DeveloperAccount->user_id = $user_id;
+        $accountdetail->DeveloperAccount->account= request('account');
+        $accountdetail->DeveloperAccount->bank = request('bank');
+        $accountdetail->DeveloperAccount->bvn = request('bvn');
+       // $socialdetail->DeveloperSocial->cv = Storage::putFile('cv', $request->file('cv'));;
+        $accountdetail->DeveloperAccount->save();
+
+        return Back();
+    }
 
     
     /**
@@ -110,7 +124,8 @@ class Dev_dashboardController extends Controller
         $users->Userdetail::where('user_id', Auth::user()->id)->get();
         $users->City::where('user_id', Auth::user()->id )->get();
         $users->Country::where('user_id', Auth::user()->id )->get();
-
+        $users->DeveloperSocial::where('user_id', Auth::user()->id)->get();
+        $users->DeveloperAccount::where('user_id', Auth::user()->id)->get();
         return view('dev-dashboard.profile')->with('users', $users);
     }
 
@@ -125,7 +140,7 @@ class Dev_dashboardController extends Controller
 
     {  
         $users = User::find($id);
-
+        
         $users->update($request->all());
         $users->firstname = request('firstname');
         $users->lastname = request('lastname');
@@ -140,6 +155,7 @@ class Dev_dashboardController extends Controller
         $users->Userdetail->save();
         $users->City->save();
         $users->Country->save();
+
         return Back()->with('users', $users);
 
     }

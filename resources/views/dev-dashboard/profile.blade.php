@@ -4,7 +4,7 @@
 
     <body>
         <div class="wrapper clearfix animsition pos-rel">
-         <header>
+          <header>
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -14,7 +14,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand animated" href="/">
+                        <a class="navbar-brand animated" href="/home">
                           <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
                         </a>
                     </div>
@@ -76,7 +76,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            <a href="/profile/{{auth::user()->id}}">
+                            <a href="/profile/{{Auth::user()->id}}">
                                 <i class="icon-user"></i>
                                 <p>Your Profile</p>
                             </a>
@@ -84,7 +84,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="main-panel">
                 <!--cck -->
                 <div class="p-0">
@@ -106,7 +105,7 @@
                                 </p>
                             </div>
                             <hr>
-                            <div class="text-center">
+                            <div class="text-center p-b-5">
                                 <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
                                 <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
                                 <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
@@ -124,20 +123,20 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>Company (disabled)</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="Company" value="Switch Nigeria.">
+                                                <label>Dev ID</label>
+                                                <input type="text" class="form-control" disabled="" placeholder="Company" value="{{$users->id}}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Username</label>
-                                                <input type="text" name="username" class="form-control" placeholder="Username" value="{{ old('username', $users->Userdetail->username)}}">
+                                                <input type="text" class="form-control" placeholder="Username" name="username" value="{{ old('username', $users->Userdetail->username)}}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email', $users->email) }}">
+                                                <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email', $users->email) }}">
                                             </div>
                                         </div>
                                     </div>
@@ -146,13 +145,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" name="firstname" class="form-control" placeholder="First Name" value="{{ old('firstname', $users->firstname) }}">
+                                                <input type="text" class="form-control" name="firstname" placeholder="Company" value="{{ old('firstname', $users->firstname) }}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" name="lastname" class="form-control" placeholder="Last Name" value="{{old('lastname', $users->lastname)}}">
+                                                <input type="text" class="form-control" name="lastname" placeholder="Last Name" value="{{old('lastname', $users->lastname)}}">
                                             </div>
                                         </div>
                                     </div>
@@ -161,7 +160,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" name="address" class="form-control" placeholder="Home Address" value="{{old('address', $users->Userdetail->address)}}">
+                                                <input type="text" class="form-control" name="address" placeholder="Home Address" value=" {{old('address', $users->Userdetail->address)}}">
                                             </div>
                                         </div>
                                     </div>
@@ -170,19 +169,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input type="text" name="city" class="form-control" placeholder="City" value="{{old('city', $users->City->city)}}">
+                                                <input type="text" class="form-control" name="city" placeholder="City" value="{{old('city', $users->City->city)}}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Country</label>
-                                                <input type="text" name="country" class="form-control" placeholder="Country" value="{{old('country', $users->Country->country)}}">
+                                                <input type="text" class="form-control" name="country" placeholder="Country" value="{{old('country', $users->Country->country)}}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Postal Code</label>
-                                                <input type="number" name="postal_code" class="form-control" placeholder="ZIP Code" value="{{old('postal_code', $users->Userdetail->postal_code)}}">
+                                                <input type="number" class="form-control" name="postal_code" placeholder="ZIP Code" value="{{old('postal_code', $users->Userdetail->postal_code)}}">
                                             </div>
                                         </div>
                                     </div>
@@ -191,12 +190,114 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>About Me</label>
-                                                <textarea rows="5" name="about_me" class="form-control" placeholder="Here can be your description" value="">{{old('about_me', $users->Userdetail->about_me)}}</textarea>
+                                                <textarea rows="5" class="form-control" name="about_me" placeholder="Here can be your description" value="Mike">{{old('about_me', $users->Userdetail->about_me)}}</textarea>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-info pull-right">Update Profile</button>
+
+                                    <button type="submit" class="btn btn-brand pull-right">Update Profile</button>
+                                    <div class="clearfix"></div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="content">
+                                <form method="POST" action="/developer/socials/{{$users->id}}">
+                                    {{csrf_field()}}
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Git Account</label>
+                                                <input type="text" class="form-control" name="git_account" placeholder="City" value="{{old('git_account', $users->DeveloperSocial->git_account)}}">
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Skype ID</label>
+                                                <input type="text" class="form-control" name="skype_id" placeholder="Country" value="{{old('skype_id', $users->DeveloperSocial->skype_id)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>LinkedIn ID</label>
+                                                <input type="text" class="form-control" name="linkedin_id" placeholder="Country" value="{{old('linkedin_id', $users->DeveloperSocial->linkedin_id)}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h4><strong><label>Skills:</label></strong></h4>
+                                                                            
+                                    <a href="#"><span class="label label skill">Javascript</span></a>
+                                    <a href="#"><span class="label label skill">PHP</span></a>
+                                    <a href="#"><span class="label label skill">SQL</span></a>
+                                    <a href="#"><span class="label label skill">HTML</span></a>
+                                    <a href="#"><span class="label label skill">Laravel</span></a>
+                                    <a href="#"><span class="label label skill">Css</span></a>
+                                    
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" placeholder="Company" value="Javascript">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Availability:</label>
+                                                <br/>
+                                                    <input type="radio" name="available" id="ava1" value="Part-Time" checked="checked">
+                                                        Part-Time
+                                                    <br/>
+                                                    <input type="radio" name="available" id="ava2" value="Full-Time">
+                                                        Full-Time
+                                                    <br/>
+                                                    <input type="radio" name="available" id="ava3" value="Always Available">
+                                                        Always Available
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    
+                                    <label>Attached Your CV</label>
+                                     <input type="file" name="cv" value="{{old('cv', $users->DeveloperSocial->cv)}}" >  
+                                    
+
+                                    <button type="submit" class="btn btn-brand pull-right">Update Profile</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="content">
+                                <form method="POST" action="/developer/account/{{$users->id}}">
+                                {{csrf_field()}}
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Account Number</label>
+                                                <input type="text" name="account" class="form-control" placeholder="City" value="{{old('account',$users->DeveloperAccount->account)}}">
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Bank Choice</label>
+                                                <input type="text" name="bank" class="form-control" placeholder="Country" value="{{old('account',$users->DeveloperAccount->bank)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>BVN Number</label>
+                                                <input type="text" name="bvn" class="form-control" placeholder="Country" value="{{old('account',$users->DeveloperAccount->bvn)}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                   
+                                    <button type="submit" class="btn btn-brand pull-right">Update Profile</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -204,28 +305,23 @@
                     </div>
                 </div>
             </div>
-                <!-- jj -->
             </div>
           </div>
-
-
         </div>
-
         <!-- SCRIPTS -->
-            <script src="/switch/assets/js/jquery.min.js"></script>
-            <script src="/switch/assets/js/bootstrap.min.js"></script>
-            <script src="/switch/assets/js/animisition.min.js"></script>
-
-            <script src="/switch/assets/js/main2.js"></script>
-            <script>
-                $(document).ready(function(){
-                    app.pageTransition();
-                    app.stylishInput();
-                    app.toggleCollapse();
-                    app.likesController();
-                    app.sidebarCtrl();
-                });
-            </script>
+        <script src="/switch/assets/js/jquery.min.js"></script>
+        <script src="/switch/assets/js/bootstrap.min.js"></script>
+        <script src="/switch/assets/js/animisition.min.js"></script>
+        <script src="/switch/assets/js/main2.js"></script>
+        <script>
+            $(document).ready(function(){
+                app.pageTransition();
+                app.stylishInput();
+                app.toggleCollapse();
+                //app.likesController();
+                app.sidebarCtrl();
+            });
+        </script>
     </body>
 
 </html>

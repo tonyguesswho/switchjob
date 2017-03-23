@@ -77,11 +77,11 @@ const app = {
 		$.vegas('slideshow', {
 		  delay:7000,
 		  backgrounds:[
-		    { src:'assets/img/CUP.jpg', fade:1000 },
+		    { src:'/switch/assets/img/CUP.jpg', fade:1000 },
 		    //{ src:'assets/img/code.jpeg', fade:1000 },
-		    { src:'assets/img/laptop.jpeg', fade:1000 },
-		    { src:'assets/img/meeting.jpg', fade:1000 },
-		    { src:'assets/img/startup.jpg', fade:1000 }
+		    { src:'/switch/assets/img/laptop.jpeg', fade:1000 },
+		    { src:'/switch/assets/img/meeting.jpg', fade:1000 },
+		    { src:'/switch/assets/img/startup.jpg', fade:1000 }
 		  ],
 		  transitionDuration:1000,
 		  transition: 'fade',
@@ -477,6 +477,91 @@ const app = {
             }
         });
 	},
+	doughnutChart: function(){
+        if (document.getElementById("allTasks") == null) {
+            return;
+        }
+        let ctx = document.getElementById("allTasks").getContext("2d");
+        let allTasks = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    "Pending",
+                    "Behind",
+                    "Completed"
+                ],
+                datasets: [{
+                    // label: 'Total Projects',
+                    data: [
+                        9,
+                        1,
+                        6
+                    ],
+                    backgroundColor: [
+                        'rgba(199, 87, 87, 1)',
+                        'rgba(0, 144, 217, 1)',
+                        'rgba(149, 165, 166, 1)'
+                    ]
+                }]
+            }
+        });
+    },
+    pieChart: function(){
+        if (document.getElementById("allProjects") == null) {
+            return;
+        }
+        let ctx = document.getElementById("allProjects").getContext("2d");
+        let allProjects = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    "Pending",
+                    "Behind",
+                    "Completed"
+                ],
+                datasets: [{
+                    // label: 'Total Projects',
+                    data: [
+                        3,
+                        1,
+                        0
+                    ],
+                    backgroundColor: [
+                        'rgba(199, 87, 87, 1)',
+                        'rgba(0, 144, 217, 1)',
+                        'rgba(149, 165, 166, 1)'
+                    ]
+                }]
+            }
+        });
+    },
+    animateTimeline: function(){
+        let items = document.querySelectorAll(".timeline .activity");
+
+        // check if an element is in viewport
+        function isElementInViewport(elements) {
+            let rect = elements.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function callbackFunc() {
+            for (let i = 0; i < items.length; i++) {
+                if (isElementInViewport(items[i])) {
+                    items[i].classList.add("slideInRight");
+                }
+            };
+        }
+
+        // listen for events
+        window.addEventListener("load", callbackFunc);
+        window.addEventListener("scroll", callbackFunc);
+        window.addEventListener("resize", callbackFunc);
+    },
 	//move navbar content and sidebar into right bar content.....
 	sidebarCtrl: function(){
 		let navbar_initialized = false,

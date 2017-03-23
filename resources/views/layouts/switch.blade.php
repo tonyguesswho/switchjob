@@ -11,11 +11,7 @@
 		<!-- STYLESHEETS-->
 		<link rel="stylesheet" href="/switch/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/switch/assets/css/owl.theme.css">
-
 		<link rel="stylesheet" href="/switch/assets/css/owl.carousel.css">
-
-		<link rel="stylesheet" href="/switchassets/css/owl.carousel.css">
-
 		<link rel="stylesheet" href="/switch/assets/css/jquery.vegas.min.css">
 		<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
 		<link rel="stylesheet" href="/switch/assets/css/icons/icon-fonts/styles.css">
@@ -27,22 +23,23 @@
 		<link rel="stylesheet" href="/switch/assets/css/main.css">
 		<link rel="stylesheet" href="/switch/assets/css/index.css">
 		<link rel="stylesheet" href="/switch/assets/css/responsive2.css">
+		<style>
+			.animated{
+				visibility: hidden;
+			}
+		</style>
 		<!-- WEBFONT -->
 		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
 
 		<!-- JQUERY -->
 		<script src="/switch/assets/js/jquery.min.js"></script>
 	</head>
-	<body class="align-center index">
+	<body class="align-center">
 		@yield('content')
-		<!--END WRAPPER -->
+	<!--END WRAPPER -->
 
 		<!-- SCRIPTS -->
-
-	<script src="/switch/assets/js/bootstrap.min.js"></script>
-
 		<script src="/switch/assets/js/bootstrap.min.js"></script>
-
 		<script src="/switch/assets/js/jquery.scrollTo.min.js"></script>
 		<script src="/switch/assets/js/jquery.nav.js"></script>
 		<script src="/switch/assets/js/jquery.knob.js"></script>
@@ -66,7 +63,6 @@
 				app.scrollable();
 				//app.ouibounce();
 			});
-
 
 
 

@@ -35,7 +35,7 @@
           <section class="form clearfix width-50p">
 
                 <!--switch form here -->
-                <form class="switch-form" action="/developers" method="post">
+                <form class="switch-form" action="/developers/{{$user->id}}" method="POST">
                     {{csrf_field()}}
                     <div class="groups first_group">
                         <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
@@ -167,7 +167,7 @@
                                   </div>
                                   <div class="form-el">
                                       <input type="radio" name="hours" value="8-10" id="qstn-9640-2" class="check-box">
-                                      <label class="input-label" for="hours">8- 10 hours </label>
+                                      <label class="input-label" for="hours">8-10 hours </label>
                                   </div>
                                   <div class="form-el other-el">
                                       <input type="radio" name="hours" data-required-input-id="qstn-other-input-9640" id="qstn-other-9640" class="check-box"><label class="input-label" for="qstn-other-9640"><span class="screen-reader-text">Other</span></label><input type="text" name="hours_other" id="qstn-other-input-9640" class="input-text-other" placeholder="Other" maxlength="100">

@@ -42,8 +42,13 @@ class Developer extends Model
         return $this->hasMany('App\Job');
     }
 
-    public function Userdetails(){
+    public function Userdetail(){
 
-        return $this->hasOne('App\Userdetails');
+        return $this->hasOne('App\Userdetail');
+    }
+
+    public function User(){
+
+        return $this->belongsTo('App\User');
     }
 }

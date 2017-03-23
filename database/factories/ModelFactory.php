@@ -55,3 +55,11 @@ $factory->define(App\CompanyDetail::class, function (Faker\Generator $faker) {
        
     ];
 });
+
+$factory->define(App\DeveloperCompleted::class, function (Faker\Generator $faker) {
+   // static $password;
+
+    return [
+        'user_id' => $faker->randomDigit,
+    ];
+});

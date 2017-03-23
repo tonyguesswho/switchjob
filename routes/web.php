@@ -13,7 +13,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::resource('invites', 'InvitesController');
 Route::resource('jobs', 'jobsController');
-Route::post('developers', 'DevelopersController@store');
+
 Route::resource('developer-skills', 'DeveloperSkillsController');
 Route::resource('skills', 'SkillsController');
 Route::resource('live-projects', 'LiveProjectsController');
@@ -37,12 +37,14 @@ Route::get('/dashboard', 'Dev_dashboardController@index');
 Route::get('/project', 'Dev_dashboardController@create');
 Route::get('/profile/{profile}', 'Dev_dashboardController@edit');
 Route::post('/update/{profile}', 'Dev_dashboardController@update');
-Route::get('/create', 'Dev_dashboardController@store');
+//Route::get('/create', 'Dev_dashboardController@store');
 Route::get('/payment', 'Dev_dashboardController@payment');
 Route::post('/proposal/{proposal}', 'ProposalController@create');
+Route::post('/developer/socials/{id}', 'Dev_dashboardController@socialdetails_update');
+Route::post('/developer/account/{id}', 'Dev_dashboardController@account_update');
+Route::post('/developers/{id}', 'DevelopersController@store');
 
 Route::post('/profile/company', 'CompanyController@store');
-
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('company/dashboard','CompanyController@dashboard');
 Route::get('company/dev','CompanyController@dev');

@@ -53,11 +53,25 @@ class User extends Authenticatable
       return $this->hasOne('App\CompanyDetail');
 
     }
+    public function Developer()
+    {
+      return $this->hasOne('App\Developer');
 
+    }
 
     public function Invite()
     {
       return $this->hasMany('App\Invite');
 
+    }
+
+    public function DeveloperSocial()
+    {
+        return $this->hasOne('App\DeveloperSocial');
+    }
+
+    public function DeveloperAccount()
+    {
+        return $this->hasOne('App\DeveloperAccount');
     }
 }
