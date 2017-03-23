@@ -43,7 +43,8 @@ Route::get('company/dashboard','CompanyController@dashboard');
 Route::get('company/dev','CompanyController@dev');
 Route::get('company/payment','CompanyController@payment');
 Route::get('company/profile','CompanyController@profile');
-Route::get('company/project','CompanyController@project');
+Route::get('company/project','CompanyprojectController@projects');
+Route::get('company/addproject','CompanyprojectController@addproject')
 Route::get('company/projectdetail','CompanyController@projectdetail');
 Route::get('company/projectdesc','CompanyController@projectdesc');
 

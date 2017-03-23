@@ -25,7 +25,7 @@ class job extends Model
      *
      * @var array
      */
-    protected $fillable = ['job_type_id', 'description', 'example_app', 'job_attachment', 'start_date', 'job_scope'];
+    protected $guarded = ['id'];
 
     public function User()
     {

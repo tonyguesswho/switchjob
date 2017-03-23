@@ -52,10 +52,10 @@ class CompanyController extends Controller
     public function companyinvite(User $id){
         $companyInvite=invite::create([
 
-            'company_name'=>Auth::user()->name,
-            'company_id'=>Auth::user()->id,
+            'company_name'=>Auth::user()->firstname,
+           // 'company_id'=>Auth::user()->id,
             'email'=>Auth::user()->email,
-            'developer_id'=>$id->id,
+            'user_id'=>$id->id,
             ]);
        return redirect()->to('company/dashboard');
         }
@@ -85,7 +85,7 @@ class CompanyController extends Controller
 
         $company=user::create([
 
-            'name'=>request('company_name'),
+            'firstname'=>request('company_name'),
             'email'=>request('company_email'),
             'password'=>bcrypt(request('company_password')),
             'phone'=>request('company_phone'),

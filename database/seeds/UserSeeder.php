@@ -12,17 +12,19 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => str_random(10),
+            'firstname' => str_random(10),
+            'lastname' => str_random(10),
             'email' => str_random(10).'@gmail.com',
             'password' => bcrypt('secret'),
             'user_type'=>'1'
         ]);
 
         DB::table('users')->insert([
-            'name' => str_random(10),
+            'firstname' => str_random(10),
+            'lastname' => str_random(10),
             'email' => str_random(10).'@gmail.com',
             'password' => bcrypt('secret'),
-            'user_type'=>'2'
+            'user_type'=>'1'
         ]);
     }
 }

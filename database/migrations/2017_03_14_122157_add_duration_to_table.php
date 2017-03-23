@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RemoveDevelopersIdFromTable extends Migration
+class AddDurationToTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class RemoveDevelopersIdFromTable extends Migration
      */
     public function up()
     {
-        Schema::table('invites', function (Blueprint $table) {
-            
-            $table->dropColumn('developer_id');
-        
+        Schema::table('jobs', function (Blueprint $table) {
+            $table->string('duration')->nullable();
         });
     }
 
@@ -27,7 +25,7 @@ class RemoveDevelopersIdFromTable extends Migration
      */
     public function down()
     {
-        Schema::table('invites', function (Blueprint $table) {
+        Schema::table('jobs', function (Blueprint $table) {
             //
         });
     }

@@ -14,7 +14,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand animated" href="../index.html">
-                          <img src="../assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
+                          <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -1187,10 +1187,10 @@
           </div>
         </div>
         <!-- SCRIPTS -->
-        <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/animisition.min.js"></script>
-        <script src="../assets/js/main2.js"></script>
+        <script src="/switch/assets/js/jquery.min.js"></script>
+        <script src="/switch/assets/js/bootstrap.min.js"></script>
+        <script src="/switch/assets/js/animisition.min.js"></script>
+        <script src="/switch/assets/js/main2.js"></script>
         <script>
             $(document).ready(function(){
                 app.pageTransition();

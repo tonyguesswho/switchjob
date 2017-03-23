@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDeveloperIdToTable extends Migration
+class AddUserIdToTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddDeveloperIdToTable extends Migration
      */
     public function up()
     {
-        Schema::table('invites', function (Blueprint $table) {
-            $table->integer('developer_id');
+        Schema::table('developer_accounts', function (Blueprint $table) {
+            $table->integer('user_id');
         });
     }
 
@@ -25,7 +25,7 @@ class AddDeveloperIdToTable extends Migration
      */
     public function down()
     {
-        Schema::table('invites', function (Blueprint $table) {
+        Schema::table('developer_accounts', function (Blueprint $table) {
             //
         });
     }

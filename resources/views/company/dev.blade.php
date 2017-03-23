@@ -122,6 +122,9 @@
                                                     </div>
                                                 </div>
                                                 <!-- add search bar input ends here -->
+                                                @foreach($developers as $developer)
+                                               
+                                                
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="card">
@@ -133,37 +136,30 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <h3 class="c-brand w-900">Ryan Parman</h3>
-                                                                        <p class="align-justify f-12"><strong>Surulere,</strong><span class="opacity-50"> Lagos</span></p>
+                                                                        <h3 class="c-brand w-900">{{$developer->username}}</h3>
+                                                                        <p class="align-justify f-12"><strong>{{$developer->address}}</strong><span class="opacity-50"> Lagos</span></p>
                                                                         <div class="less clearfix">
-                                                                            <p class="align-justify f-12">Ryan paramn is an end-to-end product developer (user experience, full-stack engineering) who takes a wide view of the whole system.
+                                                                            <p class="align-justify f-12">{{$developer->about_me}}
                                                                              </p>
                                                                         </div>
                                                                         <div class="more clearfix">
                                                                             <h4><strong>Bio:</strong></h4>
                                                                             <p class="align-justify f-12">
-                                                                               Ryan Parman is an end-to-end product developer (user experience, full-stack engineering) who takes a wide view of the whole system.
+                                                                               {{$developer->about_me}}
                                                                             </p>
                                                                             
                                                                             <h4><strong>Skills Set:</strong></h4>
                                                                             
-                                                                                <a href="#"><span class="label label skill">Javascript</span></a>
-                                                                                <a href="#"><span class="label label skill">PHP</span></a>
-                                                                                <a href="#"><span class="label label skill">SQL</span></a>
-                                                                                <a href="#"><span class="label label skill">HTML</span></a>
-                                                                                <a href="#"><span class="label label skill">Laravel</span></a>
-                                                                                <a href="#"><span class="label label skill">Css</span></a>
+                                                                                 <a href="#"><span class="label label skill">{{$developer->languages}}</span></a>
                                                                                 <p class="align-justify f-12">more...</p>
                                                                             
                                                                             <div>
                                                                                 <div class="Expirence">
                                                                                     <h4><strong>Expirence:</strong></h4>
-                                                                                    <ul class="f-12">
-                                                                                        <li>Javascript, 6years</li>
-                                                                                        <li>Html, 5years</li>
-                                                                                        <li>SQL, 3years</li>
-                                                                                        <li>PHP, 2years</li>
-                                                                                        <li>Css,1year</li>
+                                                                                     <ul class="f-12">
+                                                                                        <li>{{$developer->languages}},{{ $developer->years_of_experience}}years</li>
+                                                                                        <li>{{$developer->frameworks}}</li>
+                                                                                        
                                                                                     </ul>  
                                                                                 </div>   
                                                                                 <div class="Availability">
@@ -178,7 +174,9 @@
                                                                             <div class="clearfix"></div>
 
                                                                             <h4><strong>Send Invite</strong></h4>
-                                                                            <form>
+                                                                            <form method="post" action="/company/invite/
+                                                                            {{$developer->id}}">
+                                                                            {{csrf_field()}}
                                                                                 <div class="form-group">
                                                                                     <label class="input-label" for="right_person">Describe why you are the right person for this job.</label>
                                                                                     <textarea placeholder="At least 100 words" class="form-control" name"right_person" rows="10"></textarea>
@@ -198,7 +196,7 @@
                                                                             <br>
                                                                         </div>
 
-                                                                         <p class="opacity-50 f-11">javascript, .net, php</p>
+                                                                         <p class="opacity-50 f-11">{{$developer->languages}}</p>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <h3 class="c-brand text-center w-900"><span class="m-r-5">&#8358;</span><span>50 - 6000</span></h3>
@@ -228,214 +226,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="content clearfix">
-                                                                <div class="dis-block clearfix p-t-15 p-b-15">
-                                                                    <div class="col-md-3">
-                                                                        <div class="thumbnail m-b-0 p-0 bd-4">
-                                                                            <img src="/switch/assets/img/face_one.jpeg" class="bd-4">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <h3 class="c-brand w-900">Chad Wilborn</h3>
-                                                                        <p class="align-justify f-12"><strong>Switch</strong><span class="opacity-50"> Yaba, Lagos</span></p>
-                                                                        <div class="less clearfix">
-                                                                            <p class="align-justify f-12">I am a modern magician, except I transform complicated technical ideas into user-friendly images before the eyes of your company's customers.
-                                                                             </p>
-                                                                        </div>
-                                                                        <div class="more clearfix">
-                                                                            <h4><strong>Bio:</strong></h4>
-                                                                            <p class="align-justify f-12">
-                                                                                I am a modern magician, except I transform complicated technical ideas into user-friendly images before the eyes of your company’s customers. I believe in telling relatable stories through graphics, so I’ve studied the basics of traditional advertising before working my magic on corporate marketing projects for companies along the West Coast.
-                                                                            </p>
-                                                                    
-                                                                            <h4><strong>Skills Set:</strong></h4>
-                                                                            <a href="#"><span class="label label skill">Javascript</span></a>
-                                                                                <a href="#"><span class="label label skill">PHP</span></a>
-                                                                                <a href="#"><span class="label label skill">SQL</span></a>
-                                                                                <a href="#"><span class="label label skill">HTML</span></a>
-                                                                                <a href="#"><span class="label label skill">Laravel</span></a>
-                                                                                <a href="#"><span class="label label skill">Css</span></a>
-                                                                                <p class="align-justify f-12">more...</p>
-                                                                            
-                                                                            <div>
-                                                                                <div class="Expirence">
-                                                                                    <h4><strong>Expirence:</strong></h4>
-                                                                                    <ul class="f-12">
-                                                                                        <li>Javascript, 6years</li>
-                                                                                        <li>Html, 5years</li>
-                                                                                        <li>SQL, 3years</li>
-                                                                                        <li>PHP, 2years</li>
-                                                                                        <li>Css,1year</li>
-                                                                                    </ul>  
-                                                                                </div>   
-                                                                                <div class="Availability">
-                                                                                    <h4><strong>Availability:</strong></h4>
-                                                                                    <ul class="f-12">
-                                                                                        <li>Full-time</li>
-                                                                                        <li>Part-time</li>
-                                                                                        <li>Weekly</li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="clearfix"></div>
-                                                                            <h4><strong>Sand Invite</strong></h4>
-                                                                            <form>
-                                                                                <div class="form-group">
-                                                                                    <label class="input-label" for="right_person">Describe why you are the right person for this job.</label>
-                                                                                    <textarea placeholder="At least 100 words" class="form-control" name"right_person" rows="10"></textarea>
-                                                                                </div>
-                                                                                
-                                                                                <div class="form-group">
-                                                                                    <label class="input-label" for="contact_method">What's your preferred method of contact?</label>
-                                                                                    <select class="form-control" name="contact_method">
-                                                                                      <option>Switch messaging</option>
-                                                                                      <option>Email</option>
-                                                                                      <option>Skype</option>
-                                                                                      <option>Telephone</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <button type="submit" class="btn btn-dark">Submit</button>
-                                                                            </form>
-                                                                            <br>
-                                                                        </div>
-
-                                                                         <p class="opacity-50 f-11">javascript, .net, php</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <h3 class="c-brand text-center w-900"><span class="m-r-5">&#8358;</span><span>50 - 6000</span></h3>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="footer">
-                                                                    <hr>
-                                                                    <div class="stats">
-                                                                        <button class="btn btn-sm btn-brand">Hire me</button>
-                                                                    </div>
-                                                                    <div class="stats f-right">
-                                                                        <span class="m-r-10">
-                                                                            <i class ="fa fa-thumbs-o-up m-r-3 likes"></i>
-                                                                            <span class="figures">16</span>
-                                                                        </span>
-                                                                        <span class="m-r-10">
-                                                                            <i class ="fa fa fa-thumbs-o-down m-r-3 dislikes"></i>
-                                                                            <span class="figures">2</span>
-                                                                        </span>
-                                                                        <span class="m-r-10">
-                                                                            <i class ="fa fa-eye m-r-3"></i>
-                                                                            <span class="figures">20</span>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="content clearfix">
-                                                                <div class="dis-block clearfix p-t-15 p-b-15">
-                                                                    <div class="col-md-3">
-                                                                        <div class="thumbnail m-b-0 p-0 bd-4">
-                                                                            <img src="/switch/assets/img/face_one.jpeg" class="bd-4">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <h3 class="c-brand w-900">Kaysie</h3>
-                                                                        <p class="align-justify f-12"><strong>Switch</strong><span class="opacity-50"> Yaba, Lagos</span></p>
-                                                                        <div class="less clearfix">
-                                                                            <p class="align-justify f-12">A Field Sales Manager with over 8 years of experience driving market share growth in designated territories,
-                                                                             </p>
-                                                                        </div>
-                                                                        <div class="more clearfix">
-                                                                            <h4><strong>Bio:</strong></h4>
-                                                                            <p class="align-justify f-12">
-                                                                                A Field Sales Manager with over 8 years of experience driving market share growth in designated territories, I have mastered the ins and outs of pharmaceutical sales and territorial prospecting.
-                                                                            </p>
-                                                                            
-                                                                            <h4><strong>Skills Set:</strong></h4>
-                                                                            <a href="#"><span class="label label skill">Javascript</span></a>
-                                                                                <a href="#"><span class="label label skill">PHP</span></a>
-                                                                                <a href="#"><span class="label label skill">SQL</span></a>
-                                                                                <a href="#"><span class="label label skill">HTML</span></a>
-                                                                                <a href="#"><span class="label label skill">Laravel</span></a>
-                                                                                <a href="#"><span class="label label skill">Css</span></a>
-                                                                                <p class="align-justify f-12">more...</p>
-                                                                            
-                                                                            <div>
-                                                                                <div class="Expirence">
-                                                                                    <h4><strong>Expirence:</strong></h4>
-                                                                                    <ul class="f-12">
-                                                                                        <li>Javascript, 6years</li>
-                                                                                        <li>Html, 5years</li>
-                                                                                        <li>SQL, 3years</li>
-                                                                                        <li>PHP, 2years</li>
-                                                                                        <li>Css,1year</li>
-                                                                                    </ul>  
-                                                                                </div>   
-                                                                                <div class="Availability">
-                                                                                    <h4><strong>Availability:</strong></h4>
-                                                                                    <ul class="f-12">
-                                                                                        <li>Full-time</li>
-                                                                                        <li>Part-time</li>
-                                                                                        <li>Weekly</li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="clearfix"></div>
-                                                                            <h4><strong>Send Invite</strong></h4>
-                                                                            <form>
-                                                                                <div class="form-group">
-                                                                                    <label class="input-label" for="right_person">Describe why you are the right person for this job.</label>
-                                                                                    <textarea placeholder="At least 100 words" class="form-control" name"right_person" rows="10"></textarea>
-                                                                                </div>
-                                                                                
-                                                                                <div class="form-group">
-                                                                                    <label class="input-label" for="contact_method">What's your preferred method of contact?</label>
-                                                                                    <select class="form-control" name="contact_method">
-                                                                                      <option>Switch messaging</option>
-                                                                                      <option>Email</option>
-                                                                                      <option>Skype</option>
-                                                                                      <option>Telephone</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <button type="submit" class="btn btn-dark">Submit</button>
-                                                                            </form>
-                                                                            <br>
-                                                                        </div>
-
-                                                                         <p class="opacity-50 f-11">javascript, .net, php</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <h3 class="c-brand text-center w-900"><span class="m-r-5">&#8358;</span><span>50 - 6000</span></h3>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="footer">
-                                                                    <hr>
-                                                                    <div class="stats">
-                                                                        <button class="btn btn-sm btn-brand">Hire me</button>
-                                                                    </div>
-                                                                    <div class="stats f-right">
-                                                                        <span class="m-r-10">
-                                                                            <i class ="fa fa-thumbs-o-up m-r-3 likes"></i>
-                                                                            <span class="figures">16</span>
-                                                                        </span>
-                                                                        <span class="m-r-10">
-                                                                            <i class ="fa fa fa-thumbs-o-down m-r-3 dislikes"></i>
-                                                                            <span class="figures">2</span>
-                                                                        </span>
-                                                                        <span class="m-r-10">
-                                                                            <i class ="fa fa-eye m-r-3"></i>
-                                                                            <span class="figures">20</span>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                @endforeach
+                                                
+                                                
                                             </div>
                                         </div>
                                     </div>

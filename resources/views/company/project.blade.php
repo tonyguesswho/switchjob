@@ -126,24 +126,10 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>Yase</td>
-                                                                <td>-</td>
-                                                                <td>-</td>
-                                                                <td>
-                                                                    <div class="progress" id="pro">
-                                                                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                                                        N/A
-                                                                      </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><p id="sts" class="align-center">Pending</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <a href="/company/projectdesc"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                        @foreach($projects as $project)
+                                                        {{$project->id}}
+                                                        @endforeach
+                                                           
                                                             <tr>
                                                                 <td>Get-Dev</td>
                                                                 <td>2015-11-13</td>
@@ -228,7 +214,7 @@
                         <form action="" method="" role="">
                             <div class="form-group">
                                 <label for="">Project Name</label>
-                                <input type="text" class="form-control" id="mTitle" placeholder="Name of Project">
+                                <input type="text" class="form-control" id="mTitle" name="mTitle" placeholder="Name of Project">
                                 <label for="">Budget</label>
                                 <input type="number" class="form-control" aria-label="Amount (to the nearest naira)" value="">
                                 <label for="">Project Description</label>
@@ -337,7 +323,16 @@
                 })();
 
                 $('#fSubmit').click(function(){
-                    $('#modal-id').modal('hide');
+                   //$('#modal-id').modal('hide');
+                    $.ajax({
+                        type: 'post',
+                        url:'/company/addproject',
+                        data:{
+                            'project_name':$('input[name=mTitle]').val()
+                        }
+
+
+                    })
                 });
 
                 $(document).ready(function() {
