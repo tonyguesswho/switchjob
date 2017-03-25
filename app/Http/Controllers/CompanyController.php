@@ -8,6 +8,8 @@ use App\CompanyDetail;
 use App\Developer;
 use App\Userdetails;
 use App\Invite;
+use App\companyproject;
+use App\milestone;
 use Auth;
 class CompanyController extends Controller
 {
@@ -20,7 +22,7 @@ class CompanyController extends Controller
 
     public function dev()
 
-    {   $developers = Developer::join('userdetails','developers.id','=','userdetails.user_id')->get();
+    {   $developers = Developer::join('userdetails','developers.id','=','userdetails.user_id')->paginate(2);
         //dd($developers);
         return view('company.dev',compact('developers'));
 
@@ -40,14 +42,24 @@ class CompanyController extends Controller
         return view('company.project');
 
     }
-    public function projectdetail()
+    public function projectdetail($id)
     {
-        return view('company.projectdetail');
+        $project_id=$id;
+        
+    
+        $project_milestone=milestone::where('project_id',$id )->get();
+
+    
+    
+        return view('company.projectdetail',compact('project_id','project_milestone'));
 
     }
 
-    public function projectdesc(){
-        return view('company.project_desc');
+    public function projectdesc($id){
+       
+        $project_id=$id;
+
+        return view('company.project_desc',compact('project_id'));
     }
     public function companyinvite(User $id){
         $companyInvite=invite::create([

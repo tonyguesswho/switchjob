@@ -181,6 +181,7 @@
                                         <div class="col-md-12">
                                             <div class="clearfix p-15 pos-rel">
                                                 <div class="table-responsive">
+
                                                     <table class="table table-bordered comp-table" id="dTable" border="1">
                                                         <thead class="p-t-10 p-b-10">
                                                             <tr>
@@ -193,54 +194,22 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>Initial Design Concepts</td>
-                                                                <td>2015-12-13</td>
-                                                                <td>2016-01-23</td>
+                                                         @foreach($project_milestone as $milestone)
+                                                             <tr>
+
+                                                                <td>{{$milestone->milestone_title}}</td>
+                                                                <td>{{$milestone->start_date}}</td>
+                                                                <td>{{$milestone->deadline}}</td>
                                                                 <td><p id="pro">0</p></td>
                                                                 <td><p id="sts" class="align-center">In Progress</p></td>
                                                                 <td>
                                                                     <div id="lst" class="align-center">
-                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<a href="/company/deletemilestone/{{$milestone->id}}"><span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>Layout Design</td>
-                                                                <td>2015-12-13</td>
-                                                                <td>2016-01-23</td>
-                                                                <td><p id="pro">0</p></td>
-                                                                <td><p id="sts" class="align-center">In Progress</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Frontend Design Integration</td>
-                                                                <td>2015-12-13</td>
-                                                                <td>2016-01-23</td>
-                                                                <td><p id="pro">0</p></td>
-                                                                <td><p id="sts" class="align-center">In Progress</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Wordpress Backend Development</td>
-                                                                <td>2015-12-13</td>
-                                                                <td>2016-01-23</td>
-                                                                <td><p id="pro">0</p></td>
-                                                                <td><p id="sts" class="align-center">In Progress</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                            @endforeach
+                                                            
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -266,17 +235,19 @@
                         <h4 class="modal-title align-center uppercase">*Fill the fields below to add a new milestone</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="" role="">
+                        <form action="/company/addmilestone/{{$project_id}}" method="post" role="">
+                         {{csrf_field()}}
                             <div class="form-group">
+                               
                                 <label for="">Title</label>
-                                <input type="text" class="form-control" id="mTitle" placeholder="Title of Milestone">
+                                <input type="text" class="form-control" name="mTitle">
                                 <label for="">Start Date</label>
-                                <input type="date" class="form-control" id="sDate" placeholder="">
+                                <input type="date" class="form-control" name="sDate">
                                 <label for="">Deadline</label>
-                                <input type="date" class="form-control" id="dLine" placeholder="">
+                                <input type="date"  class="form-control" name="dLine">
                             </div>
 
-                            <input type="button" class="btn btn-xs btn-brand" id ="fSubmit" value="Submit" />
+                            <input type="Submit" class="btn btn-xs btn-brand" id ="fSubmit" value="Submit" />
                         </form>
                         
                     </div>

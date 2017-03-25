@@ -104,7 +104,7 @@
                                                     <ul class="list-inline">
                                                         <li class="f-18 c-brand w-900">Get - Dev</li>
                                                         <li class="f-right">
-                                                            <a class="btn btn-sm btn-brand" href="/company/projectdetail">View Milestone</a>
+                                                            <a class="btn btn-sm btn-brand" href="/company/projectdetail/{{$project_id}}">View Milestone</a>
                                                         </li>
                                                     </ul>
                                                 </div>

@@ -227,6 +227,7 @@
                                                     </div>
                                                 </div>
                                                 @endforeach
+                                                <center>{{$developers->links()}}</center>
                                                 
                                                 
                                             </div>

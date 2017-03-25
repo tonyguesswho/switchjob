@@ -128,12 +128,12 @@
                                                         <tbody>
                                                         @foreach($projects as $project)
                                                         {{$project->id}}
-                                                        @endforeach
+                                                        
                                                            
                                                             <tr>
-                                                                <td>Get-Dev</td>
-                                                                <td>2015-11-13</td>
-                                                                <td>2016-01-23</td>
+                                                                <td>{{$project->project_name}}</td>
+                                                                <td>{{$project->created_at}}</td>
+                                                                <td>{{$project->deadline}}</td>
                                                                 <td>
                                                                     <div class="progress" id="pro">
                                                                       <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%; color: white;">
@@ -144,48 +144,12 @@
                                                                 <td><p id="sts" class="align-center">In Progress</p></td>
                                                                 <td>
                                                                     <div id="lst" class="align-center">
-                                                                        <a href="/company/projectdesc"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                                        <a href="/company/projectdesc/{{$project->id}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>Sarelo</td>
-                                                                <td>2016-01-23</td>
-                                                                <td>2016-06-03</td>
-                                                                <td>
-                                                                    <div class="progress" id="pro">
-                                                                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; text-align:center;">
-                                                                        0%
-                                                                      </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><p id="sts" class="align-center">In Progress</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <a href="project_description.html"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                                    </div>
-                                                                </td>
-                                                                
-                                                            </tr>
+                                                            @endforeach
                                                             
-                                                            <tr>
-                                                                <td>Shopper</td>
-                                                                <td>2017-02-13</td>
-                                                                <td>2017-05-23</td>
-                                                                <td>
-                                                                    <div class="progress" id="pro">
-                                                                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                                                        0%
-                                                                      </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><p id="sts" class="align-center">In progress</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <a href="project_description.html"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -211,19 +175,20 @@
                         <h4 class="modal-title align-center uppercase">Fill the fields below to add a new milestone</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="" role="">
-                            <div class="form-group">
-                                <label for="">Project Name</label>
+                    <form class="switch-form" method="post" action="/company/addproject">
+                    
+                        {{csrf_field()}}
+                    <label for="">Project Name</label>
                                 <input type="text" class="form-control" id="mTitle" name="mTitle" placeholder="Name of Project">
                                 <label for="">Budget</label>
-                                <input type="number" class="form-control" aria-label="Amount (to the nearest naira)" value="">
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest naira)" value="" name="budget">
                                 <label for="">Project Description</label>
                                 <textarea name="Pdes" id="inputPdes" class="form-control" rows="3" required="required" placeholder="Write your project description in details"></textarea>
                             
-                                <input type="date" class="form-control" id="sDate" placeholder="" value="-" style="display: none;">
+                                <input type="date" class="form-control" id="sDate" placeholder="" value="-" style="display: none;" name="sDate">
 
                                 <label for="">Deadline</label>
-                                <input type="date" class="form-control" id="dLine" placeholder="">
+                                <input type="date" class="form-control" id="dLine" name="dLine" placeholder="">
 
                                 <label for="">Duration</label><br />
                                 <input type="radio" name="opt" id="inputOpt1" value="Less than 1 week" checked="checked">
@@ -244,12 +209,13 @@
                                 Full-Time <br />
                                  <input type="radio" name="avail" id="inputavail3" value="">
                                 Always Available <br />
+                    <br><br>
+                    <button id="submit-form" class="btn btn-dark" type="submit">
+                        <span class="ladda-label">Submit</span>
+                    </button>
+                </form>
 
-
-                            </div>
-
-                            <input type="button" class="btn btn-xs btn-brand" id ="fSubmit" value="Submit" />
-                        </form>
+                    
                         
                     </div>
                 </div>
@@ -273,73 +239,21 @@
                     app.sidebarCtrl();
                 });
             </script>
+    <script type="text/javascript">
+    
 
-            <script>
-                (function setup() {
-                    "use strict";
+  
+     $('#fSubmit').click(function(){
+         $('#modal-id').modal('hide');
+    });
+      
 
-                    var mTitleElem = document.getElementById("mTitle");
-                    var sDateElem = document.getElementById("sDate");
-                    var dLineElem = document.getElementById("dLine");
-                    var dTableElem = document.getElementById("dTable");
-                    var prog = document.getElementById("pro");
-                    var stat = document.getElementById("sts");
-                    var dList = document.getElementById("lst");
-
-                    document.getElementById("fSubmit").addEventListener("click", function () {
-                        var newRow = dTableElem.insertRow(-1);
-                        var newCell = newRow.insertCell(0);
-                        var clon = prog.cloneNode(true);
-                        var clon1 = stat.cloneNode(true);
-                        var clon2 = dList.cloneNode(true);
-                        var newText = document.createTextNode(mTitleElem.value);
-                        newCell.appendChild(newText);
-
-                        newCell = newRow.insertCell(1);
-                        newText = document.createTextNode(sDateElem.value);
-                        newCell.appendChild(newText);
-
-                        newCell = newRow.insertCell(2);
-                        newText = document.createTextNode(dLineElem.value);
-                        newCell.appendChild(newText);
-
-                        newCell = newRow.insertCell(3);
-                        newText = clon;
-                        newCell.appendChild(newText);
-
-                        newCell = newRow.insertCell(4);
-                        newText = clon1;
-                        newCell.appendChild(newText);
-
-                        newCell = newRow.insertCell(5);
-                        newText = clon2;
-                        newCell.appendChild(newText);
-
-                        mTitleElem.value = "";
-                        sDateElem.value = "";
-                        dLineElem.value = "";
-                        dTableElem.value = "";
-                    })
-                })();
-
-                $('#fSubmit').click(function(){
-                   //$('#modal-id').modal('hide');
-                    $.ajax({
-                        type: 'post',
-                        url:'/company/addproject',
-                        data:{
-                            'project_name':$('input[name=mTitle]').val()
-                        }
+    </script>
 
 
-                    })
-                });
 
-                $(document).ready(function() {
-                    $('.comp-table').DataTable();
-                } );
-                
-            </script>
+            
+               
     @endsection
 
 

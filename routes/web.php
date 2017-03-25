@@ -44,10 +44,13 @@ Route::get('company/dev','CompanyController@dev');
 Route::get('company/payment','CompanyController@payment');
 Route::get('company/profile','CompanyController@profile');
 Route::get('company/project','CompanyprojectController@projects');
-Route::get('company/addproject','CompanyprojectController@addproject')
-Route::get('company/projectdetail','CompanyController@projectdetail');
-Route::get('company/projectdesc','CompanyController@projectdesc');
+Route::post('company/addproject','CompanyprojectController@addproject');
+Route::get('company/projectdetail/{id}','CompanyController@projectdetail');
+Route::get('company/projectdesc/{id}','CompanyController@projectdesc');
 
 Route::post('company/invite/{id}','CompanyController@companyinvite');
-Route::post('company/milestone','MilestoneController@post');
+Route::post('company/addmilestone/{id}','MilestoneController@store');
+Route::get('company/deletemilestone/{id}','MilestoneController@destroy');
+//Route::post('company/addmilestone','MilestoneController@p');
+
 

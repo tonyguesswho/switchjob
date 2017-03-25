@@ -11,11 +11,22 @@ class CompanyprojectController extends Controller
     	$projects=companyproject::all();
     	return view('company.project',compact('projects'));
     }
-    public function addprojects(Request $request){
+    
+    public function addproject(Request $request){
+    	$companyproject=companyproject::create([
 
-    	$companyproject= new companyproject() ;
-    	$companyproject->project_name=$req->project_name;
-    	$companyproject->save();
-    	return response(->json($companyproject))
+            'project_name'=>request('mTitle'),
+            'budget'=>request('budget'),
+            'project_description'=>request('Pdes'),
+            'deadline'=>request('dLine'),
+            'skill_set'=>request('skills'),
+            'project_availability'=>request('avail'),
+            
+            
+
+            ]);
+    	return redirect()->to('company/project');
+
+    	
     }
 }
