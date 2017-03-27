@@ -38,6 +38,148 @@
                 <form class="switch-form" method="post" action="/profile/setup">
                     
                     {{csrf_field()}}
+                    <div class="groups first_group">
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="company_name">Company Name</legend>
+                                <div class="form-el-group">
+                                    <div class="form-el">
+                                        <label class="input-label" for="company_name"></label>
+                                        <input type="text" name="company_name"  id="name" class="form form-control" placeholder="John Doe">
+                                    </div>
+                                </div>
+                                <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                                <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="company_email">Email address</legend>
+                                <div class="form-el-group">
+                                    <div class="form-el">
+                                        <label class="input-label" for="company_email"></label>
+                                        <input type="email" name="company_email"  id="email" class="form form-control" placeholder="someone@switch.ng">
+                                    </div>
+                                </div>
+                                <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                                <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="company_phone">Phone Number</legend>
+                                <div class="form-el-group">
+                                    <div class="form-el">
+                                        <label class="input-label" for="company_phone"></label>
+                                        <input type="tel" name="company_phone"  id="phone" class="form form-control" placeholder="00000000000">
+                                    </div>
+                                </div>
+                                <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                                <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="company_userame">Username</legend>
+                            <div class="form-el-group">
+                                <div class="form-el">
+                                    <label class="input-label" for="company_username"></label>
+                                    <input type="text" name="company_username"  id="name" class="form form-control" placeholder="John Doe">
+                                </div>
+                            </div>
+                            <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                            <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="company_password">Password</legend>
+                            <div class="form-el-group">
+                                <div class="form-el">
+                                    <label class="input-label" for="company_password"></label>
+                                    <input type="password" name="company_password"  id="name" class="form form-control">
+                                </div>
+                            </div>
+                            <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                            <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                    </div>
+                    <div class="groups second_group">
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="building">What are you building?</legend>
+                            <div class="form-el-group">
+                                <div class="form-el">
+                                    <label class="input-label" for="building"></label>
+                                    <textarea placeholder="please tell us your project description" class="form-control" name="building"></textarea>
+                                </div>
+                            </div>
+                            <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                            <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                          <legend class="question label" for="products">Is this a new Product?</legend>
+                              <div class="form-el-group">
+                                  <div class="form-el">
+                                      <input type="radio" name="products" value="Desktop / web application" id="qstn-9640-0" class="check-box">
+                                      <label class="input-label" for="products">New Product </label>
+                                  </div>
+                                  <div class="form-el">
+                                      <input type="radio" name="products">
+                                      <label class="input-label" for="products">Existing Product </label>
+                                  </div>
+                              </div>
+                              <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                              <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                          <legend class="question label" for="start_period">How soon do you want to start?</legend>
+                              <div class="form-el-group">
+                                  <div class="form-el">
+                                      <input type="radio" name="start_period">
+                                      <label class="input-label" for="start_period">Immediately </label>
+                                  </div>
+                                  <div class="form-el">
+                                      <input type="radio" name="start_period">
+                                      <label class="input-label" for="start_period">~ 1 Week </label>
+                                  </div>
+                                  <div class="form-el">
+                                      <input type="radio" name="start_period">
+                                      <label class="input-label" for="start_period">~ 1 Month </label>
+                                  </div>
+                                  <div class="form-el">
+                                      <input type="radio" name="start_period">
+                                      <label class="input-label" for="start_period">~ 3 Months </label>
+                                  </div>
+                                  <div class="form-el other-el">
+                                      <input type="radio" name="start_period" value="OTHER-OPTION" data-required-input-id="qstn-other-input-9640" id="qstn-other-9640" class="check-box">
+                                        <label class="input-label" for="qstn-other-9640"><span class="screen-reader-text">Other</span></label>
+                                        <input type="text" name="qstn-other-input-964" id="qstn-other-input-9640" class="input-text-other" placeholder="Other" maxlength="100">
+                                  </div>
+                              </div>
+                              <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                              <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                    </div>
+                    <div class="groups third_group">
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="cost">Are you comfortable spending $16000 on this project?</legend>
+                            <div class="form-el-group">
+                                <div class="form-el">
+                                    <input type="radio" name="cost">
+                                    <label class="input-label" for="cost">Yes </label>
+                                </div>
+                                <div class="form-el">
+                                    <input type="radio" name="cost">
+                                    <label class="input-label" for="cost">No </label>
+                                </div>
+                            </div>
+                            <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                            <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                        <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
+                            <legend class="question label" for="aboutus">How did you hear about us?</legend>
+                            <div class="form-el-group">
+                                <div class="form-el">
+                                    <label class="input-label" for="aboutus"></label>
+                                    <input type="text" name="aboutus" class="form form-control" placeholder="John Doe">
+                                </div>
+                            </div>
+                            <div id="qstn-9640-error" class="error-text">Please select at least one option.</div>
+                            <div id="qstn-9640-error-other" class="other-error-text">Please enter a value for Other.</div>
+                        </fieldset>
+                    </div>
+                    <br><br>
                     
                     <button id="submit-form" class="btn btn-dark" type="submit">
                         <span class="ladda-label">Submit</span>

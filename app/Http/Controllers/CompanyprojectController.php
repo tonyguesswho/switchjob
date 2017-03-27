@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\companyproject;
+use Auth;
 
 class CompanyprojectController extends Controller
 {
     public function projects(){
-    	$projects=companyproject::all();
+    	$projects=companyproject::where('company_id',Auth::user()->id)->get();
     	return view('company.project',compact('projects'));
     }
     
     public function addproject(Request $request){
-    	$companyproject=companyproject::create([
+    	$companyproject=Companyproject::create([
 
             'project_name'=>request('mTitle'),
             'budget'=>request('budget'),
@@ -21,6 +22,7 @@ class CompanyprojectController extends Controller
             'deadline'=>request('dLine'),
             'skill_set'=>request('skills'),
             'project_availability'=>request('avail'),
+            'company_id'=>Auth::user()->id,
             
             
 
@@ -28,5 +30,19 @@ class CompanyprojectController extends Controller
     	return redirect()->to('company/project');
 
     	
+    }
+    public function update($id, Request $request)
+    {
+        
+        $requestData = $request->except('opt','avail');
+       // $input = $request->except('credit_card');
+        
+        $project = Companyproject::findOrFail($id);
+        $project->update($requestData);
+        return redirect()->to('company/project');
+
+        
+
+        
     }
 }

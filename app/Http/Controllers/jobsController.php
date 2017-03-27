@@ -126,4 +126,7 @@ class jobsController extends Controller
 
         return redirect('jobs');
     }
+    public function addjob(){
+        
+    }
 }

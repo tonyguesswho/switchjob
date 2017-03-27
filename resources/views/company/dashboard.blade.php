@@ -42,7 +42,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/logout">
                                     <p class="hidden-md hidden-lg"><i class="icon-logout"></i></p>
                                     <span>Log out</span>
                                 </a>
@@ -111,7 +111,7 @@
                                                     <div class="col-md-6 col-sm-6 text-center p-l-0">
                                                         <div class="card card-bg-red card-data-box-2 m-b-10 c-white no-bd">
                                                             <h3 class="uppercase f-14 p-t-3 p-b-3">this month</h3>
-                                                            <p class="p-t-3 p-b-3">&#8358; 1,395,770.00</p>
+                                                            <p class="p-t-3 p-b-3">&#8358; 0.00</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -124,13 +124,13 @@
                                                     <div class="col-md-6 col-sm-6 text-center p-r-0">
                                                         <div class="card card-bg-green card-data-box-1 m-b-10 c-white no-bd">
                                                             <h3 class="uppercase w-600 f-18 p-t-3 p-b-3">due</h3>
-                                                            <p class="p-t-3 p-b-3">&#8358; 289,381.00</p>
+                                                            <p class="p-t-3 p-b-3">&#8358; 0.00</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 text-center p-l-0">
                                                         <div class="card card-bg-blue card-data-box-2 m-b-10 c-white no-bd">
                                                             <h3 class="uppercase f-14 p-t-3 p-b-3">overdue</h3>
-                                                            <p class="p-t-3 p-b-3">&#8358; 31,545.00</p>
+                                                            <p class="p-t-3 p-b-3">&#8358; 0.00</p>
                                                         </div>
                                                     </div>
                                                </div>
@@ -161,8 +161,9 @@
                                                     <span class="fa fa-folder-open"></span>
                                                     Active Projects
                                                 </div>
+
                                                 <div class="f-right data-box card-bg-dark c-white">
-                                                    <p class="data">4</p>
+                                                    <p class="data">{{$total_projects}}</p>
                                                 </div>
                                             </li>
                                             <li class="list-style-none clearfix bd-b-gray p-t-5 p-b-5">
@@ -171,7 +172,7 @@
                                                     Open Tasks
                                                 </div>
                                                 <div class="f-right data-box card-bg-red c-white">
-                                                    <p class="data">0</p>
+                                                    <p class="data">{{$total_milestones}}</p>
                                                 </div>
                                             </li>
                                             <li class="list-style-none clearfix bd-b-gray p-t-5 p-b-5">
@@ -180,7 +181,7 @@
                                                     Support Tickets
                                                 </div>
                                                 <div class="f-right data-box card-bg-green c-white">
-                                                    <p class="data">4</p>
+                                                    <p class="data">0</p>
                                                 </div>
                                             </li>
                                             <li class="list-style-none clearfix bd-b-gray p-t-5 p-b-5">
@@ -189,7 +190,7 @@
                                                     Active Timers
                                                 </div>
                                                 <div class="f-right data-box card-bg-blue c-white">
-                                                    <p class="data">4</p>
+                                                    <p class="data">0</p>
                                                 </div>
                                             </li>
                                         </ul>
@@ -205,58 +206,22 @@
                                 <div class="card">
                                     <div class="content">
                                         <div class="task-header m-b-10 clearfix">
-                                            <h4 class="f-left c-gray w-600 p-b-10">Projects</h4>
+                                            <h4 class="f-left c-gray w-600 p-b-10">Milestones</h4>
                                             <h4 class="f-right c-gray w-600 p-b-10">Status</h4>
                                         </div>
                                         <ul class="list-style-none all-tasks">
+                                        
+                                            @foreach($milestones as $milestone)
                                             <li class="clearfix p-t-10 p-b-10 bd-b-gray">
-                                                <h4 class="f-left">Design Home Page</h4>
+                                                <h4 class="f-left">{{$milestone->milestone_title}}</h4>
                                                 <div class="f-right card-bg-green c-white line-h-22">
                                                     <p class="m-0 f-10 p-l-5 p-r-5 w-700">Pending</p>
                                                 </div>
                                             </li>
-                                            <li class="clearfix p-t-10 p-b-10 bd-b-gray">
-                                                <h4 class="f-left">Design Login Page</h4>
-                                                <div class="f-right card-bg-red c-white line-h-22">
-                                                    <p class="m-0 f-10 p-l-5 p-r-5 w-700">Behind</p>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix p-t-10 p-b-10 bd-b-gray">
-                                                <h4 class="f-left">Add Better Validation Forms</h4>
-                                                <div class="f-right card-bg-green c-white line-h-22">
-                                                    <p class="m-0 f-10 p-l-5 p-r-5 w-700">Pending</p>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix p-t-10 p-b-10 bd-b-gray">
-                                                <h4 class="f-left">Change Background Images</h4>
-                                                <div class="f-right card-bg-green c-white line-h-22">
-                                                    <p class="m-0 f-10 p-l-5 p-r-5 w-700">Pending</p>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix p-t-10 p-b-10 bd-b-gray">
-                                                <h4 class="f-left">Change Background Images</h4>
-                                                <div class="f-right card-bg-green c-white line-h-22">
-                                                    <p class="m-0 f-10 p-l-5 p-r-5 w-700">Pending</p>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix p-t-10 p-b-10 bd-b-gray">
-                                                <h4 class="f-left">Change Background Images</h4>
-                                                <div class="f-right card-bg-green c-white line-h-22">
-                                                    <p class="m-0 f-10 p-l-5 p-r-5 w-700">Pending</p>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix p-t-10 p-b-10 bd-b-gray">
-                                                <h4 class="f-left">Design New Logo</h4>
-                                                <div class="f-right card-bg-red c-white line-h-22">
-                                                    <p class="m-0 f-10 p-l-5 p-r-5 w-700">Behind</p>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix p-t-10 p-b-10 bd-b-gray">
-                                                <h4 class="f-left">Design Home Page</h4>
-                                                <div class="f-right card-bg-green c-white line-h-22">
-                                                    <p class="m-0 f-10 p-l-5 p-r-5 w-700">Pending</p>
-                                                </div>
-                                            </li>
+                                            @endforeach
+                                        
+                                           
+                                            
                                         </ul>
                                         <p class="text-center width-100p btn card-bg-blue">
                                         <a href="#" class="c-white">See More Tasks</a>  
@@ -282,78 +247,22 @@
                                             <li>
                                                 <div class="no-activity"></div>
                                             </li>
-                                            <li>
-                                                <div class="activity bd-3 c-white animate">
-                                                    <h4 class="w-600">Fred Marks</h4>
-                                                    <p class="m-0">posted a message</p>
-                                                    <div class="p-0 c-gray"><span class="fa fa-clock-o"></span><time datetime="2016-02-03">03-02-2016</time></div>
-                                                    <p class="m-0"><span class="fa fa-external-link"></span>Hello, World</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="no-activity"></div>
-                                            </li>
-                                            <li>
-                                                <div class="activity bd-3 c-white animate">
-                                                    <h4 class="w-600">Fred Marks</h4>
-                                                    <p class="m-0">uploaded a new file</p>
-                                                    <div class="p-0 c-gray"><span class="fa fa-clock-o"></span><time datetime="2016-02-03">03-02-2016</time></div>
-                                                    <p class="m-0"><span class="fa fa-external-link"></span>logo-1.png</p>
-                                                </div>
-                                            </li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="card">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="card card-bg-red content m-0 clearfix c-white">
-                                                        <div class="f-left">
-                                                            <p class="m-0 w-600 f-18"><span class="fa fa-user"></span>Wizubizu</p>
-                                                            <p class="m-0">Yase Open source project</p>
-                                                        </div>
-                                                        <div class="f-right">
-                                                            <span class="fa fa-thumb-tack f-18" style="color: #FFF; opacity: 0.5"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="card m-0">
-                                                        <div class="col-md-4 content sm-bd-b-gray">
-                                                            <div class="text-center">
-                                                                <h4 class="w-600 f-18">44 %</h4>
-                                                                <p class="uppercase m-0">complete</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4 content bd-l-gray sm-bd-b-gray">
-                                                            <div class="text-center">
-                                                                <h4 class="w-600 f-18">3</h4>
-                                                                <p class="uppercase m-0">my tasks</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4 content bd-l-gray">
-                                                            <div class="text-center">
-                                                                <h4 class="w-600 f-18">32</h4>
-                                                                <p class="uppercase m-0">days due</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @foreach($projects as $project)
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="card card-bg-green m-0 content clearfix c-white">
                                                        <div class="f-left">
-                                                            <p class="m-0 w-600 f-18"><span class="fa fa-user"></span>Fred Mbeome</p>
-                                                            <p class="m-0">Conceirge Dating App</p>
+                                                            <p class="m-0 w-600 f-18"><span class="fa fa-user"></span>{{Auth::user()->firstname}}</p>
+                                                            <p class="m-0">{{$project->project_name}}</p>
                                                         </div>
                                                         <div class="f-right">
                                                             <span class="fa fa-thumb-tack f-18" style="color: #FFF; opacity: 0.5"></span>
@@ -364,13 +273,20 @@
                                                     <div class="card m-0">
                                                         <div class="col-md-4 content sm-bd-b-gray">
                                                             <div class="text-center">
-                                                                <h4 class="w-600 f-18">17 %</h4>
+                                                                <h4 class="w-600 f-18">0 %</h4>
                                                                 <p class="uppercase m-0">complete</p>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4 content bd-l-gray sm-bd-b-gray">
                                                             <div class="text-center">
-                                                                <h4 class="w-600 f-18">1</h4>
+                                                           
+                                                                <h4 class="w-600 f-18">
+
+                                                                 
+                                                              {{ count($project->milestones)}}
+                                                                
+                                                                </h4>
+                                                           
                                                                 <p class="uppercase m-0">my tasks</p>
                                                             </div>
                                                         </div>
@@ -385,45 +301,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="card">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="card card-bg-blue m-0 content clearfix c-white">
-                                                       <div class="f-left">
-                                                            <p class="m-0 w-600 f-18"><span class="fa fa-user"></span>Tony Yoyo</p>
-                                                            <p class="m-0">Sarelo</p>
-                                                        </div>
-                                                        <div class="f-right">
-                                                            <span class="fa fa-thumb-tack f-18" style="color: #FFF; opacity: 0.5"></span>
-                                                         </div> 
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="card m-0">
-                                                        <div class="col-md-4 content sm-bd-b-gray">
-                                                            <div class="text-center">
-                                                                <h4 class="w-600 f-18">17 %</h4>
-                                                                <p class="uppercase m-0">complete</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4 content bd-l-gray sm-bd-b-gray">
-                                                            <div class="text-center">
-                                                                <h4 class="w-600 f-18">1</h4>
-                                                                <p class="uppercase m-0">my tasks</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4 content bd-l-gray">
-                                                            <div class="text-center">
-                                                                <h4 class="w-600 f-18">7</h4>
-                                                                <p class="uppercase m-0">days due</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+                                    
                                 </div>
                             </div>
                         </div>
@@ -450,7 +329,7 @@
                 });
         </script>
        
-            @endsection
+         @endsection
 
         
 

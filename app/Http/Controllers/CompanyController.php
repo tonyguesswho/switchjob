@@ -12,18 +12,46 @@ use App\companyproject;
 use App\milestone;
 use Auth;
 class CompanyController extends Controller
-{
+{   
+    public function __construct()
+        {
+        $this->middleware('auth')->except('setup','store');
+       }
 
     public function dashboard()
     {
-        return view('company.dashboard');
+
+
+    $projects = Companyproject::with('milestones')->where('company_id', Auth::user()->id)->get();
+    
+    
+    $total_milestones = 0;
+    $total_projects=0;
+    
+
+    
+    
+
+    foreach ($projects as $project) {
+        $total_milestones += count($project->milestones);
+        //$projectsInJson=$project->toJson();
+        //dd($projectsInJson);
+        $total_projects+=count($project);
+
+        }
+    
+
+       $milestones=Milestone::where('company_id',Auth::user()->id)->get();
+       
+        
+    return view('company.dashboard',compact('milestones','projects','projectn','total_milestones','total_projects','projectsInJson'));
 
     }
 
     public function dev()
 
-    {   $developers = Developer::join('userdetails','developers.id','=','userdetails.user_id')->paginate(2);
-        //dd($developers);
+    {   $developers = Developer::join('userdetails','developers.id','=','userdetails.user_id')->paginate(3);
+        
         return view('company.dev',compact('developers'));
 
     }
@@ -47,7 +75,7 @@ class CompanyController extends Controller
         $project_id=$id;
         
     
-        $project_milestone=milestone::where('project_id',$id )->get();
+        $project_milestone=milestone::where('companyproject_id',$id )->get();
 
     
     
@@ -58,8 +86,9 @@ class CompanyController extends Controller
     public function projectdesc($id){
        
         $project_id=$id;
+        $project=Companyproject::where('id',$id)->get();
 
-        return view('company.project_desc',compact('project_id'));
+        return view('company.project_desc',compact('project_id','project'));
     }
     public function companyinvite(User $id){
         $companyInvite=invite::create([
@@ -95,7 +124,7 @@ class CompanyController extends Controller
 
             ]);
 
-        $company=user::create([
+        $company=User::create([
 
             'firstname'=>request('company_name'),
             'email'=>request('company_email'),

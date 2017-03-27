@@ -127,7 +127,7 @@
                                                         </thead>
                                                         <tbody>
                                                         @foreach($projects as $project)
-                                                        {{$project->id}}
+                                                        
                                                         
                                                            
                                                             <tr>

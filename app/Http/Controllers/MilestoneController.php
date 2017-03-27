@@ -10,13 +10,13 @@ class MilestoneController extends Controller
 {
     public function store($id, Request $request){
     	
-       $milestone=milestone::create([
+       $milestone=Milestone::create([
 
            'milestone_title'=>request('mTitle'),
             'start_date'=>request('sDate'),
            'deadline'=>request('dLine'),
-           'project_id'=>$id,
-            'company_id'=>'2',
+           'companyproject_id'=>$id,
+            'company_id'=>Auth::user()->id,
             'developer_id'=>'33',
             ]);
        return redirect()->back();
@@ -24,7 +24,7 @@ class MilestoneController extends Controller
 
     public function destroy($id)
     {
-        milestone::destroy($id);
+        Milestone::destroy($id);
 
         
 

@@ -21,6 +21,7 @@ class CreateCompanyprojectsTable extends Migration
             $table->date('deadline')->nullable();
             $table->text('skill_set')->nullable();
             $table->string('project_availability')->nullable();
+            $table->integer('company_id')->nullable();
             $table->timestamps();
         });
     }

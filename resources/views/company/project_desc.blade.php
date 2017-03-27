@@ -113,12 +113,13 @@
                                         <div class="col-md-12">
                                             <div class="clearfix p-15 pos-rel">
                                                 <div class="content">
-                                                    <form>
+                                                    <form method="post" action="/company/projectupdate/{{$project_id}}">
+                                                        {{csrf_field()}}
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-8">
                                                                     <label>Project Name</label>
-                                                                    <input type="text" class="form-control" value="Lorem Ipsum">
+                                                                    <input type="text" class="form-control" value="">
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label for="">Budget</label>
@@ -169,7 +170,7 @@
                                                             <textarea rows="5" class="form-control" placeholder="Here can be your description" value="">PHP, Javascript, Angular</textarea>
                                                         </div>
 
-                                                        <button type="submit" class="btn btn-info pull-right">Update</button>
+                                                        <input type="submit" class="btn btn-info pull-right" value="update">
                                                         <div class="clearfix"></div>
                                                     </form>
                                                 </div>

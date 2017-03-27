@@ -46,11 +46,13 @@ Route::get('company/profile','CompanyController@profile');
 Route::get('company/project','CompanyprojectController@projects');
 Route::post('company/addproject','CompanyprojectController@addproject');
 Route::get('company/projectdetail/{id}','CompanyController@projectdetail');
+Route::post('company/projectupdate/{id}','CompanyprojectController@update');
 Route::get('company/projectdesc/{id}','CompanyController@projectdesc');
 
 Route::post('company/invite/{id}','CompanyController@companyinvite');
 Route::post('company/addmilestone/{id}','MilestoneController@store');
 Route::get('company/deletemilestone/{id}','MilestoneController@destroy');
+
 //Route::post('company/addmilestone','MilestoneController@p');
 
 
