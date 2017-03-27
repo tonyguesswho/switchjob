@@ -65,26 +65,7 @@ class DevelopersController extends Controller
         $developer->Developer->save();
         
         return redirect()->to('/dashboard');
-        
-        //$update_user = User::find(Session::get('user')->id)->update(['phone' => $request->phone]);
-
-        // $developerData = [
-        //                     //'user_id' => Auth::user()->id,
-        //                     'years_of_experience' => ($request->pro)? $request->pro: $request->years_other,
-        //                     'languages' => $request->languages,
-        //                     'frameworks' => $request->frameworks,
-        //                     'pass_work' => $request->pass_work,
-        //                     'available_hours' => ($request->hours)? $request->hours: $request->hours_other
-        //                 ];
-       // dd($developerData)
-
-        //$developers = create($developerData);
-
-       // Session::flash('flash_message', 'Developer added!');
-
-        //login developer
-       // auth()->login(Session::get('user'));
-        
+           
     }
 
     /**

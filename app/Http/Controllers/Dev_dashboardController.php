@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Invite;
+use App\LiveProject;
 use App\CompanyDetail;
 use App\DeveloperSocial;
+use App\DeveloperTranction;
 use App\DeveloperCompleted;
 use App\DeveloperAccount;
 use App\Developer;
@@ -69,8 +71,6 @@ class Dev_dashboardController extends Controller
     public function socialdetails_update(Request $request, $user_id)
     {
         $socialdetail = User::find($user_id);
-        
-
         $socialdetail->update($request->all());
         $socialdetail->DeveloperSocial->user_id = $user_id;
         $socialdetail->DeveloperSocial->git_account= request('git_account');
@@ -107,8 +107,13 @@ class Dev_dashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function payment()
-    {
-        return view('dev-dashboard.payment');
+    {   
+        $transactions = LiveProject::where('developer_user_id', Auth::user()->id)
+                        ->join('jobs', 'live_projects.job_id', '=', 'jobs.id' )
+                       ->join('job_type','job_type.id', '=', 'jobs.job_type_id')
+                       ->paginate(2);
+                      
+                        return view('dev-dashboard.payment', compact('transactions'));
     }
 
     /**
@@ -117,16 +122,27 @@ class Dev_dashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function progress()
+    {
+        $progress = DeveloperTranction::create([
+                    'developer_id'=> Auth::user()->id,
+                     'status' => json_decode('response')
+                    ]);
+                return response()->json(['status' => 'data']);
+                    
+    }
+
     public function edit($id)
     {
         
         $users = User::find($id);
-        $users->Userdetail::where('user_id', Auth::user()->id)->get();
-        $users->City::where('user_id', Auth::user()->id )->get();
-        $users->Country::where('user_id', Auth::user()->id )->get();
-        $users->DeveloperSocial::where('user_id', Auth::user()->id)->get();
-        $users->DeveloperAccount::where('user_id', Auth::user()->id)->get();
-        return view('dev-dashboard.profile')->with('users', $users);
+                $users->Userdetail::where('user_id', Auth::user()->id)->get();
+                $users->City::where('user_id', Auth::user()->id )->get();
+                $users->Country::where('user_id', Auth::user()->id )->get();
+                $users->DeveloperSocial::where('user_id', Auth::user()->id)->get();
+                $users->DeveloperAccount::where('user_id', Auth::user()->id)->get();
+                return view('dev-dashboard.profile')->with('users', $users);
     }
 
     /**

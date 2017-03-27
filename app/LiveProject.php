@@ -25,7 +25,7 @@ class LiveProject extends Model
      *
      * @var array
      */
-    protected $fillable = ['job_id', 'developer_user_id', 'start_date', 'duration', 'status', 'end_date'];
+    protected $fillable = ['job_id', 'developer_user_id', 'start_date', 'duration', 'status', 'end_date','initial_pay'];
 
     
 }

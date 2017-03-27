@@ -114,12 +114,14 @@
                             </button>
                           </div>
                         </div>
+                       
                         <div class="col-xs-12 col-md-12 col-lg-12">
                           <table class="table table-responsive table-bordered">
                             <thead>
+                             @foreach($transactions as $transaction)
                               <tr class="bg-brand">
                                 <td colspan="5" class="col">
-                                    <span class="pull-left w-600"><b>Sarelo Project<b></span>
+                                    <span class="pull-left w-600"><b>{{$transaction->name}}<b></span>
                                     <button class="btn btn-default pull-right">
                                       <span>
                                       <i class="fa fa-plus" aria-hidden="true"></i>
@@ -128,11 +130,13 @@
                                     </button>
                                 </td>
                               </tr>
+                              @endforeach
                             </thead>
                             <tbody>
+                            @foreach($transactions as $transaction)
                               <tr class="active">
                                 <td><strong>Date Started:</strong></td>
-                                <td class="invoiceLetter">16-12-2014</td>
+                                <td class="invoiceLetter">{{$transaction->start_date}}</td>
                                 <td><strong>Status:</strong></td>
                                 <td>
                                   <i class="fa fa-circle text-success">
@@ -140,10 +144,11 @@
                               </tr>
                               <tr class="active">
                                 <td><strong>Date Due:</strong></td>
-                                <td class="invoiceLetter">31-12-2014</td>
+                                <td class="invoiceLetter">{{$transaction->end_date}}</td>
                                 <td><strong>Initial Payment:</strong></td>
-                                <td>&#8358;250,000.00</td>
+                                <td>&#8358;{{$transaction->initial_pay}}</td>
                               </tr>
+                              @endforeach
                             </tbody>
                           </table>
                         </div>
@@ -161,12 +166,16 @@
                               </tr>
                             </thead>
                             <tbody>
+
                                 <tr>
                                   <td>1</td>
                                   <td class="invoiceLetter">20</td>
                                   <td class="invoiceLetter">Mockup</td>
                                   <td class="invoiceLetter">
-                                    Done
+                                    <select class="invoiceLetter">
+                                    <option value="done">done</option>
+                                    <option value="progress">in progress</option>
+                                  </select>
                                   </td>
                                   <td class="invoiceLetter">50,000</td>
                                   <td class="invoiceLetter">
@@ -279,7 +288,8 @@
                                   <td class="invoiceLetter">Mockup</td>
                                   
                                   <td class="invoiceLetter">
-                                    done
+                                  
+                                    
                                   </td>
                                   <td class="invoiceLetter">100,000</td>
                                   <td class="invoiceLetter">
@@ -416,6 +426,20 @@
                 app.toggleCollapse();
                 //app.likesController();
                 app.sidebarCtrl();
+            });
+
+            $('.invoiceLetter').change(function(){
+              var status = $(this).val();
+                data = {
+                  "status" : status
+                };
+                
+                $.post("/progress", data).then(function(response){
+                  
+                  
+                });
+
+              
             });
         </script>
     </body>

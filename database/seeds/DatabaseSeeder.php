@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
 
 
         factory(App\DeveloperCompleted::class, 10)->create();
+
+        factory(App\LiveProject::class, 10)->create();
     }
 }

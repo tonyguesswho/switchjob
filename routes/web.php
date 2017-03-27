@@ -39,6 +39,7 @@ Route::get('/profile/{profile}', 'Dev_dashboardController@edit');
 Route::post('/update/{profile}', 'Dev_dashboardController@update');
 //Route::get('/create', 'Dev_dashboardController@store');
 Route::get('/payment', 'Dev_dashboardController@payment');
+Route::post('/progress','Dev_dashboardController@progress');
 Route::post('/proposal/{proposal}', 'ProposalController@create');
 Route::post('/developer/socials/{id}', 'Dev_dashboardController@socialdetails_update');
 Route::post('/developer/account/{id}', 'Dev_dashboardController@account_update');
