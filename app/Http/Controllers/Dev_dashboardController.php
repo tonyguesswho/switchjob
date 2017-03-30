@@ -86,8 +86,6 @@ class Dev_dashboardController extends Controller
      public function account_update(Request $request, $user_id)
     {
         $accountdetail = User::find($user_id);
-        
-        $accountdetail->DeveloperAccount()->save(new DeveloperAccount(['user_id' => Auth::id()]));
         $accountdetail->update($request->all());
         $accountdetail->DeveloperAccount->user_id = $user_id;
         $accountdetail->DeveloperAccount->account= request('account');

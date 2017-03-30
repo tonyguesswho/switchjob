@@ -45,16 +45,18 @@ class DevelopersController extends Controller
     public function store(Request $request, $id)
     {
 
-  //       $this->validate($request, [
-		// 	'name' => 'required|min:3',
-		// 	'email' => 'required|min:10',
-		// 	'phone' => 'required|min:11',
-		// 	'skill' => 'required',
-		// 	'languages' => 'required',
-		// 	'frameworks' => 'required'
-		// ]);
-
         $developer = User::find($id);
+
+        $this->validate($request, [
+			'name' => 'required|min:3',
+			'email' => 'required|min:10',
+			//'phone' => 'required|min:11',
+			'skill' => 'required',
+			'languages' => 'required',
+			'frameworks' => 'required'
+		]);
+
+        
         
         $developer->update($request->all());
         $developer->Developer->years_of_experience = (request('pro'))? request('pro'): request('years_other');
