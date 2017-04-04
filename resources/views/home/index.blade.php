@@ -92,11 +92,9 @@
 						<div class="col-lg-4 col-sm-4 ring red">
 							<h5 class="red-border-bottom">Determination</h5> <!-- FOCUS HEADING -->
 							<div class="service-icon">
-<<<<<<< HEAD
-								<img src="switch/assets/img/det_icon.png">
-=======
+
 								<img src="/switch/assets/img/det_icon.png">
->>>>>>> DEV-DASHBOARD
+
 								<i class="pixeden pd-icon-notes"></i> <!-- FOCUS ICON-->
 							</div>
 
@@ -110,11 +108,9 @@
 						<div class="col-lg-4 col-sm-4 ring green">
 							<h5 class="green-border-bottom">Efficiency</h5>
 							<div class="service-icon">
-<<<<<<< HEAD
-								<img src="switch/assets/img/eff_icon.png">
-=======
+
 								<img src="/switch/assets/img/eff_icon.png">
->>>>>>> DEV-DASHBOARD
+
 								<span class="pixeden pd-icon-user"></span>
 							</div>
 
@@ -126,11 +122,9 @@
 						<div class="col-lg-4 col-sm-4 ring blue">
 							<h5 class="blue-border-bottom">Execution</h5>
 							<div class="service-icon">
-<<<<<<< HEAD
-								<img src="switch/assets/img/exe_icon.png">
-=======
+
 								<img src="/switch/assets/img/exe_icon.png">
->>>>>>> DEV-DASHBOARD
+
 								<i class="pixeden pd-icon-responsive"></i>
 							</div>
 
@@ -340,11 +334,9 @@
 								<div class="skill clearfix col-md-3">
 									<div class="skill-count">
 										<!--input type="text" value="97" data-thickness=".2" class="skill1"-->
-<<<<<<< HEAD
-										<img src="switch/assets/img/find2.png">
-=======
+
 										<img src="/switch/assets/img/find2.png">
->>>>>>> DEV-DASHBOARD
+
 									</div>
 									<div class="coller">
 										<h6 class="f-20"><strong> FIND </strong></h6>
@@ -359,11 +351,9 @@
 								<!-- SKILL TWO -->
 								<div class="skill clearfix col-md-3">
 									<div class="skill-count">
-<<<<<<< HEAD
-										<img src="switch/assets/img/hire2.png">
-=======
+
 										<img src="/switch/assets/img/hire2.png">
->>>>>>> DEV-DASHBOARD
+
 									</div>
 									<h6 class="f-20"><strong>HIRE</strong></h6>
 									<p>
@@ -374,11 +364,9 @@
 								<!-- SKILL THREE -->
 								<div class="skill clearfix col-md-3">
 									<div class="skill-count">
-<<<<<<< HEAD
-										<img src="switch/assets/img/work2.png">
-=======
+
 										<img src="/switch/assets/img/work2.png">
->>>>>>> DEV-DASHBOARD
+
 									</div>
 									<h6 class="f-20"><strong>WORK</strong></h6>
 									<p>
@@ -389,11 +377,9 @@
 								<!-- SKILL FOUR -->
 								<div class="skill clearfix col-md-3">
 									<div class="skill-count">
-<<<<<<< HEAD
-										<img src="switch/assets/img/pay2.png">
-=======
+
 										<img src="/switch/assets/img/pay2.png">
->>>>>>> DEV-DASHBOARD
+
 									</div>
 									<h6 class="f-20"><strong>PAY</strong></h6>
 									<p>
@@ -439,11 +425,8 @@
 							</li>
 							<li class="clients_showcase_row-title is-pfizer">
 								<a href="#" target="_blank" rel="noopener noreferrer">
-<<<<<<< HEAD
-									<img alt="#" class="clients_showcase_row-logo" src="switch/sassets/img/logos/switch_2.svg">
-=======
+
 									<img alt="#" class="clients_showcase_row-logo" src="/switch/assets/img/logos/switch_2.svg">
->>>>>>> DEV-DASHBOARD
 								</a>
 							</li>
 						</ul>
@@ -465,17 +448,12 @@
 					        <!--review 1-->
 
 					        <figure class="text-center">
-<<<<<<< HEAD
-					        	<img src="switch/assets/img/face_one.jpeg" alt="face_one" class="img-circle">
-					        </figure>
-					        <blockquote>
-					          <p lang="en"></p>
-=======
+
 					        	<img src="/switch/assets/img/face_one.jpeg" alt="face_one" class="img-circle">
 					        </figure>
 					        <blockquote>
 					          <p lang="en">" "</p>
->>>>>>> DEV-DASHBOARD
+
 					          <cite lang="en">— Troye Sivan, CEO Garlands Organisation</cite>
 					        </blockquote>
 
@@ -489,11 +467,9 @@
 					        <figure class="text-center"><img src="switch/assets/img/face2.JPEG" alt="face2" class="img-circle">
 					        </figure>
 					        <blockquote>
-<<<<<<< HEAD
-					          <p lang="en"> </p>
-=======
+
 					          <p lang="en">" ." </p>
->>>>>>> DEV-DASHBOARD
+
 					          <cite lang="en">— Felicia Love, CEO Webnet Organisation</cite> </blockquote>
 
 					        <!--review 2 end-->
@@ -507,11 +483,9 @@
 					        	<img src="switch/assets/img/f.jpg" alt="f" class="img-circle">
 					        </figure>
 					        <blockquote>
-<<<<<<< HEAD
-					          	<p lang="en"></p>
-=======
+
 					          	<p lang="en">"ti."</p>
->>>>>>> DEV-DASHBOARD
+
 					          	<cite lang="en">— Michael Waters, CEO Grey and Co.</cite>
 					        </blockquote>
 					        <!--review 3 end-->
@@ -558,12 +532,10 @@
 					<br>
 					<!-- CONTACT FORM-->
 					<div class="row">
-<<<<<<< HEAD
+
 						<form role="form" action="/profile/company" method="post" class="contact-form" data-validate="parsley">
 								{{csrf_field()}}
-=======
-						<form role="form" action="" method="post" class="contact-form" data-validate="parsley">
->>>>>>> DEV-DASHBOARD
+
 							<div class="row">
 								<div class="col-lg-4 col-sm-4 m-auto" style="float: none !important;">
 									<div class="col-lg-12 col-sm-12">
