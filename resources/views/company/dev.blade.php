@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.company')
+@section('content')
 
-    <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Devs Dashboard</title>
-        <!-- STYLESHEETS-->
-        <link rel="stylesheet" href="/switch/assets/css/bootstrap.min.css">
-
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
-        <link rel="stylesheet" type="text/css" href="/switch/assets/css/animsition.min.css">
-        <link rel="stylesheet" type="text/css" href="/switch/assets/css/animate.css">
-        <!-- CUSTOM STYLES -->
-        <link rel="stylesheet" href="/switch/assets/css/main.css">
-        <link rel="stylesheet" href="/switch/assets/css/form2.css">
-        <link rel="stylesheet" href="/switch/assets/css/dashboard.css">
-        <!-- WEBFONT -->
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
-       
-
-    </head>
-
-    <body>
+        
         <div class="wrapper clearfix animsition pos-rel">
           <header>
             <nav class="navbar navbar-default navbar-fixed">
@@ -63,7 +42,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="/logout">
+                                <a href="#">
                                     <p class="hidden-md hidden-lg"><i class="icon-logout"></i></p>
                                     <span>Log out</span>
                                 </a>
@@ -144,6 +123,8 @@
                                                 </div>
                                                 <!-- add search bar input ends here -->
                                                 @foreach($developers as $developer)
+                                               
+                                                
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="card">
@@ -155,27 +136,27 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <h3 class="c-brand w-900">{{$developer->user_id}}</h3>
+                                                                        <h3 class="c-brand w-900">{{$developer->username}}</h3>
                                                                         <p class="align-justify f-12"><strong>{{$developer->address}}</strong><span class="opacity-50"> Lagos</span></p>
                                                                         <div class="less clearfix">
                                                                             <p class="align-justify f-12">{{$developer->about_me}}
+                                                                             </p>
                                                                         </div>
                                                                         <div class="more clearfix">
                                                                             <h4><strong>Bio:</strong></h4>
                                                                             <p class="align-justify f-12">
-                                                                            {{$developer->about_me}}
-                                                                               
+                                                                               {{$developer->about_me}}
                                                                             </p>
                                                                             
                                                                             <h4><strong>Skills Set:</strong></h4>
                                                                             
-                                                                                <a href="#"><span class="label label skill">{{$developer->languages}}</span></a>
-                                                                                
+                                                                                 <a href="#"><span class="label label skill">{{$developer->languages}}</span></a>
+                                                                                <p class="align-justify f-12">more...</p>
                                                                             
                                                                             <div>
                                                                                 <div class="Expirence">
                                                                                     <h4><strong>Expirence:</strong></h4>
-                                                                                    <ul class="f-12">
+                                                                                     <ul class="f-12">
                                                                                         <li>{{$developer->languages}},{{ $developer->years_of_experience}}years</li>
                                                                                         <li>{{$developer->frameworks}}</li>
                                                                                         
@@ -185,7 +166,8 @@
                                                                                     <h4><strong>Availability:</strong></h4>
                                                                                     <ul class="f-12">
                                                                                         <li>Full-time</li>
-                                                                                        
+                                                                                        <li>Part-time</li>
+                                                                                        <li>Weekly</li>
                                                                                     </ul>
                                                                                 </div>
                                                                             </div>
@@ -194,7 +176,7 @@
                                                                             <h4><strong>Send Invite</strong></h4>
                                                                             <form method="post" action="/company/invite/
                                                                             {{$developer->id}}">
-                                                                                    {{csrf_field()}}
+                                                                            {{csrf_field()}}
                                                                                 <div class="form-group">
                                                                                     <label class="input-label" for="right_person">Describe why you are the right person for this job.</label>
                                                                                     <textarea placeholder="At least 100 words" class="form-control" name"right_person" rows="10"></textarea>
@@ -245,6 +227,7 @@
                                                     </div>
                                                 </div>
                                                 @endforeach
+                                                <center>{{$developers->links()}}</center>
                                                 
                                                 
                                             </div>
@@ -261,7 +244,6 @@
 
 
         </div>
-
         <!-- SCRIPTS -->
             <script src="/switch/assets/js/jquery.min.js"></script>
             <script src="/switch/assets/js/bootstrap.min.js"></script>
@@ -277,6 +259,6 @@
                     app.sidebarCtrl();
                 });
             </script>
-    </body>
+    @endsection
 
-</html>
+

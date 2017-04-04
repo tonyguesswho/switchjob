@@ -1237,10 +1237,7 @@ input[type="search"].quick_search{
   padding: 15px 15px 10px 15px;
 }
 
-.card-bg-red,.card-bg-dark,
-.card-bg-green, .card-bg-blue
-
-{
+.panels .card{
     min-height: 150px;
     color: #fff;
 }
@@ -2825,16 +2822,16 @@ thead td{
 }
 
 /*dashboard for dev here*/
- .figures{
-    font-weight: 900;
+.figures{
+  font-weight: 900;
 }
 .figures h3{
-    font-size: 40px;
-    line-height: 40px;
+  font-size: 40px;
+  line-height: 40px;
 } 
 .figures p{
-    letter-spacing: 5px;
-    text-transform: uppercase;
+  letter-spacing: 5px;
+  text-transform: uppercase;
 }
 
 /*featured-projects styling*/
@@ -2880,49 +2877,49 @@ thead td{
   text-transform: lowercase;
 }
 .Expirence{
-    float: left;
+  float: left;
 }
 .Availability{
-    float: right;
+  float: right;
 }
 
 /*company profile styling*/
 .middleline{
-    border-right: 1px solid #ddd;
-    width: 20%;
-    padding-left: 10px;
-    margin-bottom: 5px;
+  border-right: 1px solid #ddd;
+  width: 20%;
+  padding-left: 10px;
+  margin-bottom: 5px;
 }
 .profile{
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .nav-tabs {
-    border-bottom: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 .nav-tabs>li>a {
-    margin-right: 0px;
-    line-height: 1.42857143;
-    border: 1px solid #ddd;
-    border-radius: 0;
-    background: #efeded;
-    color: #333;
-    font-size: 14px;
-    font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;  
+  margin-right: 0px;
+  line-height: 1.42857143;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  background: #efeded;
+  color: #333;
+  font-size: 14px;
+  font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;  
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-    color: white;
-    cursor: default;
-    background-color: #333;
-    border: 1px solid #ddd;
-    border-bottom-color: #ddd;
+  color: white;
+  cursor: default;
+  background-color: #333;
+  border: 1px solid #ddd;
+  border-bottom-color: #ddd;
 }
 .nav-tabs{
-    width: 100%;
+  width: 100%;
 }
 
 .hr {
-    border-top: 1px solid #9A9A9A;
+  border-top: 1px solid #9A9A9A;
 }
 
 /*project details styling*/
@@ -2935,9 +2932,135 @@ thead td{
  /*Company Styles*/
 .dataTables_filter, .dataTables_wrapper .dataTables_filter  
 {
-    float: left;
+  float: left;
 }
 
 .DTTT_container{
-    display: none;
+  display: none;
+}
+
+.task-header{
+  border-bottom: 3px solid #8F8F8F !important;
+}
+
+.my-stats .data-box{
+  height: 20px;
+  width: 20px;
+  position: relative;
+}
+
+.my-stats .data{
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  left: 50%;
+  margin-left: -5px;
+}
+
+@media (max-width: 767px) {
+  .card-data-box-1{
+      margin-right: 18px;
+  }
+
+  .card-data-box-2{
+      margin-right: 3px;
+      margin-left: 15px;
+  }
+
+  .sm-bd-b-gray{
+      border-bottom:1px solid #ECECEC;
+  }
+}
+
+.proj-timeline .timeline li{
+  list-style-type: none;
+  position: relative;
+  width: 3px;
+  background: #AFAFAF;
+}
+
+.proj-timeline .timeline li::after {
+  transition: background .5s ease-in-out;
+}
+
+.proj-timeline .timeline li:nth-child(odd)::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: url(../assets/img/avatar.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.proj-timeline .timeline li div.activity{
+  position: relative;
+  bottom: 0;
+  width: 170px;
+  padding: 5px;
+  left: 45px;
+  background: rgba(255, 204, 41, 0.75);
+  /*visibility: hidden;
+  opacity: 0;*/
+  transition: all .5s ease-in-out;
+  /*transform: translate3d(100%, 0, 0);*/
+}
+
+.proj-timeline .timeline li div.no-activity{
+  position: relative;
+  bottom: 0;
+  height: 20px;
+  padding: 15px;
+  left: 45px;
+}
+
+.proj-timeline .timeline li div.activity::before {
+  content: '';
+  position: absolute;
+  bottom: 55%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent rgba(255, 204, 41, 0.75) transparent transparent;
+}
+
+.proj-timeline .timeline li div.in-view {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+.info-button{
+  background: transparent;
+  border: 1px solid #EEE; 
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0.5em 1em;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: linear-gradient(to bottom, #FFF 0%, #FFF 100%);
+}
+
+.pagination .active a, .pagination.active span, .pagination .active a:hover, .pagination .active span:hover, .pagination .active a:focus, .pagination .active span:focus {
+  z-index: 2;
+  color: #fff;
+  background-color: #FFCC29;
+  border-color: #FFCC29;
+  cursor: default;
 }

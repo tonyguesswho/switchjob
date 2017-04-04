@@ -8,20 +8,50 @@ use App\CompanyDetail;
 use App\Developer;
 use App\Userdetails;
 use App\Invite;
+use App\companyproject;
+use App\milestone;
 use Auth;
 class CompanyController extends Controller
-{
+{   
+    public function __construct()
+        {
+        $this->middleware('auth')->except('setup','store');
+       }
 
     public function dashboard()
     {
-        return view('company.dashboard');
+
+
+    $projects = Companyproject::with('milestones')->where('company_id', Auth::user()->id)->get();
+    
+    
+    $total_milestones = 0;
+    $total_projects=0;
+    
+
+    
+    
+
+    foreach ($projects as $project) {
+        $total_milestones += count($project->milestones);
+        //$projectsInJson=$project->toJson();
+        //dd($projectsInJson);
+        $total_projects+=count($project);
+
+        }
+    
+
+       $milestones=Milestone::where('company_id',Auth::user()->id)->get();
+       
+        
+    return view('company.dashboard',compact('milestones','projects','projectn','total_milestones','total_projects','projectsInJson'));
 
     }
 
     public function dev()
 
-    {   $developers = Developer::join('userdetails','developers.id','=','userdetails.user_id')->get();
-        //dd($developers);
+    {   $developers = Developer::join('userdetails','developers.id','=','userdetails.user_id')->paginate(3);
+        
         return view('company.dev',compact('developers'));
 
     }
@@ -40,18 +70,33 @@ class CompanyController extends Controller
         return view('company.project');
 
     }
-    public function projectdetail()
+    public function projectdetail($id)
     {
-        return view('company.projectdetail');
+        $project_id=$id;
+        
+    
+        $project_milestone=milestone::where('companyproject_id',$id )->get();
 
+    
+    
+        return view('company.projectdetail',compact('project_id','project_milestone'));
+
+    }
+
+    public function projectdesc($id){
+       
+        $project_id=$id;
+        $project=Companyproject::where('id',$id)->get();
+
+        return view('company.project_desc',compact('project_id','project'));
     }
     public function companyinvite(User $id){
         $companyInvite=invite::create([
 
-            'company_name'=>Auth::user()->name,
-            'company_id'=>Auth::user()->id,
+            'company_name'=>Auth::user()->firstname,
+           // 'company_id'=>Auth::user()->id,
             'email'=>Auth::user()->email,
-            'developer_id'=>$id->id,
+            'user_id'=>$id->id,
             ]);
        return redirect()->to('company/dashboard');
         }
@@ -79,9 +124,9 @@ class CompanyController extends Controller
 
             ]);
 
-        $company=user::create([
+        $company=User::create([
 
-            'name'=>request('company_name'),
+            'firstname'=>request('company_name'),
             'email'=>request('company_email'),
             'password'=>bcrypt(request('company_password')),
             'phone'=>request('company_phone'),

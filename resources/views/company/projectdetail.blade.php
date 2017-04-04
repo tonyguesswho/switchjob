@@ -61,14 +61,8 @@
                 margin-bottom: 0px;
             }
             #sts {
-            	font-weight: normal !important;
-            	margin-bottom: 0;
-            }
-
-           /* Company Projects*/
-           input[type="search"] {
-                border: 1px solid #e4e4e4;
-                height: 30px;
+                font-weight: normal !important;
+                margin-bottom: 0;
             }
         </style>
 
@@ -86,7 +80,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand animated" href="/company/dashboard">
+                        <a class="navbar-brand animated" href="../index.html">
                           <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
                         </a>
                     </div>
@@ -115,7 +109,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/logout">
                                     <p class="hidden-md hidden-lg"><i class="icon-logout"></i></p>
                                     <span>Log out</span>
                                 </a>
@@ -148,19 +142,19 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/company/dev">
-                                <i class="icon-layers"></i>
+                            <a href="/Company/dev">
+                                <i class="icon-grid"></i>
                                 <p>Developers</p>
                             </a>
                         </li>
-        				<li>
-                            <a href="/company/profile">
+                        <li>
+                            <a href="/Company/profile">
                                 <i class="icon-user"></i>
                                 <p>Account</p>
                             </a>
                         </li>
                     </ul>
-            	</div>
+                </div>
             </div>
             <div class="main-panel dash">
               <div class="content">
@@ -175,9 +169,9 @@
                                             <div class="clearfix p-15 pos-rel">
                                                 <div class="border-bottom">
                                                     <ul class="list-inline">
-                                                        <li class="f-18 c-brand w-900">Projects</li>
+                                                        <li class="f-18 c-brand w-900">Project Milestones</li>
                                                         <li class="f-right">
-                                                            <a class="btn btn-sm btn-brand" data-toggle="modal" href='#modal-id'><i class="fa fa-plus" aria-hidden="true"></i> Add Project</a>
+                                                            <a class="btn btn-sm btn-brand" data-toggle="modal" href='#modal-id'><i class="fa fa-plus" aria-hidden="true"></i> Add Milestone</a>
 
                                                         </li>
                                                     </ul>
@@ -187,7 +181,8 @@
                                         <div class="col-md-12">
                                             <div class="clearfix p-15 pos-rel">
                                                 <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered" id="comp-table" cellspacing="0" border="1">
+
+                                                    <table class="table table-bordered comp-table" id="dTable" border="1">
                                                         <thead class="p-t-10 p-b-10">
                                                             <tr>
                                                                 <th class="w-600 f-15">Title</th>
@@ -199,54 +194,22 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>Initial Design Concepts</td>
-                                                                <td>2015-12-13</td>
-                                                                <td>2016-01-23</td>
+                                                         @foreach($project_milestone as $milestone)
+                                                             <tr>
+
+                                                                <td>{{$milestone->milestone_title}}</td>
+                                                                <td>{{$milestone->start_date}}</td>
+                                                                <td>{{$milestone->deadline}}</td>
                                                                 <td><p id="pro">0</p></td>
                                                                 <td><p id="sts" class="align-center">In Progress</p></td>
                                                                 <td>
                                                                     <div id="lst" class="align-center">
-                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<a href="/company/deletemilestone/{{$milestone->id}}"><span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>Layout Design</td>
-                                                                <td>2015-12-13</td>
-                                                                <td>2016-01-23</td>
-                                                                <td><p id="pro">0</p></td>
-                                                                <td><p id="sts" class="align-center">In Progress</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Frontend Design Integration</td>
-                                                                <td>2015-12-13</td>
-                                                                <td>2016-01-23</td>
-                                                                <td><p id="pro">0</p></td>
-                                                                <td><p id="sts" class="align-center">In Progress</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Wordpress Backend Development</td>
-                                                                <td>2015-12-13</td>
-                                                                <td>2016-01-23</td>
-                                                                <td><p id="pro">0</p></td>
-                                                                <td><p id="sts" class="align-center">In Progress</p></td>
-                                                                <td>
-                                                                    <div id="lst" class="align-center">
-                                                                        <span class="bg-green p-5"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;<span class="bg-red p-5"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                            @endforeach
+                                                            
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -264,6 +227,33 @@
 
 
         </div>
+        <div class="modal" id="modal-id">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title align-center uppercase">*Fill the fields below to add a new milestone</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/company/addmilestone/{{$project_id}}" method="post" role="">
+                         {{csrf_field()}}
+                            <div class="form-group">
+                               
+                                <label for="">Title</label>
+                                <input type="text" class="form-control" name="mTitle">
+                                <label for="">Start Date</label>
+                                <input type="date" class="form-control" name="sDate">
+                                <label for="">Deadline</label>
+                                <input type="date"  class="form-control" name="dLine">
+                            </div>
+
+                            <input type="Submit" class="btn btn-xs btn-brand" id ="fSubmit" value="Submit" />
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- SCRIPTS -->
             <script src="/switch/assets/js/jquery.min.js"></script>
@@ -273,7 +263,6 @@
             <script src="/switch/assets/js/main2.js"></script>
             <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
-            
             <script>
                 $(document).ready(function(){
                     app.pageTransition();
@@ -282,10 +271,64 @@
                     app.likesController();
                     app.sidebarCtrl();
                 });
+            </script>
+
+            <script>
+                (function setup() {
+                    "use strict";
+
+                    var mTitleElem = document.getElementById("mTitle");
+                    var sDateElem = document.getElementById("sDate");
+                    var dLineElem = document.getElementById("dLine");
+                    var dTableElem = document.getElementById("dTable");
+                    var prog = document.getElementById("pro");
+                    var stat = document.getElementById("sts");
+                    var dList = document.getElementById("lst");
+
+                    document.getElementById("fSubmit").addEventListener("click", function () {
+                        var newRow = dTableElem.insertRow(-1);
+                        var newCell = newRow.insertCell(0);
+                        var clon = prog.cloneNode(true);
+                        var clon1 = stat.cloneNode(true);
+                        var clon2 = dList.cloneNode(true);
+                        var newText = document.createTextNode(mTitleElem.value);
+                        newCell.appendChild(newText);
+
+                        newCell = newRow.insertCell(1);
+                        newText = document.createTextNode(sDateElem.value);
+                        newCell.appendChild(newText);
+
+                        newCell = newRow.insertCell(2);
+                        newText = document.createTextNode(dLineElem.value);
+                        newCell.appendChild(newText);
+
+                        newCell = newRow.insertCell(3);
+                        newText = clon;
+                        newCell.appendChild(newText);
+
+                        newCell = newRow.insertCell(4);
+                        newText = clon1;
+                        newCell.appendChild(newText);
+
+                        newCell = newRow.insertCell(5);
+                        newText = clon2;
+                        newCell.appendChild(newText);
+
+                        mTitleElem.value = "";
+                        sDateElem.value = "";
+                        dLineElem.value = "";
+                        dTableElem.value = "";
+                    })
+                })();
+
+                $('#fSubmit').click(function(){
+                    $('#modal-id').modal('hide');
+                });
 
                 $(document).ready(function() {
-                    $('#comp-table').DataTable();
+                    $('.comp-table').DataTable();
                 } );
+                
             </script>
     </body>
 
