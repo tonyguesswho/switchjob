@@ -1,7 +1,7 @@
 @extends('layouts.dev_dashboard')
 
 @section('content')
-    <body>
+       <body>
         <div class="wrapper clearfix animsition pos-rel">
           <header>
             <nav class="navbar navbar-default navbar-fixed">
@@ -13,7 +13,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand animated" href="/">
+                        <a class="navbar-brand animated" href="../index.html">
                           <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
                         </a>
                     </div>
@@ -74,8 +74,8 @@
                                 <p>Transaction</p>
                             </a>
                         </li>
-                                <li>
-                            <a href="/profile/{{auth::user()->id}}">
+                        <li>
+                            <a href="/profile/{{Auth::user()->id}}">
                                 <i class="icon-user"></i>
                                 <p>Your Profile</p>
                             </a>
@@ -83,7 +83,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="main-panel dash">
               <div class="content">
                   <div class="p-0">
@@ -96,9 +95,9 @@
                                         <div class="col-md-12">
                                             <div class="clearfix p-t-20 p-b-20 pos-rel" style="background: #FFCC29; border-top-left-radius : 0px; border-top-right-radius: 0px;">
                                                 <h3 class="text-center c-white w-900">
-                                                    <i class="fa fa-gear width-50 dis-flex pos-abs h-100p t-0 b-0 l-0"></i>
-                                                    <p class="m-0"><strong>LOREM LAND</strong></p>
-                                                    <i class="fa fa-gear width-50 dis-flex pos-abs h-100p t-0 b-0 r-0"></i>
+                                                    <i class=" width-50 dis-flex pos-abs h-100p t-0 b-0 l-0"></i>
+                                                    <p class="m-0"><strong>AVAILABLE JOBS</strong></p>
+                                                    <i class=" width-50 dis-flex pos-abs h-100p t-0 b-0 r-0"></i>
                                                 </h3>
                                             </div>
                                         </div>
@@ -125,32 +124,38 @@
                                                                 <div class="dis-block clearfix p-t-15 p-b-15">
                                                                     <div class="col-md-3">
                                                                         <div class="thumbnail m-b-0 p-0 bd-4">
-                                                                            <img src="switch/assets/img/face_one.jpeg" class="bd-4">
+                                                                            <img src="/switch/assets/img/face_one.jpeg" class="bd-4">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <h3 class="c-brand w-900">{{$projects->job_scope}}</h3>
                                                                         <p class="align-justify f-12"><strong>{{$projects->firstname}}</strong><span class="opacity-50"> Yaba, Lagos</span></p>
                                                                         <div class="less clearfix">
-                                                                            <p class="align-justify f-12">
-                                                                            {{$projects->aboutus}}
-                                                                            </p>
+                                                                            <p class="align-justify f-12"> {{$projects->aboutus}}
+                                                                             </p>
                                                                         </div>
                                                                         <div class="more clearfix">
                                                                             <h4><strong>Summary:</strong></h4>
                                                                             <p class="align-justify f-12">
                                                                                 {{$projects->description}}
                                                                             </p>
-                                                                            <h4><strong>Duration:</strong></h4>
+                                                                             <h4><strong>Duration:</strong></h4>
                                                                             <p class="align-justify f-12">
-                                                                                It is a long established fact that a reader will be distracted by the readable content
-                                                                                of a page when looking at its layout.
+                                                                                {{$projects->duration}}
                                                                             </p>
                                                                             <h4><strong>Availability:</strong></h4>
                                                                             <p class="align-justify f-12">
-                                                                                Contrary to popular belief, Lorem Ipsum is not simply random text.
-                                                                                It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                                                                                Part-Time
                                                                             </p>
+                                                                            <h4><strong>Skills:</strong></h4>
+                                                                            
+                                                                            <a href="#"><span class="label label skill">Javascript</span></a>
+                                                                            <a href="#"><span class="label label skill">PHP</span></a>
+                                                                            <a href="#"><span class="label label skill">SQL</span></a>
+                                                                            <a href="#"><span class="label label skill">HTML</span></a>
+                                                                            <a href="#"><span class="label label skill">Laravel</span></a>
+                                                                            <a href="#"><span class="label label skill">Css</span></a>
+                                                                            <p class="align-justify f-12">more...</p>
                                                                             <h4><strong>Brief Technical Overview:</strong></h4>
                                                                             <ul class="f-12">
                                                                                 <li>What is Lorem Ipsum?</li>
@@ -160,7 +165,7 @@
                                                                             </ul>
                                                                             <h4><strong>Submit A Proposal</strong></h4>
                                                                             <form method="POST" action="/proposal/{{$projects->id}}">
-                                                                              {{csrf_field()}}
+                                                                            {{csrf_field()}}
                                                                                 <div class="form-group">
                                                                                     <label class="input-label" for="right_person">Describe why you are the right person for this job.</label>
                                                                                     <textarea placeholder="At least 100 words" class="form-control" name="reason" rows="10"></textarea>
@@ -179,6 +184,7 @@
                                                                                     </select>
                                                                                 </div>
                                                                                 <button type="submit" class="btn btn-dark">Submit</button>
+                                                                                
                                                                             </form>
                                                                             <br>
                                                                         </div>
@@ -192,8 +198,7 @@
                                                                 <div class="footer">
                                                                     <hr>
                                                                     <div class="stats">
-                                                                        <input type="hidden" name="" value="{{$projects->id}}">
-                                                                        <button class="btn btn-sm btn-brand">Interested</button>
+                                                                        <button class="btn btn-brand">Interested</button>
                                                                     </div>
                                                                     <div class="stats f-right">
                                                                         <span class="m-r-10">
@@ -215,106 +220,6 @@
                                                     </div>
                                                 </div>
                                                 @endforeach
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="content clearfix">
-                                                                <div class="dis-block clearfix p-t-15 p-b-15">
-                                                                    <div class="col-md-3">
-                                                                        <div class="thumbnail m-b-0 p-0 bd-4">
-                                                                            <img src="switch/assets/img/face_one.jpeg" class="bd-4">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <h3 class="c-brand w-900">Lorem Ipsum</h3>
-                                                                        <p class="align-justify f-12"><strong>Switch</strong><span class="opacity-50"> Yaba, Lagos</span></p>
-                                                                        <div class="less clearfix">
-                                                                            <p class="align-justify f-12">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                                               when an unknown printer took a galley of type and scrambled it to make a type
-                                                                               specimen book.
-                                                                             </p>
-                                                                        </div>
-                                                                        <div class="more clearfix">
-                                                                            <h4><strong>Summary:</strong></h4>
-                                                                            <p class="align-justify f-12">
-                                                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                                                                It has survived not only five centuries, but also the leap into electronic typesetting,
-                                                                                remaining essentially unchanged.
-                                                                            </p>
-                                                                            <h4><strong>Duration:</strong></h4>
-                                                                            <p class="align-justify f-12">
-                                                                                It is a long established fact that a reader will be distracted by the readable content
-                                                                                of a page when looking at its layout.
-                                                                            </p>
-                                                                            <h4><strong>Availability:</strong></h4>
-                                                                            <p class="align-justify f-12">
-                                                                                Contrary to popular belief, Lorem Ipsum is not simply random text.
-                                                                                It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                                                                            </p>
-                                                                            <h4><strong>Brief Technical Overview:</strong></h4>
-                                                                            <ul class="f-12">
-                                                                                <li>What is Lorem Ipsum?</li>
-                                                                                <li>Why do we use it?</li>
-                                                                                <li>Where does it come from?</li>
-                                                                                <li>Where can I get some?</li>
-                                                                            </ul>
-                                                                            <h4><strong>Submit A Proposal</strong></h4>
-                                                                            <form >
-                                                                               
-                                                                                <div class="form-group">
-                                                                                    <label class="input-label" for="right_person">Describe why you are the right person for this job.</label>
-                                                                                    <textarea placeholder="At least 100 words" class="form-control" name"right_person" rows="10"></textarea>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label class="input-label" for="about_job">What question do you have about this job?</label>
-                                                                                    <textarea placeholder="Common don't be shy." class="form-control" name"about_job"></textarea>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label class="input-label" for="contact_method">What's your preferred method of contact?</label>
-                                                                                    <select class="form-control" name="contact_method">
-                                                                                      <option>Switch messaging</option>
-                                                                                      <option>Email</option>
-                                                                                      <option>Skype</option>
-                                                                                      <option>Telephone</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <button type="submit" class="btn btn-dark">Submit</button>
-                                                                            </form>
-                                                                            <br>
-                                                                        </div>
-
-                                                                         <p class="opacity-50 f-11">javascript, .net, php</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <h3 class="c-brand text-center w-900"><span class="m-r-5">&#8358;</span><span>6000</span></h3>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="footer">
-                                                                    <hr>
-                                                                    <div class="stats">
-                                                                        <button class="btn btn-sm btn-brand">Interested</button>
-                                                                    </div>
-                                                                    <div class="stats f-right">
-                                                                        <span class="m-r-10">
-                                                                            <i class ="fa fa-thumbs-o-up m-r-3 likes"></i>
-                                                                            <span class="figures">16</span>
-                                                                        </span>
-                                                                        <span class="m-r-10">
-                                                                            <i class ="fa fa fa-thumbs-o-down m-r-3 dislikes"></i>
-                                                                            <span class="figures">2</span>
-                                                                        </span>
-                                                                        <span class="m-r-10">
-                                                                            <i class ="fa fa-eye m-r-3"></i>
-                                                                            <span class="figures">20</span>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -326,26 +231,22 @@
               </div>
             </div>
           </div>
-
-
         </div>
-
         <!-- SCRIPTS -->
-            <script src="switch/assets/js/jquery.min.js"></script>
-            <script src="switch/assets/js/bootstrap.min.js"></script>
-            <script src="switch/assets/js/jquery.vegas.min.js"></script>
-            <script src="switch/assets/js/animisition.min.js"></script>
-            <script src="switch/assets/js/main2.js"></script>
-            <script>
-                $(document).ready(function(){
-                    app.pageTransition();
-                    app.stylishInput();
-                    app.toggleCollapse();
-                    app.likesController();
-                    app.sidebarCtrl();
-                });
-            </script>
+        <script src="/switch/assets/js/jquery.min.js"></script>
+        <script src="/switch/assets/js/bootstrap.min.js"></script>
+        <script src="/switch//assets/js/jquery.vegas.min.js"></script>
+        <script src="/switch//assets/js/animisition.min.js"></script>
+        <script src="/switch//assets/js/main2.js"></script>
+        <script>
+            $(document).ready(function(){
+                app.pageTransition();
+                app.stylishInput();
+                app.toggleCollapse();
+                app.likesController();
+                app.sidebarCtrl();
+            });
+        </script>
     </body>
-
 </html>
 @endsection

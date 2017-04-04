@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCvToTable extends Migration
+class CreateDeveloperCompletedsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class AddCvToTable extends Migration
      */
     public function up()
     {
-        Schema::table('developer_socials', function (Blueprint $table) {
-
-            $table->text('cv')->nullable();
-
-            $table->dropColumn('account');
-
+        Schema::create('developer_completeds', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -29,8 +27,6 @@ class AddCvToTable extends Migration
      */
     public function down()
     {
-        Schema::table('developer_socials', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('developer_completeds');
     }
 }

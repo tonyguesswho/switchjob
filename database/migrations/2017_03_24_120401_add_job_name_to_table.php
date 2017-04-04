@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCvToTable extends Migration
+class AddJobNameToTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class AddCvToTable extends Migration
      */
     public function up()
     {
-        Schema::table('developer_socials', function (Blueprint $table) {
-
-            $table->text('cv')->nullable();
-
-            $table->dropColumn('account');
-
+        Schema::table('job_type', function (Blueprint $table) {
+            $table->biginteger('job_name')->nullable();
         });
     }
 
@@ -29,7 +25,7 @@ class AddCvToTable extends Migration
      */
     public function down()
     {
-        Schema::table('developer_socials', function (Blueprint $table) {
+        Schema::table('job_type', function (Blueprint $table) {
             //
         });
     }

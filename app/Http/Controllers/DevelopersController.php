@@ -42,37 +42,32 @@ class DevelopersController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
 
-        // dd($request->all());
+        $developer = User::find($id);
+
         $this->validate($request, [
 			'name' => 'required|min:3',
 			'email' => 'required|min:10',
-			'phone' => 'required|min:11',
+			//'phone' => 'required|min:11',
 			'skill' => 'required',
 			'languages' => 'required',
 			'frameworks' => 'required'
 		]);
 
-       // $update_user = User::find(Session::get('user')->id)->update(['phone' => $request->phone]);
-
-        $developerData = [
-                            'user_id' => Auth::user()->id,
-                            'years_of_experience' => ($request->pro)? $request->pro: $request->years_other,
-                            'languages' => $request->languages,
-                            'frameworks' => $request->frameworks,
-                            'pass_work' => $request->pass_work,
-                            'available_hours' => ($request->hours)? $request->hours: $request->hours_other
-                        ];
-
-        $developer = Developer::create($developerData);
-
-        Session::flash('flash_message', 'Developer added!');
-
-        //login developer
-       // auth()->login(Session::get('user'));
-        return redirect()->to('/create');
+        
+        
+        $developer->update($request->all());
+        $developer->Developer->years_of_experience = (request('pro'))? request('pro'): request('years_other');
+        $developer->Developer->languages = request('languages');
+        $developer->Developer->frameworks = request('frameworks');
+        $developer->Developer->pass_work = request('pass_work');
+        $developer->Developer->available_hours = request('hours')? request('pro'): request('years_other');
+        $developer->Developer->save();
+        
+        return redirect()->to('/dashboard');
+           
     }
 
     /**

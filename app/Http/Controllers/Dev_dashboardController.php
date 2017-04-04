@@ -1,13 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Invite;
+use App\LiveProject;
 use App\CompanyDetail;
+use App\DeveloperSocial;
+use App\DeveloperTranction;
+use App\DeveloperCompleted;
+use App\DeveloperAccount;
 use App\Developer;
 use App\Userdetail;
+use App\carbon;
 use App\Country;
 use App\City;
 use App\Job;
@@ -22,10 +30,21 @@ class Dev_dashboardController extends Controller
      */
     public function index()
     {   
-        $projects = Invite::where('user_id', Auth::user()->id)->paginate(4);
+        $projects = Invite::where('developer_id', Auth::user()->id)->get();
+        $completed = DeveloperCompleted::where('user_id',Auth::user()->id)->get();
+      
+        $month = Invite::where('developer_id', Auth::user()->id)
+        ->select(DB::raw('MONTH(created_at) month, count(*) month_count'))
+        ->groupBy('month') 
+        ->orderBy('month')->get();
         
-        return view('dev-dashboard.index', compact('projects'));
+        $todayMinusOneWeekAgo = \Carbon\Carbon::today()->subWeek();
+        $week = Invite::where('created_at', $todayMinusOneWeekAgo)->get();
+
+        return view('dev-dashboard.index', compact('projects','week','month','completed'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -34,8 +53,7 @@ class Dev_dashboardController extends Controller
      */
     public function create()
     {  
-        $project = DB::table('jobs')
-                ->join('users', 'jobs.user_id', '=', 'users.id' )
+        $project = Job::join('users', 'jobs.user_id', '=', 'users.id' )
                 ->join('company_details','jobs.user_id', '=', 'company_details.user_id')
                 ->paginate(4);
                 
@@ -50,30 +68,34 @@ class Dev_dashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function socialdetails_update(Request $request, $user_id)
     {
-       
-        $users = Userdetail::create([
+        $socialdetail = User::find($user_id);
+        $socialdetail->update($request->all());
+        $socialdetail->DeveloperSocial->user_id = $user_id;
+        $socialdetail->DeveloperSocial->git_account= request('git_account');
+        $socialdetail->DeveloperSocial->skype_id = request('skype_id');
+        $socialdetail->DeveloperSocial->linkedin_id = request('linkedin_id');
+        $socialdetail->DeveloperSocial->available = request('available');
+       // $socialdetail->DeveloperSocial->cv = Storage::putFile('cv', $request->file('cv'));;
+        $socialdetail->DeveloperSocial->save();
 
-            'user_id' => Auth::user()->id,
-
-            ]);
-
-        $users = Country::create([
-
-            'user_id' => Auth::user()->id,
-
-            ]);
-
-        $users = City::create([
-
-            'user_id' => Auth::user()->id,
-
-            ]);
-
-        return redirect('/dashboard');  
+        return Back();
     }
 
+     public function account_update(Request $request, $user_id)
+    {
+        $accountdetail = User::find($user_id);
+        $accountdetail->update($request->all());
+        $accountdetail->DeveloperAccount->user_id = $user_id;
+        $accountdetail->DeveloperAccount->account= request('account');
+        $accountdetail->DeveloperAccount->bank = request('bank');
+        $accountdetail->DeveloperAccount->bvn = request('bvn');
+       // $socialdetail->DeveloperSocial->cv = Storage::putFile('cv', $request->file('cv'));;
+        $accountdetail->DeveloperAccount->save();
+
+        return Back();
+    }
 
     
     /**
@@ -83,8 +105,13 @@ class Dev_dashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function payment()
-    {
-        return view('dev-dashboard.payment');
+    {   
+        $transactions = LiveProject::where('developer_user_id', Auth::user()->id)
+                        ->join('jobs', 'live_projects.job_id', '=', 'jobs.id' )
+                       ->join('job_type','job_type.id', '=', 'jobs.job_type_id')
+                       ->paginate(2);
+                      
+                        return view('dev-dashboard.payment', compact('transactions'));
     }
 
     /**
@@ -93,15 +120,27 @@ class Dev_dashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function progress()
+    {
+        $progress = DeveloperTranction::create([
+                    'developer_id'=> Auth::user()->id,
+                     'status' => json_decode('response')
+                    ]);
+                return response()->json(['status' => 'data']);
+                    
+    }
+
     public function edit($id)
     {
         
         $users = User::find($id);
-        $users->Userdetail::where('user_id', Auth::user()->id)->get();
-        $users->City::where('user_id', Auth::user()->id )->get();
-        $users->Country::where('user_id', Auth::user()->id )->get();
-
-        return view('dev-dashboard.profile')->with('users', $users);
+                $users->Userdetail::where('user_id', Auth::user()->id)->get();
+                $users->City::where('user_id', Auth::user()->id )->get();
+                $users->Country::where('user_id', Auth::user()->id )->get();
+                $users->DeveloperSocial::where('user_id', Auth::user()->id)->get();
+                $users->DeveloperAccount::where('user_id', Auth::user()->id)->get();
+                return view('dev-dashboard.profile')->with('users', $users);
     }
 
     /**
@@ -115,7 +154,7 @@ class Dev_dashboardController extends Controller
 
     {  
         $users = User::find($id);
-
+        
         $users->update($request->all());
         $users->firstname = request('firstname');
         $users->lastname = request('lastname');
@@ -130,6 +169,7 @@ class Dev_dashboardController extends Controller
         $users->Userdetail->save();
         $users->City->save();
         $users->Country->save();
+
         return Back()->with('users', $users);
 
     }

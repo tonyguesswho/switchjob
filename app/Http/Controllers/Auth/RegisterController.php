@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
+use session;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use App\Userdetail;
+use App\Country;
+use App\Developer;
+use App\DeveloperSocial;
+use App\DeveloperAccount;
+use App\City;
 
 use Auth;
 
@@ -41,10 +48,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     /**
      * Get a validator for an incoming registration request.
@@ -78,7 +85,37 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
 
         ]);
+
+            
+
+            auth()->login($users);
+
+            $Userdetail = new Userdetail();
+            $Userdetail->user_id = Auth::user()->id;
+            $Userdetail->save();
+
+            $country = new Country();
+            $country->user_id = Auth::user()->id;
+            $country->save();
+
+            $city = new City();
+            $city->user_id = Auth::user()->id;
+            $city->save();
+
+            $developer = new Developer();
+            $developer->user_id = Auth::user()->id;
+            $developer->save();
+
+            $socialsdetails = new DeveloperSocial();
+            $socialsdetails->user_id = Auth::user()->id;
+            $socialsdetails->save();
+
+            $developeraccount = new DeveloperAccount();
+            $developeraccount->user_id = Auth::user()->id;
+            $developeraccount->save();
+
             return $users;
+            return redirect('/profile');
 
     }
 

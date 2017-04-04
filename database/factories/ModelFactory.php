@@ -55,3 +55,25 @@ $factory->define(App\CompanyDetail::class, function (Faker\Generator $faker) {
        
     ];
 });
+
+$factory->define(App\DeveloperCompleted::class, function (Faker\Generator $faker) {
+   // static $password;
+
+    return [
+        'user_id' => $faker->randomDigit,
+    ];
+});
+
+$factory->define(App\LiveProject::class, function (Faker\Generator $faker) {
+   // static $password;
+
+    return [
+        'job_id' => $faker->randomDigit,
+        'developer_user_id' => $faker->randomDigit,
+        'start_date' => $faker->date,
+        'duration' =>'3 months',
+        'status' => 'complete',
+        'end_date'=> $faker->date,
+       
+    ];
+});

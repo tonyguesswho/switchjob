@@ -77,11 +77,13 @@ const app = {
 		$.vegas('slideshow', {
 		  delay:7000,
 		  backgrounds:[
-		    { src:'switch/assets/img/CUP.jpg', fade:1000 },
+
+		    { src:'/switch/assets/img/CUP.jpg', fade:1000 },
 		    //{ src:'assets/img/code.jpeg', fade:1000 },
-		    { src:'switch/assets/img/laptop.jpeg', fade:1000 },
-		    { src:'switch/assets/img/meeting.jpg', fade:1000 },
-		    { src:'switch/assets/img/startup.jpg', fade:1000 }
+		    { src:'/switch/assets/img/laptop.jpeg', fade:1000 },
+		    { src:'/switch/assets/img/meeting.jpg', fade:1000 },
+		    { src:'/switch/assets/img/startup.jpg', fade:1000 }
+
 		  ],
 		  transitionDuration:1000,
 		  transition: 'fade',
@@ -469,10 +471,10 @@ const app = {
                         },
                         gridLines: {
                             color: "rgba(0, 0, 0, 0)"
-                        }  
+                        }
                     }]
                 }
-            
+
 
             }
         });
@@ -568,58 +570,58 @@ const app = {
 		misc = {
         	navbar_menu_visible: 0
     	},
-    	initRightMenu =  function(){  
+    	initRightMenu =  function(){
 	        if(!navbar_initialized){
 	            $navbar = $('nav').find('.navbar-collapse').first().clone(true);
-	        
+
 	            $sidebar = $('.sidebar');
 	            //undefined
 	            sidebar_color = $sidebar.data('color');
-	            
+
 	            ul_content = '';
-	            
-	             
+
+
 	            // add the content from the sidebar to the right menu
 	            content_buff = $sidebar.find('.nav').html();
 	            ul_content = ul_content + content_buff;
-	            
+
 	            //add the content from the regular header to the right menu
 	            $navbar.children('ul').each(function(){
 	                content_buff = $(this).html();
-	                ul_content = ul_content + content_buff;   
+	                ul_content = ul_content + content_buff;
 	            });
-	             
+
 	            ul_content = '<ul class="nav navbar-nav">' + ul_content + '</ul>';
-	            
+
 	            navbar_content = ul_content;
-	            
+
 	            $navbar.html(navbar_content);
-	             
+
 	            $('body').append($navbar);
-	             
-	            
-	             
-	             
+
+
+
+
 	            $toggle = $('.navbar-toggle');
-	             
+
 	            $navbar.find('a').removeClass('btn btn-round btn-default');
 	            $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
 	            $navbar.find('button').addClass('btn-simple btn-block');
-	            
-	            $toggle.click(function (){    
+
+	            $toggle.click(function (){
 	                if(misc.navbar_menu_visible == 1) {
-	                    $('html').removeClass('nav-open'); 
+	                    $('html').removeClass('nav-open');
 	                    misc.navbar_menu_visible = 0;
 	                    $('#bodyClick').remove();
 	                     setTimeout(function(){
 	                        $toggle.removeClass('toggled');
 	                     }, 400);
-	                
+
 	                } else {
 	                    setTimeout(function(){
 	                        $toggle.addClass('toggled');
 	                    }, 430);
-	                    
+
 	                    div = '<div id="bodyClick"></div>';
 	                    $(div).appendTo("body").click(function() {
 	                        $('html').removeClass('nav-open');
@@ -629,25 +631,25 @@ const app = {
 	                            $toggle.removeClass('toggled');
 	                         }, 400);
 	                    });
-	                   
+
 	                    $('html').addClass('nav-open');
 	                    misc.navbar_menu_visible = 1;
-	                    
+
 	                }
 	            });
 	            navbar_initialized = true;
 	        }
-   
+
         };
-        // Init navigation toggle for small screens   
+        // Init navigation toggle for small screens
 	    if($(window).width() <= 991){
 	       initRightMenu();
 	    }
-	    // activate collapse right menu when the windows is resized 
+	    // activate collapse right menu when the windows is resized
 		$(window).resize(function(){
 		    if($(window).width() <= 991){
-		        initRightMenu();   
+		        initRightMenu();
 		    }
-		});    
+		});
 	}
 }

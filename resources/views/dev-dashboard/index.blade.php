@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <body>
+<body>
         <div class="wrapper clearfix animsition pos-rel">
           <header>
             <nav class="navbar navbar-default navbar-fixed">
@@ -14,7 +14,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand animated" href="/">
+                        <a class="navbar-brand animated" href="../index.html">
                           <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 40px" class="logo-nav">
                         </a>
                     </div>
@@ -75,8 +75,8 @@
                                 <p>Transaction</p>
                             </a>
                         </li>
-                                <li>
-                            <a href="/profile/{{auth::user()->id}}">
+                        <li>
+                            <a href="/profile/{{Auth::user()->id}}">
                                 <i class="icon-user"></i>
                                 <p>Your Profile</p>
                             </a>
@@ -85,23 +85,22 @@
                 </div>
             </div>
 
-
             <div class="main-panel">
                 <!--cck -->
                 <div class="p-0">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 panels">
                             <span class="fa fa-briefcase pos-abs p-l-10 p-t-10 z-index c-white"></span>
                             <div class="card card-bg-dark text-center pos-rel p-15 dis-flex">
                                 <div class="figures">
                                     <h3>{{$projects->count()}}</h3>
                                     <p>PROJECTS</p>
                                     <hr class="width-50p m-auto">
-                                    <small>Last Week:</small>
+                                    <small>Last Week:{{$week->count()}}</small>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 panels">
                             <span class="fa fa-folder-open pos-abs p-l-10 p-t-10 z-index c-white"></span>
                             <div class="card card-bg-red text-center pos-rel p-15 dis-flex">
                                 <div class="figures">
@@ -112,22 +111,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 panels">
                             <span class="fa fa-archive pos-abs p-l-10 p-t-10 z-index c-white"></span>
                             <div class="card card-bg-green text-center pos-rel p-15 dis-flex">
                                 <div class="figures">
-                                    <h3>2</h3>
+                                    <h3>{{$completed->count()}}</h3>
                                     <p>Completed</p>
                                     <hr class="width-50p m-auto">
                                     <small>Last Week: 5</small>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 panels">
                             <span class="fa fa-bookmark pos-abs p-l-10 p-t-10 z-index c-white"></span>
                             <div class="card card-bg-blue text-center pos-rel p-15 dis-flex">
                                 <div class="figures">
-                                    <h3>22</h3>
+                                    <h3>{{$projects->count()-$completed->count()}}</h3>
                                     <p>PENDING</p>
                                     <hr class="width-50p m-auto">
                                     <small>Last Week: 5</small>
@@ -155,9 +154,7 @@
                                         <br>
                                         <hr>
                                         <div class="stats">
-                                        @foreach($projects as $project)
-                                            <i class="fa fa-history"></i> {{$project->created_at->diffForHumans()}}
-                                        @endforeach
+                                            <i class="fa fa-history"></i> Updated 3 minutes ago
                                         </div>
                                     </div>
                                 </div>
@@ -171,7 +168,6 @@
                                     <h3 class="title c-brand w-900">On going projects</h3>
                                     <p class="category">Here is a subtitle for this table</p>
                                 </div>
-                                
                                 <div class="content clearfix">
                                     <div class="col-md-12">
                                         <div class="table-responsive table-full-width">
@@ -185,21 +181,19 @@
                                                 </tr></thead>
                                                 <tbody>
                                                 @foreach($projects as $key => $project)
-
                                                     <tr>
                                                         <td>{{$key+1}}</td>
                                                         <td>{{$project->project}}</td>
                                                         <td>{{$project->cost}}</td>
                                                         <td>{{$project->company_name}}</td>
                                                         <td>{{$project->deadline}}</td>
-                                                    </tr>  
-                                                    @endforeach     
+                                                    </tr>
+                                                 @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -207,24 +201,20 @@
                 <!-- jj -->
             </div>
           </div>
-
-
         </div>
-
         <!-- SCRIPTS -->
-            <script src="switch/assets/js/jquery.min.js"></script>
-            <script src="switch/assets/js/bootstrap.min.js"></script>
-            <script src="switch/assets/js/animisition.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-            <script src="switch/assets/js/main2.js"></script>
-            <script>
-                $(document).ready(function(){
-                    app.pageTransition();
-                    app.barChart();
-                    app.sidebarCtrl();
-                });
-            </script>
+        <script src="/switch/assets/js/jquery.min.js"></script>
+        <script src="/switch/assets/js/bootstrap.min.js"></script>
+        <script src="/switch/assets/js/animisition.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <script src="/switch/assets/js/main2.js"></script>
+        <script>
+            $(document).ready(function(){
+                app.pageTransition();
+                app.barChart();
+                app.sidebarCtrl();
+            });
+        </script>
     </body>
-
 </html>
 @endsection
