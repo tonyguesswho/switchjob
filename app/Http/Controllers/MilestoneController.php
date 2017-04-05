@@ -13,11 +13,11 @@ class MilestoneController extends Controller
        $milestone=Milestone::create([
 
            'milestone_title'=>request('mTitle'),
-            'start_date'=>request('sDate'),
+           'start_date'=>request('sDate'),
            'deadline'=>request('dLine'),
            'companyproject_id'=>$id,
-            'company_id'=>Auth::user()->id,
-            'developer_id'=>'33',
+           'company_id'=>Auth::user()->id,
+           'developer_id'=>'33',
             ]);
        return redirect()->back();
     }
