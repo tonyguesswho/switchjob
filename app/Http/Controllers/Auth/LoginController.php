@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -26,7 +27,17 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/account';
+   // protected $redirectTo = '/account';
+    
+        public function redirectTo()
+        {  
+            $user_type = User::Where('user_type', 1);
+
+            if ($user_type) 
+            {
+               return  '/dashboard'; 
+            }
+        }
 
     /**
      * Create a new controller instance.

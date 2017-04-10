@@ -90,6 +90,7 @@ class CompanyController extends Controller
 
         return view('company.project_desc',compact('project_id','project'));
     }
+    
     public function companyinvite(User $id){
         $companyInvite=invite::create([
 

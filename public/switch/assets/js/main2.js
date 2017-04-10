@@ -427,7 +427,7 @@ const app = {
 		});
 	//	console.log(likes);
 	},
-	barChart: function(){
+	barChart: function(labelsPara, dataPara){
 		if (document.getElementById("myChart") == null) {
 			return;
 		}
@@ -435,10 +435,10 @@ const app = {
         let myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June"],
+                labels: labelsPara,
                 datasets: [{
                     label: 'Total Projects',
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: dataPara,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

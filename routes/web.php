@@ -25,8 +25,6 @@ Route::resource('companies', 'CompanyController');
 
 Route::get('/home', 'HomeController@index');
 
-
-
 Route::get('social/login/{provider}', 'Auth\AuthController@redirectToProvider');
 Route::get('social/login/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('/profile', 'ProfileController@index');
