@@ -14,7 +14,7 @@ class AddAvailableHours extends Migration
     public function up()
     {
         Schema::table('developers', function (Blueprint $table) {
-            $table->string('available_hours');
+            $table->string('available_hours')->nullable();
         });
     }
 

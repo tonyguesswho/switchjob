@@ -14,8 +14,8 @@ class AddColumnsDevelopersTable extends Migration
     public function up()
     {
         Schema::table('developers', function (Blueprint $table) {
-		$table->text('languages');
-		$table->text('frameworks');
+		$table->text('languages')->nullable();
+		$table->text('frameworks')->nullable();
         });
     }
 

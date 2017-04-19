@@ -31,12 +31,17 @@ class LoginController extends Controller
     
         public function redirectTo()
         {  
-            $user_type = User::Where('user_type', 1);
+                if (Auth::user()->user_type == 1) 
 
-            if ($user_type) 
-            {
-               return  '/dashboard'; 
-            }
+        {
+        return '/dashboard';
+
+        } 
+        elseif (Auth::user()->user_type == 2) 
+
+        {
+            return '/company/dashboard';
+        }
         }
 
     /**

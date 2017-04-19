@@ -31,7 +31,7 @@ Route::get('/profile', 'ProfileController@index');
 Route::get('/profile/developer', 'ProfileController@developer');
 
 
-Route::post('/profile/company', 'CompanyController@setup');
+Route::post('/profile/companies', 'CompanyController@setup');
 Route::post('/profile/setup','CompanyController@store');
 
 Route::get('/dashboard', 'Dev_dashboardController@index');
