@@ -160,7 +160,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control" name="address" placeholder="Home Address" value=" {{old('address', $users->Userdetail->address)}}">
+                                                <input type="text" class="form-control" name="address" placeholder="Home Address" value=" {{old('address', $users->UserDetail->address)}}">
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Postal Code</label>
-                                                <input type="number" class="form-control" name="postal_code" placeholder="ZIP Code" value="{{old('postal_code', $users->Userdetail->postal_code)}}">
+                                                <input type="number" class="form-control" name="postal_code" placeholder="ZIP Code" value="{{old('postal_code', $users->UserDetail->postal_code)}}">
                                             </div>
                                         </div>
                                     </div>
@@ -190,7 +190,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>About Me</label>
-                                                <textarea rows="5" class="form-control" name="about_me" placeholder="Here can be your description" value="Mike">{{old('about_me', $users->Userdetail->about_me)}}</textarea>
+                                                <textarea rows="5" class="form-control" name="about_me" placeholder="Here can be your description" value="Mike">{{old('about_me', $users->UserDetail->about_me)}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -205,7 +205,7 @@
 
                         <div class="card">
                             <div class="content">
-                                <form method="POST" action="/developer/socials/{{$users->id}}">
+                                <form method="POST" action="/developer/socials/{{$users->id}}" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                     <div class="row">
                                         <div class="col-md-4">
@@ -229,14 +229,10 @@
                                     </div>
 
                                     <h4><strong><label>Skills:</label></strong></h4>
-                                                                            
-                                    <a href="#"><span class="label label skill">Javascript</span></a>
-                                    <a href="#"><span class="label label skill">PHP</span></a>
-                                    <a href="#"><span class="label label skill">SQL</span></a>
-                                    <a href="#"><span class="label label skill">HTML</span></a>
-                                    <a href="#"><span class="label label skill">Laravel</span></a>
-                                    <a href="#"><span class="label label skill">Css</span></a>
+                                        @foreach($languages as $language)    
+                                    <a href="#"><span class="label label skill">{{$language}}</span></a>
                                     
+                                        @endforeach
 
                                     <div class="row">
                                         <div class="col-md-4">

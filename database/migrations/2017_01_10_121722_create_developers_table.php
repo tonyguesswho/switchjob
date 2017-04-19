@@ -16,9 +16,9 @@ class CreateDevelopersTable extends Migration
         Schema::create('developers', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('years_of_experience');
-            $table->text('pass_work');
-            $table->text('coolest_thing');
+            $table->string('years_of_experience')->nullable();
+            $table->text('pass_work')->nullable();
+            $table->text('coolest_thing')->nullable();
             $table->timestamps();
         });
     }

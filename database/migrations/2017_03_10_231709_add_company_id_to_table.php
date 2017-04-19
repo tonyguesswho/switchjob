@@ -15,6 +15,7 @@ class AddCompanyIdToTable extends Migration
     {
         Schema::table('invites', function (Blueprint $table) {
             $table->integer('company_id');
+            $table->integer('developer_id');
         });
     }
 

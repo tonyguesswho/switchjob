@@ -210,9 +210,19 @@
         <script src="/switch/assets/js/main2.js"></script>
         <script>
             $(document).ready(function(){
+                var labels = [];
+                var dataP = [];
+                var month_names = <?php echo $month ?>;
+                month_names.map(function(data){
+                    //console.log(data.month_name);
+                    labels.push(data.month_name);
+                    dataP.push(data.month_count);
+                });
+
                 app.pageTransition();
-                app.barChart();
+                app.barChart(labels,dataP);
                 app.sidebarCtrl();
+                
             });
         </script>
     </body>

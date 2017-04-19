@@ -17,7 +17,7 @@ class AddCvToTable extends Migration
 
             $table->text('cv')->nullable();
 
-            $table->dropColumn('account');
+            //$table->dropColumn('account');
 
         });
     }

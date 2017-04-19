@@ -83,14 +83,13 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'user_type' => 1,
 
         ]);
 
-            
-
             auth()->login($users);
-
-            $Userdetail = new Userdetail();
+            
+            $Userdetail = new UserDetail();
             $Userdetail->user_id = Auth::user()->id;
             $Userdetail->save();
 

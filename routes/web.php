@@ -25,15 +25,13 @@ Route::resource('companies', 'CompanyController');
 
 Route::get('/home', 'HomeController@index');
 
-
-
 Route::get('social/login/{provider}', 'Auth\AuthController@redirectToProvider');
 Route::get('social/login/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/profile/developer', 'ProfileController@developer');
 
 
-Route::post('/profile/company', 'CompanyController@setup');
+Route::post('/profile/companies', 'CompanyController@setup');
 Route::post('/profile/setup','CompanyController@store');
 
 Route::get('/dashboard', 'Dev_dashboardController@index');

@@ -235,7 +235,7 @@
                           </table>
                         </div>
                         <br><br>
-                        <div class="col-xs-12 col-md-12 col-lg-12">
+                        <!-- <div class="col-xs-12 col-md-12 col-lg-12">
                           <table class="table table-responsive table-bordered">
                             <thead>
                               <tr class="bg-brand">
@@ -347,7 +347,7 @@
                               </tr>
                             </tfoot>
                           </table>
-                        </div>
+                        </div> -->
                         <div class="col-xs-12 col-md-12 col-lg-12 table2">
                         <h2 class="text-center">COMPLETED TRANSACTIONS</h2>
                           <table class="table table-responsive table-bordered" id="example">

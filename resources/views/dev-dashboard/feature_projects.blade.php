@@ -128,7 +128,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <h3 class="c-brand w-900">{{$projects->job_scope}}</h3>
+                                                                        <h3 class="c-brand w-900">{{$projects->job_name}}</h3>
                                                                         <p class="align-justify f-12"><strong>{{$projects->firstname}}</strong><span class="opacity-50"> Yaba, Lagos</span></p>
                                                                         <div class="less clearfix">
                                                                             <p class="align-justify f-12"> {{$projects->aboutus}}

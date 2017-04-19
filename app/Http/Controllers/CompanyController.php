@@ -50,7 +50,7 @@ class CompanyController extends Controller
 
     public function dev()
 
-    {   $developers = Developer::join('userdetails','developers.id','=','userdetails.user_id')->paginate(3);
+    {   $developers = Developer::join('user_details','developers.id','=','user_details.user_id')->paginate(3);
         
         return view('company.dev',compact('developers'));
 
@@ -90,6 +90,7 @@ class CompanyController extends Controller
 
         return view('company.project_desc',compact('project_id','project'));
     }
+    
     public function companyinvite(User $id){
         $companyInvite=invite::create([
 
@@ -104,9 +105,9 @@ class CompanyController extends Controller
     
     public function setup()
     {
-        
         return view('company.setup');
     }
+
     public function store(Request $request)
     {
         $this->validate(request(),[
@@ -130,7 +131,7 @@ class CompanyController extends Controller
             'email'=>request('company_email'),
             'password'=>bcrypt(request('company_password')),
             'phone'=>request('company_phone'),
-            
+            'user_type' => 2,
 
             ]);
         

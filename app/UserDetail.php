@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class country extends Model
+class UserDetail extends Model
 {
-    protected $fillable = [ 'user_id','country',];
+    protected $guarded =['id'];
 
     public function User()
     {
