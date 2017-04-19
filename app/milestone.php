@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class milestone extends Model
+class Milestone extends Model
 {
     protected $guarded=[];
 
     public function companyproject(){
-    	return $this->belongsTo('App\companyproject');
+    	return $this->belongsTo('App\Companyproject');
 
     }
 
