@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\companyproject;
+use App\Companyproject;
 use Auth;
 
 class CompanyprojectController extends Controller
 {
     public function projects(){
-    	$projects=companyproject::where('company_id',Auth::user()->id)->get();
+    	$projects=Companyproject::where('company_id',Auth::user()->id)->get();
     	return view('company.project',compact('projects'));
     }
     

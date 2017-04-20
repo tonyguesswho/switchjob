@@ -88,7 +88,7 @@ class RegisterController extends Controller
         ]);
 
             auth()->login($users);
-            
+
             $Userdetail = new UserDetail();
             $Userdetail->user_id = Auth::user()->id;
             $Userdetail->save();

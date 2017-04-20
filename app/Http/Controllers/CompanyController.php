@@ -8,8 +8,8 @@ use App\CompanyDetail;
 use App\Developer;
 use App\Userdetails;
 use App\Invite;
-use App\companyproject;
-use App\milestone;
+use App\Companyproject;
+use App\Milestone;
 use Auth;
 class CompanyController extends Controller
 {   
