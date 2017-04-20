@@ -8,8 +8,8 @@ use App\CompanyDetail;
 use App\Developer;
 use App\Userdetails;
 use App\Invite;
-use App\companyproject;
-use App\milestone;
+use App\Companyproject;
+use App\Milestone;
 use Auth;
 class CompanyController extends Controller
 {   
@@ -50,7 +50,7 @@ class CompanyController extends Controller
 
     public function dev()
 
-    {   $developers = Developer::join('userdetails','developers.id','=','userdetails.user_id')->paginate(3);
+    {   $developers = Developer::join('user_details','developers.id','=','user_details.user_id')->paginate(3);
         
         return view('company.dev',compact('developers'));
 
@@ -105,9 +105,9 @@ class CompanyController extends Controller
     
     public function setup()
     {
-        
         return view('company.setup');
     }
+
     public function store(Request $request)
     {
         $this->validate(request(),[
@@ -131,7 +131,7 @@ class CompanyController extends Controller
             'email'=>request('company_email'),
             'password'=>bcrypt(request('company_password')),
             'phone'=>request('company_phone'),
-            
+            'user_type' => 2,
 
             ]);
         

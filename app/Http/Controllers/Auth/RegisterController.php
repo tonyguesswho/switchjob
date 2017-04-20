@@ -87,8 +87,6 @@ class RegisterController extends Controller
 
         ]);
 
-            
-
             auth()->login($users);
 
             $Userdetail = new UserDetail();

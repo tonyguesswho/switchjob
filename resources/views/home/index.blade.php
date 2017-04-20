@@ -534,7 +534,7 @@
 					<div class="row">
 
 						<form role="form" action="/profile/companies" method="post" class="contact-form" data-validate="parsley">
-								{{csrf_field()}}
+							{{csrf_field()}}
 
 							<div class="row">
 								<div class="col-lg-4 col-sm-4 m-auto" style="float: none !important;">

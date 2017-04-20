@@ -16,7 +16,6 @@ class AddCvToTable extends Migration
         Schema::table('developer_socials', function (Blueprint $table) {
 
             $table->text('cv')->nullable();
-
             // $table->dropColumn('account');
 
         });
