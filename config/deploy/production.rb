@@ -60,10 +60,6 @@
 #     # password: "please use keys"
 #   }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b899a271a4a0a73298577f11cd5cae1c310e8b80
 role :app, %w{developer@107.170.24.108}
 server '107.170.24.108', user: 'developer', roles: %w{app}
 
