@@ -31,7 +31,7 @@
 								<li class="animated"><a href="#aboutus">About Us</a></li>
 								<li class="animated"><a href="#testimonials">Testimonials</a></li>
 								<li class="animated"><a href="#signup">Sign Up</a></li>
-								<li onclick="document.location.href='signIn.html';" class="animated"><a href="">Sign In</a></li>
+								<li onclick="document.location.href='/login';" class="animated"><a href="">Sign In</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -47,7 +47,7 @@
 					<br>
 					<!-- CALL TO ACTION BUTTONS -->
 					<div class="buttons animated">
-						<a href="#devApp" class="btn m-10">Devloper</a>
+						<a href="/register" class="btn m-10">Devloper</a>
 						<a href="#signup" class="btn m-10">GET-Developer</a>
 					</div>
 					<br>

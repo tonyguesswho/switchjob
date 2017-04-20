@@ -14,7 +14,8 @@ class AddToTable extends Migration
     public function up()
     {
         Schema::table('developer_completeds', function (Blueprint $table) {
-            //$table->integer('user_id')->nullable();
+
+            // $table->integer('user_id')->nullable();
         });
     }
 

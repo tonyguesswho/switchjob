@@ -14,6 +14,7 @@ class CreateDevelopersTable extends Migration
     {
         //remove user related fields and add user id
         Schema::create('developers', function(Blueprint $table) {
+            
             $table->increments('id');
             $table->integer('user_id');
             $table->string('years_of_experience')->nullable();
