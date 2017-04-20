@@ -6,7 +6,7 @@ use App\User;
 use App\UserType;
 use App\CompanyDetail;
 use App\Developer;
-use App\Userdetails;
+use App\UserDetails;
 use App\Invite;
 use App\Companyproject;
 use App\Milestone;
@@ -50,10 +50,9 @@ class CompanyController extends Controller
 
     public function dev()
 
-    {   $developers = Developer::join('user_details','developers.id','=','user_details.user_id')->paginate(3);
+    {   $developers = Developer::join('user_details','developers.user_id','=','user_details.user_id')->paginate(3);
         
         return view('company.dev',compact('developers'));
-
     }
     public function payment()
     {
