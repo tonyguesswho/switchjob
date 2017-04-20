@@ -157,7 +157,7 @@
                                                                                 <div class="Expirence">
                                                                                     <h4><strong>Expirence:</strong></h4>
                                                                                      <ul class="f-12">
-                                                                                        <li>{{$developer->languages}},{{ $developer->years_of_experience}}years</li>
+                                                                                        <li>{{ $developer->years_of_experience}}years</li>
                                                                                         <li>{{$developer->frameworks}}</li>
                                                                                         
                                                                                     </ul>  
