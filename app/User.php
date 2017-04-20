@@ -30,7 +30,7 @@ class User extends Authenticatable
 
     public function UserDetail()
     {
-        return $this->hasOne('App\Userdetail');
+        return $this->hasOne('App\UserDetail');
     }
 
      public function Country()
