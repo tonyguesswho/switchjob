@@ -4,21 +4,16 @@ lock "3.8.0"
 set :application, "switchjob"
 set :repo_url, "git@gitlab.com:superirale/switchjob.git"
 
-
-
-
-
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :branch, "developer-dashboard"
+#set :branch, "developer-dashboard"
 
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
 set :deploy_to, '/var/www/html/collins/getdev'
 
-# Default value for :format is :airbrussh.
+#  vDefaultalue for :format is :airbrussh.
 # set :format, :airbrussh
 set :scm, :git
 # You can configure the Airbrussh format using :format_options.
