@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use App\Userdetail;
+use App\UserDetail;
 use App\Country;
 use App\Developer;
 use App\DeveloperSocial;

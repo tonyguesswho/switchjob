@@ -8,11 +8,7 @@ use App\CompanyDetail;
 use App\Developer;
 use App\Userdetails;
 use App\Invite;
-<<<<<<< HEAD
-use App\companyproject;
-=======
 use App\Companyproject;
->>>>>>> b899a271a4a0a73298577f11cd5cae1c310e8b80
 use App\Milestone;
 use Auth;
 class CompanyController extends Controller
