@@ -11,16 +11,16 @@
     <title>Title Page</title>
 
     <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
 
 </head>
 <body>
 <div class="main-body">
     <div class="content">
         <div class="content-header text-center">
-            <img src="assets/img/switch.svg">
+            <img src="/assets/img/switch.svg">
         </div>
         <div class="main-content">
             {{--<p><strong>Hi {{Username}},</strong></p>--}}
@@ -40,8 +40,8 @@
 </div>
 
 <!-- jQuery -->
-<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.js"></script>
 <!-- Bootstrap JavaScript -->
-<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap.js"></script>
 </body>
 </html>
