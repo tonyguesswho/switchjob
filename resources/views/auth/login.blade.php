@@ -13,7 +13,13 @@
                            <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 100px">
                         </a>
                     </div>
-                    <div><br><br></div>
+                    <div><br><br>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                    </div>
                     <form action="/login" method="post" class="forms">
                       {{csrf_field()}}
                         <input type="text" name="email" placeholder="Username" class="input-field form-control form-control-bg user" />

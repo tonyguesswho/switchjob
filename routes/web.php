@@ -65,6 +65,12 @@ Route::post('company/invite/{id}','CompanyController@companyinvite');
 Route::post('company/addmilestone/{id}','MilestoneController@store');
 Route::get('company/deletemilestone/{id}','MilestoneController@destroy');
 
+/**
+ * Verify user email route
+ */
+Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+
 //Route::post('company/addmilestone','MilestoneController@p');
 
 

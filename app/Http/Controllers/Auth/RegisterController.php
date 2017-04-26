@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use session;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -16,6 +18,9 @@ use App\DeveloperAccount;
 use App\City;
 
 use Auth;
+use App\Mail\verifyEmail;
+use Illuminate\Auth\Events\Registered;
+use App\UserTemp;
 
 class RegisterController extends Controller
 {
@@ -78,14 +83,89 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-         $users =  User::create([
+         $users = UserTemp::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'user_type' => 1,
+            'verifyToken' => Str::random(40)
 
         ]);
+
+
+
+         $thisUser = UserTemp::find($users->id);
+         $this->sendEmail($thisUser);
+
+//            auth()->login($users);
+//
+//
+//            $Userdetail = new UserDetail();
+//            $Userdetail->user_id = Auth::user()->id;
+//            $Userdetail->save();
+//
+//            $country = new Country();
+//            $country->user_id = Auth::user()->id;
+//            $country->save();
+//
+//            $city = new City();
+//            $city->user_id = Auth::user()->id;
+//            $city->save();
+//
+//            $developer = new Developer();
+//            $developer->user_id = Auth::user()->id;
+//            $developer->save();
+//
+//            $socialsdetails = new DeveloperSocial();
+//            $socialsdetails->user_id = Auth::user()->id;
+//            $socialsdetails->save();
+//
+//            $developeraccount = new DeveloperAccount();
+//            $developeraccount->user_id = Auth::user()->id;
+//            $developeraccount->save();
+
+//            return $users;
+//            return redirect('/profile');
+
+    }
+
+//    public function register(Request $request)
+//    {
+//        $input = $request->all();
+//        $validator = $this->validator($input);
+//
+//        if($validator->passes()) {
+//
+//        }
+//
+//        return redirect(route('verifyEmailFirst'));
+//
+////        return $this->registered($request, $user)
+//   }
+
+    public function sendEmail($thisUser){
+        Mail::to($thisUser['email'])->send(new verifyEmail($thisUser));
+    }
+
+    public function verifyEmailFirst(){
+        return view('email.verifyEmailFirst');
+//        return redirect('login')->with('status', 'Please verify email');
+    }
+
+    public function sendEmailDone($email, $verifyToken){
+        $users_temp = UserTemp::where(['email' => $email, 'verifyToken' => $verifyToken])->first();
+
+        if (!is_null($users_temp)){
+
+            $users = User::create([
+                'firstname' => $users_temp->firstname,
+                'lastname' => $users_temp->lastname,
+                'email' => $users_temp->email,
+                'password' => $users_temp->password,
+                'user_type' => $users_temp->user_type,
+                'verifyToken' => Str::random(40)
+            ]);
 
             auth()->login($users);
 
@@ -113,10 +193,12 @@ class RegisterController extends Controller
             $developeraccount->user_id = Auth::user()->id;
             $developeraccount->save();
 
-            return $users;
-            return redirect('/profile');
+            //return User::where(['email' => $email, 'verifyToken' => $verifyToken])->update(['status' => '1', 'verifyToken' => NULL]);
+           $users->update(['status' => '1', 'verifyToken' => NULL]);
+           return redirect('/profile');
+        } else {
+            return "User not found";
+        }
 
     }
-
-    
 }
