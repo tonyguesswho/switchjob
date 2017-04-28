@@ -9,6 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 Route::get('/', 'HomeController@index');
 
@@ -71,7 +72,12 @@ Route::get('company/deletemilestone/{id}','MilestoneController@destroy');
 Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
+//Route::get('/test', function (){
+//    return view('email.verifyEmailFirst');
+//});
+
 //Route::post('company/addmilestone','MilestoneController@p');
+
 
 
 

@@ -18,7 +18,7 @@ use App\UserDetail;
 use App\carbon;
 use App\Country;
 use App\City;
-use App\Job;
+use App\job;
 use Auth;
 
 class Dev_dashboardController extends Controller
@@ -139,8 +139,8 @@ class Dev_dashboardController extends Controller
     public function edit($id)
     {
         
-        $users = User::find($id);
-                $users->UserDetail::where('user_id', $id)->get();
+        $users = User::with(['UserDetail', 'City', 'Country','DeveloperSocial','DeveloperAccount'])->find($id);
+//                UserDetail::where('user_id', $id)->get();
                 $users->City::where('user_id', $id)->get();
                 $users->Country::where('user_id', $id)->get();
                 $users->DeveloperSocial::where('user_id',$id)->get();

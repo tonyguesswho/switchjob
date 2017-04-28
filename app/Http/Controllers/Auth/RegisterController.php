@@ -53,10 +53,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('guest');
-    // }
+     public function __construct()
+     {
+         $this->middleware('web');
+     }
 
     /**
      * Get a validator for an incoming registration request.
@@ -88,12 +88,10 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'user_type' => 1,
+//            'user_type' => 1,
             'verifyToken' => Str::random(40)
 
         ]);
-
-
 
          $thisUser = UserTemp::find($users->id);
          $this->sendEmail($thisUser);
@@ -136,12 +134,7 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        //$this->guard()->login($user);
-
         return redirect(route('verifyEmailFirst'));
-
-//        return $this->registered($request, $user)
-//            ?: redirect($this->redirectPath());
     }
 
 //    public function register(Request $request)
@@ -159,7 +152,7 @@ class RegisterController extends Controller
 //   }
 
     public function sendEmail($thisUser){
-        Mail::to($thisUser['email'])->send(new verifyEmail($thisUser));
+        Mail::to($thisUser['email'])->queue(new verifyEmail($thisUser));
     }
 
     public function verifyEmailFirst(){
@@ -177,7 +170,7 @@ class RegisterController extends Controller
                 'lastname' => $users_temp->lastname,
                 'email' => $users_temp->email,
                 'password' => $users_temp->password,
-                'user_type' => $users_temp->user_type,
+//                'user_type' => $users_temp->user_type,
                 'verifyToken' => Str::random(40)
             ]);
 

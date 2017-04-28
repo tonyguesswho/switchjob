@@ -87,6 +87,7 @@ namespace :deploy do
                 execute "chmod -R 777 #{release_path}/public"
                 execute "php #{release_path}/artisan migrate"
                 execute "php #{release_path}/artisan storage:link"
+                execute "php #{release_path}/artisan queue:work --daemon --tries=3"
                 # execute "php #{release_path}/artisan cache:clear"
             end
         end

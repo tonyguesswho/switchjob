@@ -9,7 +9,7 @@
                   <div class="login-box">
                     <!-- logo in here -->
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="/">
                            <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 100px">
                         </a>
                     </div>
@@ -65,7 +65,7 @@
                     <li><a href="#">Privacy<a></li>
                     <li><a href="#">Terms<a></li>
                     <li><a href="#">Security<a></li>
-                    <li style="float: right;"><a href="#">&copy 2017 Switch Nigeria</a></li>
+                    <li style="float: right;"><a href="http://www.switch.ng" target="_blank">&copy 2017 Switch Nigeria</a></li>
                   </ul>
               </div>
             </div>

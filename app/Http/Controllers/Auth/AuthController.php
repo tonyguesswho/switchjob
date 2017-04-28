@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Controller;
 use Session;
 use App\SocialAccountService;
 use App\Developer;
+use \Illuminate\Contracts\Auth\Authenticatable;
 
 class AuthController extends Controller
 {
@@ -29,13 +30,22 @@ class AuthController extends Controller
     {
         $user = $service->createOrGetUser(Socialite::driver($provider)->user(), $provider);
 
+//        dd($user);
+
         $profile = Developer::where('user_id', $user->id)->first();
 
+//        dd($profile);
+
+
+
         if($profile){
-            auth()->login($user);
-            return redirect()->to('developer/dashboard');
+        auth()->login($user);
+        return redirect()->to('/profile');
+
         }
+
         session(['user' => $user]);
         return redirect()->to('profile/developer');
     }
+
 }

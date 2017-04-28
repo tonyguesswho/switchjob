@@ -17,6 +17,16 @@
                     <div><br><br></div>
                     <form action="/register" method="post" class="forms">
 
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                          {{ csrf_field() }}
                         <input type="text" name="firstname" placeholder="First Name" class="input-field form-control user" />
                         <input type="text" name="lastname" placeholder="Last Name" class="input-field form-control user" />

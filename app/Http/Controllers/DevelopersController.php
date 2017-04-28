@@ -58,13 +58,13 @@ class DevelopersController extends Controller
 
         
         
-        $developer->update($request->all());
-        $developer->Developer->years_of_experience = (request('pro'))? request('pro'): request('years_other');
-        $developer->Developer->languages = request('languages');
-        $developer->Developer->frameworks = request('frameworks');
-        $developer->Developer->pass_work = request('pass_work');
-        $developer->Developer->available_hours = request('hours')? request('pro'): request('years_other');
-        $developer->Developer->save();
+        $developer->update($request->except('_token'));
+//        $developer->Developer->years_of_experience = (request('pro'))? request('pro'): request('years_other');
+        //$developer->Developer->languages = request($developer->Developer->languages, 'languages');
+//        $developer->Developer->frameworks = request('frameworks');
+//        $developer->Developer->pass_work = request('pass_work');
+//        $developer->Developer->available_hours = request('hours')? request('pro'): request('years_other');
+//        $developer->Developer->save();
         
         return redirect()->to('/dashboard');
            
