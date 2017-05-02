@@ -14,11 +14,17 @@
                         </a>
                     </div>
                     <div><br><br>
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
+
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
                         @endif
+
                     </div>
                     <form action="/login" method="post" class="forms">
                       {{csrf_field()}}

@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\City;
+use App\Country;
+use App\DeveloperAccount;
+use App\DeveloperSocial;
+use App\UserDetail;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Controller;
 use Session;
@@ -30,22 +36,52 @@ class AuthController extends Controller
     {
         $user = $service->createOrGetUser(Socialite::driver($provider)->user(), $provider);
 
-//        dd($user);
-
         $profile = Developer::where('user_id', $user->id)->first();
 
-//        dd($profile);
-
-
-
-        if($profile){
-        auth()->login($user);
-        return redirect()->to('/profile');
-
+        if ($profile){
+            auth()->login($user);
+            return redirect()->to('dashboard');
         }
 
-        session(['user' => $user]);
-        return redirect()->to('profile/developer');
+        auth()->login($user);
+
+        $Userdetail = new UserDetail();
+        $Userdetail->user_id = Auth::user()->id;
+        $Userdetail->save();
+
+        $country = new Country();
+        $country->user_id = Auth::user()->id;
+        $country->save();
+
+        $city = new City();
+        $city->user_id = Auth::user()->id;
+        $city->save();
+
+        $developer = new Developer();
+        $developer->user_id = Auth::user()->id;
+        $developer->save();
+
+        $socialsdetails = new DeveloperSocial();
+        $socialsdetails->user_id = Auth::user()->id;
+        $socialsdetails->save();
+
+        $developeraccount = new DeveloperAccount();
+        $developeraccount->user_id = Auth::user()->id;
+        $developeraccount->save();
+
+        return redirect()->to('/profile');
+
+//        $profile = Developer::where('user_id', $user->id)->first();
+
+
+//        if($profile){
+//        auth()->login($user);
+//        return redirect()->to('/profile');
+//
+//        }
+
+//        session(['user' => $user]);
+//        return redirect()->to('profile/developer');
     }
 
 }

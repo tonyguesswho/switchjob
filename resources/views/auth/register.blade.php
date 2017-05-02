@@ -10,7 +10,7 @@
                   <div class="login-box">
                     <!-- logo in here -->
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="{{ url("/") }}">
                            <img src="/switch/assets/img/logos/switch_2.svg" alt="Switch DEV" style="max-height: 100px">
                         </a>
                     </div>

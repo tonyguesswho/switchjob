@@ -37,6 +37,17 @@
                 <!--switch form here -->
                 <form class="switch-form" action="/developers/{{$user->id}}" method="POST">
                     {{csrf_field()}}
+
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="groups first_group">
                         <fieldset name="first-fieldset[]" class="form-query required" data-type="MULTISELECT">
                             <legend class="question label" for="qstn-9640">Full Name</legend>

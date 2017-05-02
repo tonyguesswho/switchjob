@@ -17,7 +17,9 @@ class SocialAccountService
 //        dd($account);
 
         if ($account) {
+
             return $account->user;
+
         } else {
 
             $account = new SocialAccount([
@@ -25,15 +27,20 @@ class SocialAccountService
                 'provider' => $provider
             ]);
 
-//            dd($account);
+            //dd($account);
 
             $user = User::whereEmail($providerUser->getEmail())->first();
 
             if (!$user) {
 
+                $split_name = explode(' ', $providerUser->getName());
+                $first_name = $split_name[0];
+                $last_name = $split_name[1];
+
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
-                    'name' => $providerUser->getName(),
+                    'firstname' => $first_name,
+                    'lastname' => $last_name
                 ]);
             }
 
