@@ -10,6 +10,18 @@
 |
 */
 
+Route::group(['prefix' => 'admin'], function() {
+	Route::get('/index', 'CentralAdminController@index');
+	Route::match(['get', 'post'], '/users', 'CentralAdminController@users');
+	Route::match(['get', 'post'], '/developers', 'CentralAdminController@developers');
+	Route::match(['get', 'post'], '/company', 'CentralAdminController@company');
+	Route::match(['get', 'post'], '/pairing_management', 'CentralAdminController@pairingManagement');
+	Route::match(['get', 'post'], '/payment_management', 'CentralAdminController@paymentManagement');
+	Route::match(['get', 'post'], '/transactions', 'CentralAdminController@transactions');
+    Route::post('/update_status/{id}', 'CentralAdminController@updateStatus');
+
+});
+
 Auth::routes();
 Route::get('/', 'HomeController@index');
 
@@ -77,6 +89,8 @@ Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDon
 //});
 
 //Route::post('company/addmilestone','MilestoneController@p');
+
+
 
 
 

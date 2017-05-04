@@ -141,10 +141,10 @@ class Dev_dashboardController extends Controller
         
         $users = User::with(['UserDetail', 'City', 'Country','DeveloperSocial','DeveloperAccount'])->find($id);
                 UserDetail::where('user_id', $id)->get();
-                $users->City::where('user_id', $id)->get();
-                $users->Country::where('user_id', $id)->get();
-                $users->DeveloperSocial::where('user_id',$id)->get();
-                $users->DeveloperAccount::where('user_id', $id)->get();
+                $users->City->where('user_id', $id)->get();
+                $users->Country->where('user_id', $id)->get();
+                $users->DeveloperSocial->where('user_id',$id)->get();
+                $users->DeveloperAccount->where('user_id', $id)->get();
 
             $skills = Developer::where('user_id',$id)->get();
             $skill = $skills->pluck('languages');
