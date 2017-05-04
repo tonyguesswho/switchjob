@@ -49,11 +49,12 @@ class CentralAdminController extends Controller
     		case false:
                 $developers = DB::select("Select u.firstname, u.lastname, u.email, u.phone, u.created_at, u_type.name, dev.available_hours, dev.years_of_experience, d_completeds.completed, dev_soc.git_account, dev_soc.skype_id, u.id from users u LEFT JOIN user_types u_type ON u.user_type = u_type.id LEFT JOIN developers dev ON dev.user_id = u.id LEFT JOIN developer_completeds d_completeds ON d_completeds.user_id = u.id LEFT JOIN developer_socials dev_soc ON dev_soc.user_id = u.id WHERE u.user_type = 1 GROUP By u.id,u.firstname, u.lastname, u.email, u.phone, u.created_at, dev.available_hours, dev.years_of_experience, d_completeds.completed, dev_soc.git_account, dev_soc.skype_id, u_type.name
                             ");
-                dd($developers); exit;
+                // dd($developers); exit;
     			return view('central_admin.developer', compact('developers'));
     		default:
 	   			return view('central_dashboard.developer');
     			break;
+                // Select u.firstname, u.lastname, u.email, u.phone, u.created_at, u_type.name, dev.available_hours, dev.years_of_experience, d_completeds.completed, dev_soc.git_account, dev_soc.skype_id, dev_lev.user_id, s_lev.id u.id from users u LEFT JOIN user_types u_type ON u.user_type = u_type.id LEFT JOIN developers dev ON dev.user_id = u.id LEFT JOIN developer_completeds d_completeds ON d_completeds.user_id = u.id LEFT JOIN developer_socials dev_soc ON dev_soc.user_id = u.id LEFT JOIN developer_skill_levels dev_lev ON dev_lev.user_id = s_lev.id WHERE u.user_type = 1 GROUP By u.id,u.firstname, u.lastname, u.email, u.phone, u.created_at, dev.available_hours, dev.years_of_experience, d_completeds.completed, dev_soc.git_account, dev_soc.skype_id, u_type.name
     	}
     }
 

@@ -123,25 +123,35 @@
                                                     <th>Lastname</th>
                                                     <th>Email</th>
                                                     <th>Availability</th>
-                                                    <th>Experienced&nbsp;Level</th>
-                                                    <th></th>
-                                                    <th>Verified Date</th>
-                                                    <th></th>
+                                                    <th>Years of &nbsp;Experience</th>
+                                                    <th>Completed Projects</th>
+                                                    <th>Git Account</th>
+                                                    <th>Skype ID</th>
+                                                    <th>Date Registered</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php 
-                                                $num = 0
+                                                $num = 1
                                             ?>
                                                 @foreach($developers as $developer)
                                                     <tr>
-                                                        <td>{{$numm++}}</td>
-                                                        <td>{{$developer->first_name}}</td>
-                                                        <td>{{$developer->last_name}}</td>
+                                                        <td>{{$num++}}</td>
+                                                        <td>{{$developer->firstname}}</td>
+                                                        <td>{{$developer->lastname}}</td>
                                                         <td>{{$developer->email}}
                                                         </td>
                                                         <td>{{$developer->available_hours}}</td>
-                                                        <td>{{$developer->years_of_experience}}</td>    
+                                                        <td>{{$developer->years_of_experience}}</td>
+                                                        <td>{{$developer->completed}}</td> 
+                                                        @if ( isset($developer->git_account))
+                                                            <td>{{$developer->git_account}}</td>
+                                                        @else
+                                                            <td>{{ "No Url Specified" }}</td>
+                                                        @endif   
+                                                        <td>{{$developer->skype_id}}</td>
+                                                        <td>{{$developer->created_at}}</td>    
                                                         <td class="center"><a class="btn btn-outline blue" data-toggle="modal" href="#responsive"> View More </a></td>
                                                     </tr>
                                                 @endforeach
