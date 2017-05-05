@@ -15,5 +15,10 @@ class Companyproject extends Model
     	return $this->hasMany('App\Milestone');
 
     }
+
+    public function companyDetail()
+    {
+    	return $this->belongsTo('App\CompanyDetail');
+    }
    
 }

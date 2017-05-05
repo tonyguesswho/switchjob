@@ -95,10 +95,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($pairing_details as $detail)
+
                                             <tr>
-                                                <td>Sarelo</td>
-                                                <td>Switch</td>
-                                                <td>£500,000</td>
+                                                {{-- <td>{{$detail->companyProject->}}</td>
+                                                <td>{{$detail->user->firstname}}</td> --}}
+                                                <td>&#x20A6;{{number_format($detail->budget)}}</td>
                                                 <td>
                                                      <select class="form-control input-inline input-sm input-small">
                                                         <option value="select" selected>Select</option>
@@ -113,40 +115,7 @@
                                                 <!--<td class="center"><button class="btn-blue">Send Message</button></td>-->
                                                 <td class="center"><a class="btn btn-outline blue" data-toggle="modal" href="#responsive"> Send Message</a></td>                                           
                                             </tr>
-                                            <tr>
-                                                <td>Wazobia&nbsp;FX</td>
-                                                <td>Switch</td>
-                                                <td>£100,000</td>
-                                                <td>
-                                                     <select class="form-control input-inline input-sm input-small">
-                                                        <option value="select" selected>Select</option>
-                                                        <option value="ftime">Beginner</option>
-                                                        <option value="ptime">Intermediate</option>
-                                                        <option value="both">Expert</option>
-                                                    </select>
-                                                </td> 
-                                                <td>Yes</td> 
-                                                <td>2015/01/01</td>
-                                                <td>2016/03/31</td>
-                                                <td class="center"><a class="btn btn-outline blue" data-toggle="modal" href="#responsive"> Send Message</a></td>        
-                                            </tr>
-                                             <tr>
-                                                <td>Yase</td>
-                                                <td>Hello</td>
-                                                <td>£20,000</td>
-                                                <td>
-                                                     <select class="form-control input-inline input-sm input-small">
-                                                        <option value="select" selected>Select</option>
-                                                        <option value="ftime">Beginner</option>
-                                                        <option value="ptime">Intermediate</option>
-                                                        <option value="both">Expert</option>
-                                                    </select>
-                                                </td> 
-                                                <td>Yes</td> 
-                                                <td>2017/03/01</td>
-                                                <td>2017/04/31</td>
-                                                <td class="center"><a class="btn btn-outline blue" data-toggle="modal" href="#responsive"> Send Message</a></td>  
-                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

@@ -22,4 +22,9 @@ class CompanyDetail extends Model
     	return $this->hasMany('App\Job');
     }
 
+    public function companyProject()
+    {
+      return $this->hasMany('App\Companyproject', 'company_id');  
+    }
+
 }

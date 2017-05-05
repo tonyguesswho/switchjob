@@ -93,7 +93,7 @@
                                                 </div>
                                                 <!--<a href="#" class="btn btn-circle green btn-outline btn-md btn-pull-left"><i class="fa fa-pencil"></i> Export </a>-->
                                                 <div class="btn-group pull-right">
-                                                    <button class="btn btn-circle green  btn-outline dropdown-toggle" data-toggle="dropdown" >Tools
+                                                    <button class="btn btn-circle green  btn-outline dropdown-toggle" data-toggle="dropdown" >Print
                                                         <i class="fa fa-angle-down"></i>
                                                     </button>
                                                     <ul class="dropdown-menu pull-right">
@@ -142,7 +142,13 @@
                                                         <td>{{$developer->lastname}}</td>
                                                         <td>{{$developer->email}}
                                                         </td>
-                                                        <td>{{$developer->available_hours}}</td>
+                                                        <td>
+                                                            @if ( isset($developer->available_hours))
+                                                                {{$developer->available_hours."hours"}}
+                                                            @else
+                                                                <td>{{ "No Duration Specified" }}</td>
+                                                            @endif 
+                                                        </td>
                                                         <td>{{$developer->years_of_experience}}</td>
                                                         <td>{{$developer->completed}}</td> 
                                                         @if ( isset($developer->git_account))
@@ -152,7 +158,7 @@
                                                         @endif   
                                                         <td>{{$developer->skype_id}}</td>
                                                         <td>{{$developer->created_at}}</td>    
-                                                        <td class="center"><a class="btn btn-outline blue" data-toggle="modal" href="#responsive"> View More </a></td>
+                                                        <td class="center"><a class="btn btn-outline blue" data-toggle="modal" href="#responsive{{$developer->id}}"> View More </a></td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -171,7 +177,8 @@
         </div>
         <!-- END CONTAINER -->
         <!-- END THEME LAYOUT SCRIPTS -->
-        <div id="responsive" class="modal fade in view col-md-8 side-pad" tabindex="-1" data-width="760">
+    @foreach($developers as $developer)
+        <div id="responsive{{$developer->id}}" class="modal fade in view col-md-8 side-pad" tabindex="-1" data-width="760">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">Developer's&nbsp;Profile</h4>
@@ -189,27 +196,25 @@
                     <div class="col-lg-8 clearfix write-up">
                         <div class="row">
                             <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div><p id="name">Name:</p></div>
-                                <div><p id="project_handled">Number&nbsp;of&nbsp;project&nbsp;handled:</p></div>
-                                <div><p id="project_delv">Number&nbsp;of&nbsp;project&nbsp;delivered:</p></div>
+                                <div><p id="name">Firstname:</p></div>
+                                <div><p id="name">Lastname:</p></div>
+                                <div><p id="project_delv">Number&nbsp;of&nbsp;project&nbsp;Completed:</p></div>
                                 <div><p id="git">Git&nbsp;hub&nbsp;account:</p></div>
                                 <div><p id="skype">Skype&nbsp;id:</p></div>
                                 <div><p id="exp_level">Experience&nbsp;level:</p></div>
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div><p> Bob </p></div>
-                                <div><p> 10 </p></div>
-                                <div><p> 5 </p></div>
-                                <div><p> https://github.com/bob.git </p></div>
-                                <div><p> bobby </p></div>
-                                <div><p>
-                                    <select class="form-control input-inline input-sm input-small">
-                                        <option value="select" selected>None</option>
-                                        <option value="ftime">Beginner</option>
-                                        <option value="ptime">Intermediate</option>
-                                        <option value="both">Expert</option>
-                                    </select>
-                                </p></div>
+                                <div><p> {{$developer->firstname}} </p></div>
+                                <div><p> {{$developer->lastname}} </p></div>
+                                <div><p> {{$developer->completed}} </p></div>
+                                @if ( isset($developer->git_account))
+                                    <div><p> {{$developer->git_account}} </p></div>
+                                @else
+                                <div><p> {{"No Url Specified"}} </p></div>
+                                    
+                                @endif 
+                                <div><p> {{$developer->skype_id}} </p></div>
+                                <div><p> {{$developer->years_of_experience}} </p></div>
                             </div>
                         </div>
                     </div>
@@ -217,8 +222,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-                <button type="button" data-dismiss="modal" class="btn green butn">Save changes</button>
+               <center>
+                    <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+               </center>
             </div>
         </div>
-    @endsection
+    @endforeach

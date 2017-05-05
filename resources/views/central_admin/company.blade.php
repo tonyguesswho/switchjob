@@ -84,30 +84,24 @@
                                             <tr>
                                                 <th>Company&nbsp;Name</th>
                                                 <th>Email</th>
-                                                <th>Contact&nbsp;Phone&nbsp;No</th>
+                                                <th>Phone&nbsp;No</th>
+                                                <th>Projects</th>
                                                 <th>Date&nbsp;Created</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Switch</td>
-                                                <td>info@switchng.com</td>
-                                                <td>+23482003400673</td>
-                                                <td>2016/07/12</td>                                                
-                                                <!--<td class="center"><button class="btn-blue">View more</button></td>-->
-                                                <td class="center"><a class="btn btn-outline blue" data-toggle="modal" href="#responsive"> View More </a></td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Cc&nbsp;hub</td>
-                                                <td>info@cocreation.com</td>
-                                                <td>+23482003400673</td>
-                                                <td>2016/01/8</td>                                                
-                                                <!--<td class="center"><button class="btn-blue">View more</button></td>-->
-                                                <td class="center"><a class="btn btn-outline blue" data-toggle="modal" href="#responsive"> View More </a></td>
-                                            </tr>
-                                        </tbody>
+                                        @foreach($companies as $company)
+                                                <tr>
+                                                    <td>{{$company->user->firstname}}</td>
+                                                    <td>{{$company->user->email}}</td>
+                                                    <td>{{$company->user->phone}}</td>
+                                                    <td>{{$company->products}}</td>
+                                                    <td>{{$company->created_at}}</td>                                                
+                                                    <!--<td class="center"><button class="btn-blue">View more</button></td>-->
+                                                    <td class="center"><a class="btn btn-outline blue" data-toggle="modal" href="#responsive{{$company->id}}"> View More </a></td>
+                                                </tr>
+                                        @endforeach
                                     </table>
                                 </div>
                             </div>
@@ -125,7 +119,8 @@
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
-        <div id="responsive" class="modal fade in view col-md-8 side-pad" tabindex="-1" data-width="760">
+    @foreach($companies as $company)
+        <div id="responsive{{$company->id}}" class="modal fade in view col-md-8 side-pad" tabindex="-1" data-width="760">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">Company's&nbsp;Profile</h4>
@@ -143,16 +138,71 @@
                     <div class="col-lg-8 clearfix write-up">
                         <div class="row">
                             <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div><p id="name">Name:</p></div>
-                                <div><p id="project_handled">Address:</p></div>
-                                <div><p id="git">Git&nbsp;hub&nbsp;account:</p></div>
-                                <div><p id="skype">Skype&nbsp;id:</p></div>
+                                <div><p id="name">Company Name:</p></div>
+                                <div><p id="project_handled">Company Address:</p></div>
+                                <div><p id="git">Telephone:</p></div>
+                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                       <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Project Names</th>
+                                                <th>Budgets</th>
+                                                <th>Deadlines</th>
+                                                <th>Required Skills</th>
+                                                <th>Availability</th>
+
+{{-- //select tool html css jquery ajax php  --}}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($company->companyProject as $project)
+                                                <tr>
+                                                    <td>
+                                                        {{$project->project_name}}
+                                                    </td>
+                                                    <td>
+                                                        &#x20A6;{{number_format($project->budget)}}
+                                                    </td>
+                                                    <td>
+                                                        {{$project->deadline}}
+                                                    </td>
+                                                    <td>
+                                                        {{$project->skill_set}}
+                                                    </td>
+                                                    @if(!empty($project->project_availability))
+                                                        <td>
+                                                            {{"Available"}}
+                                                        </td>
+                                                    @else
+                                                        <td>
+                                                            {{"Not Available"}}
+                                                        </td>
+                                                    @endif
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>  
+                            </div>
+                                   
+
+
+
+
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div><p>Switch</p></div>
-                                <div><p>42 Montgomery,Yaba.</p></div>
-                                <div><p>https://github.com/switch.git </p></div>
-                                <div><p>Switchng</p></div>
+                                <div><p>{{$company->user->firstname}}</p></div>
+                                @if(isset($company->city->city))
+                                    <div><p>{{$company->city->city." ".$company->country->country}}</p></div>
+                                @else
+                                    <div><p>{{"No City"}}</p></div>
+                                @endif
+                                <div><p>{{$company->user->phone}}</p></div>
+                                <div class="col-lg-12 col-sm-12">
+                                   
+                                </div>
+
+                                
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -163,5 +213,6 @@
                 <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
                 <button type="button" data-dismiss="modal" class="btn green butn">Save changes</button>
             </div>
-         </div>
-    @endsection
+          </div>
+    @endforeach
+@endsection

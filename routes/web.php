@@ -19,6 +19,8 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::match(['get', 'post'], '/payment_management', 'CentralAdminController@paymentManagement');
 	Route::match(['get', 'post'], '/transactions', 'CentralAdminController@transactions');
     Route::post('/update_status/{id}', 'CentralAdminController@updateStatus');
+	Route::match(['get', 'post'], '/view_developer/{id}', 'CentralAdminController@viewDeveloper');
+
 
 });
 
